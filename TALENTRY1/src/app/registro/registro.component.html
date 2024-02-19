@@ -1,1 +1,37 @@
-<p>pantalla de registro</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registro.component.css">
+    <title>Registro</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="Logo">
+        </div>
+    </nav>
+    <section class="contenido-de-pagina">
+        <div class="container">
+            <div class="registro-box">
+                <h2>Registro en TalenTry</h2>
+                <input type="text" placeholder="DNI">
+                <input type="text" placeholder="Nombre">
+                <input type="email" placeholder="Email">
+                <input type="tel" placeholder="Teléfono">
+                <input type="password" placeholder="Contraseña">
+                <input type="password" placeholder="Repetir Contraseña">
+                <button class="btn-register" onclick="register()">Registrarse</button>
+                <!-- Texto y enlace de inicio de sesión similar al de registro -->
+                <div class="login-link">
+                    <span>¿Ya tienes cuenta?</span> <br> <a href="login" class="btn-login">Iniciar sesión</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>2024 Mi Sitio Web. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
