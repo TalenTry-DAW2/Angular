@@ -10,7 +10,7 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   login() {
-    this.router.navigate(['/app/pantalla-principal']); // Asegúrate de que esta es tu ruta correcta
+    this.router.navigate(['/app/pagina-principal']); // Asegúrate de que esta es tu ruta correcta
   }
 
   register() {

@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'app',
     children: [
-      { path: 'pantalla-principal', component: PaginaPrincipalComponent },
+      { path: 'pagina-principal', component: PaginaPrincipalComponent },
       // No additional 'error' route here since 'error' will be globally accessible
       { path: '**', redirectTo: 'error' } // Capture unmatched paths in 'app'
     ]
