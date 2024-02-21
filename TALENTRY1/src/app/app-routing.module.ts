@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { ErrorComponent } from './error/error.component';
+import { PantallaAdminComponent } from './pantalla-admin/pantalla-admin.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
@@ -16,12 +17,15 @@ const routes: Routes = [
   
     
       { path: 'pagina-principal', component: PaginaPrincipalComponent },
-      // No additional 'error' route here since 'error' will be globally accessible
+      { path: 'pagina-admin', component: PantallaAdminComponent, pathMatch: 'full' },
+
       { path: '**', redirectTo: 'error' } // Capture unmatched paths in 'app'
     
   ,
+  
+
   { path: 'error', component: ErrorComponent, pathMatch: 'full' }, // Global error route
-  { path: '**', redirectTo: 'error' } // Capture all unmatched paths globally
+  { path: '**', redirectTo: 'error' }, // Capture all unmatched paths globally
 ];
 
 @NgModule({
