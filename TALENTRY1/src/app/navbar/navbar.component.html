@@ -1,7 +1,7 @@
 <nav>
     <!-- Si la ruta actual es /pantalla-principal, muestra este enlace -->
     <div *ngIf="router.url.startsWith('/app')">
-      <a [routerLink]="['/app/pantalla-principal']">Pantalla Principal</a>
+      <a [routerLink]="['pantalla-principal']">Pantalla Principal</a>
     </div>
   </nav>
   

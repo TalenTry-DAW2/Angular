@@ -13,14 +13,13 @@ const routes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   },
-  {
-    path: 'app',
-    children: [
+  
+    
       { path: 'pagina-principal', component: PaginaPrincipalComponent },
       // No additional 'error' route here since 'error' will be globally accessible
       { path: '**', redirectTo: 'error' } // Capture unmatched paths in 'app'
-    ]
-  },
+    
+  ,
   { path: 'error', component: ErrorComponent, pathMatch: 'full' }, // Global error route
   { path: '**', redirectTo: 'error' } // Capture all unmatched paths globally
 ];

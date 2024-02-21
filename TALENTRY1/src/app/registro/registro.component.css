@@ -1,19 +1,17 @@
-/* Los estilos aquí son idénticos a los de login.component.css, 
-   esto asegura consistencia visual entre ambas páginas. */
-
-   body {
-    font-family: Arial, sans-serif;
+body, html {
     margin: 0;
     padding: 0;
-    background-image: url('src/assets/fondo-registro.jpg'); /* Cambiar 'assets/background.jpg' con la ruta de tu imagen de fondo */
+    background-image: url('src/assets/fondo-registro.jpg'); /* Cambiar la ruta de la imagen de fondo */
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
 .navbar {
-    background-color: #D9D9D9; 
-    color: #fff;
+    background-color: #777474;
+    color: #333333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 7px;
     display: flex;
     justify-content: space-between;
@@ -21,23 +19,24 @@
 }
 
 .logo img {
-    height: 50px;
+    width: 120px;
+    height: auto;
 }
 
 .contenido-de-pagina {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
     background-color: #f4f4f4;
 }
 
 .registro-box {
-    display: flex; /* Habilita flexbox */
-    flex-direction: column; /* Alinea los hijos verticalmente */
-    align-items: center; /* Centra los hijos horizontalmente */
-    justify-content: center; /* Opcional: ajusta para centrar verticalmente si es necesario */
-    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fffdfd;
     border-radius: 10px;
     padding: 20px;
     width: 280px;
@@ -47,6 +46,7 @@
 
 .registro-box h2 {
     margin: 0 0 20px 0;
+    color: #333333;
 }
 
 .registro-box input[type="text"],
@@ -55,26 +55,31 @@
 .registro-box input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin: 10px 0; /* Asegura un espaciado uniforme arriba y abajo */
+    margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
 }
 
 .btn-register {
-    background-color: #ffffff; /* Color de fondo actualizado */
-    color: black; /* Color de texto actualizado */
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Transición agregada */
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 .btn-register:hover {
-    background-color: #6bb2fd; 
+    background-color: #45a049;
 }
 
 footer {
-    background-color: #000000; 
-    color: #D9D9D9; 
+    background-color: #000000;
     text-align: center;
     padding: 10px;
     margin-top: auto;
+    color: #ffffff;
 }
