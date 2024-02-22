@@ -1,0 +1,23 @@
+.container-mt-5 {
+    padding-top: 5%;
+    padding-left: 7%;
+}
+
+.container-full-height {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary{
+    margin-top: 5%;
+}
+
+
+.hero-image {
+    background-image: url('src/assets/portatil.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
