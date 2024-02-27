@@ -9,6 +9,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PantallaAdminComponent } from './pantalla-admin/pantalla-admin.component';
+import { PantallaEmpresaComponent } from './pantalla-empresa/pantalla-empresa.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PantallaAdminComponent } from './pantalla-admin/pantalla-admin.componen
     RegistroComponent,
     PaginaPrincipalComponent,
     NavbarComponent,
-    PantallaAdminComponent
+    PantallaAdminComponent,
+    PantallaEmpresaComponent
   ],
   imports: [
     BrowserModule,
