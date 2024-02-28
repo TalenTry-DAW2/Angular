@@ -1,0 +1,31 @@
+.btn-custom {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.btn-custom:hover {
+    background-color: #45a049;
+}
+
+.mt-5{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.empresa-image {
+    background-image: url('src/assets/fondoempresa.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    box-shadow: 0px 0px 14px 0px gray;
+}
