@@ -1,26 +1,39 @@
-<nav class="navbar">
-    <div class="logo">
-        <img src="assets/logo.png" alt="Logo de TalenTry">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navegador para administradores</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cerrar sesión</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 
-
-<div class="container my-5">
+<div class="container">
+  <div class="container-fluid content-wrap flex-grow-1"
+    style="background-image: url('src/assets/fondoempresa.png'); background-size: cover; background-position: center; width: 100%; height: 500px;">
     <div class="row justify-content-center">
       <div class="col-12 text-center">
         <h1 class="mb-4">Panel de Administración</h1>
       </div>
       <div class="col-6 col-md-3 mb-3">
-        <button class="btn btn-secondary w-100">GESTIÓN USUARIOS</button>
+        <button class="btn btn-custom btn-block">GESTIÓN USUARIOS</button>
       </div>
       <div class="col-6 col-md-3 mb-3">
-        <button class="btn btn-secondary w-100">GESTIÓN CATEGORÍAS</button>
+        <button class="btn btn-custom btn-block">GESTIÓN CATEGORÍAS</button>
       </div>
       <div class="col-6 col-md-3 mb-3">
-        <button class="btn btn-secondary w-100">GESTIÓN PREGUNTAS Y RESPUESTAS</button>
+        <button class="btn btn-custom btn-block">GESTIÓN PREGUNTAS Y RESPUESTAS</button>
       </div>
       <div class="col-6 col-md-3 mb-3">
-        <button class="btn btn-secondary w-100">ESTADÍSTICAS</button>
+        <button class="btn btn-custom btn-block">ESTADÍSTICAS</button>
       </div>
     </div>
   </div>
+</div>  
