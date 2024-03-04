@@ -6,6 +6,7 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { ErrorComponent } from './error/error.component';
 import { PantallaAdminComponent } from './pantalla-admin/pantalla-admin.component';
 import { PantallaEmpresaComponent } from './pantalla-empresa/pantalla-empresa.component';
+import { EntrevistaCategoriasComponent } from './entrevista-categorias/entrevista-categorias.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'pagina-principal', component: PaginaPrincipalComponent },
       { path: 'pagina-admin', component: PantallaAdminComponent, pathMatch: 'full' },
       { path: 'pagina-empresa', component: PantallaEmpresaComponent, pathMatch: 'full' },
+      { path: 'categorias', component: EntrevistaCategoriasComponent, pathMatch: 'full' },
 
       { path: '**', redirectTo: 'error' } // Capture unmatched paths in 'app'
     

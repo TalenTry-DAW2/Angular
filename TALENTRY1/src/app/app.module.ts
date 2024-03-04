@@ -10,6 +10,7 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { NavbarComponent } from './navbar/navbar.component';
 import { PantallaAdminComponent } from './pantalla-admin/pantalla-admin.component';
 import { PantallaEmpresaComponent } from './pantalla-empresa/pantalla-empresa.component';
+import { EntrevistaCategoriasComponent } from './entrevista-categorias/entrevista-categorias.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { PantallaEmpresaComponent } from './pantalla-empresa/pantalla-empresa.co
     PaginaPrincipalComponent,
     NavbarComponent,
     PantallaAdminComponent,
-    PantallaEmpresaComponent
+    PantallaEmpresaComponent,
+    EntrevistaCategoriasComponent,
+    EntrevistaCategoriasComponent
   ],
   imports: [
     BrowserModule,
