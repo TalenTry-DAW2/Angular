@@ -11,6 +11,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PantallaAdminComponent } from './pantalla-admin/pantalla-admin.component';
 import { PantallaEmpresaComponent } from './pantalla-empresa/pantalla-empresa.component';
 import { EntrevistaCategoriasComponent } from './entrevista-categorias/entrevista-categorias.component';
+import { GestionUsuariosComponent } from './gestion-usuarios/gestion-usuarios.component';
+import { GestionCategoriasComponent } from './gestion-categorias/gestion-categorias.component';
+import { GestionQaComponent } from './gestion-qa/gestion-qa.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { EntrevistaCategoriasComponent } from './entrevista-categorias/entrevist
     PantallaAdminComponent,
     PantallaEmpresaComponent,
     EntrevistaCategoriasComponent,
-    EntrevistaCategoriasComponent
+    EntrevistaCategoriasComponent,
+    GestionUsuariosComponent,
+    GestionCategoriasComponent,
+    GestionQaComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,
