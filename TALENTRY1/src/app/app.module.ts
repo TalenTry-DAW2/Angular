@@ -15,6 +15,7 @@ import { GestionUsuariosComponent } from './gestion-usuarios/gestion-usuarios.co
 import { GestionCategoriasComponent } from './gestion-categorias/gestion-categorias.component';
 import { GestionQaComponent } from './gestion-qa/gestion-qa.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { InfotestCategoriaComponent } from './infotest-categoria/infotest-categoria.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
     GestionUsuariosComponent,
     GestionCategoriasComponent,
     GestionQaComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    InfotestCategoriaComponent
   ],
   imports: [
     BrowserModule,

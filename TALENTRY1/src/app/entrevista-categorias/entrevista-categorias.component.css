@@ -1,0 +1,43 @@
+.container-img {
+margin-top: 2%;
+margin-bottom: 10%;
+}
+
+
+.image-container {
+    position: relative;
+    width: 100%; /* Ancho completo de la columna */
+    padding-top: 66.67%; /* Mantener la relación de aspecto 3:2 */
+    overflow: hidden; /* Ocultar el desbordamiento de las imágenes */
+    transition: transform 0.3s ease; /* Agrega transición al transform */
+    margin-bottom: 5%;
+}
+.image-container:hover img {
+    transform: scale(1.05); /* Escala la imagen al pasar el cursor */
+}
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantener la relación de aspecto */
+    filter: blur(8px); /* Aplica un desenfoque a la imagen */
+    transition: transform 0.3s ease; /* Agrega transición al transform */
+}
+.category-text {
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Centra absolutamente */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    z-index: 1; /* Coloca el texto sobre la imagen */
+    transition: transform 0.3s ease; /* Agrega transición al transform */
+}
+.image-container:hover .category-text {
+    transform: translate(-50%, -60%); /* Mueve ligeramente el texto al pasar el cursor */
+}
