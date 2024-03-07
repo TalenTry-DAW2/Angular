@@ -16,6 +16,7 @@ import { GestionCategoriasComponent } from './gestion-categorias/gestion-categor
 import { GestionQaComponent } from './gestion-qa/gestion-qa.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { InfotestCategoriaComponent } from './infotest-categoria/infotest-categoria.component';
+import { TestEntrevistaComponent } from './test-entrevista/test-entrevista.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { InfotestCategoriaComponent } from './infotest-categoria/infotest-catego
     GestionCategoriasComponent,
     GestionQaComponent,
     EstadisticasComponent,
-    InfotestCategoriaComponent
+    InfotestCategoriaComponent,
+    TestEntrevistaComponent
   ],
   imports: [
     BrowserModule,

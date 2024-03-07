@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-entrevista-categorias',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entrevista-categorias.component.css']
 })
 export class EntrevistaCategoriasComponent implements OnInit {
+
+  @Output() categoriaSeleccionada = new EventEmitter<string>();
+  
   categorias: { CategoryID: number, CategoryName: string, Image: String }[] = [
     {"CategoryID": 1, "CategoryName": "Ingeniería Civil", "Image": "ingenieriacivil.jpg"},
     {"CategoryID": 2, "CategoryName": "Medicina", "Image": "medicina.avif"},
@@ -31,9 +36,17 @@ export class EntrevistaCategoriasComponent implements OnInit {
   ]
   
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.categorias); 
+    console.log(this.categorias);
+  }
+
+  seleccionarCategoria(categoria: string) {
+    this.categoriaSeleccionada.emit(categoria);
+  }
+
+  irAInfoCategoria(categoryName: string) {
+    this.router.navigate(['/infotest', categoryName]);
   }
 }

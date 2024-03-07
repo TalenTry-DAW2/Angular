@@ -11,6 +11,7 @@ import { GestionCategoriasComponent } from './gestion-categorias/gestion-categor
 import { GestionUsuariosComponent } from './gestion-usuarios/gestion-usuarios.component';
 import { GestionQaComponent } from './gestion-qa/gestion-qa.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { InfotestCategoriaComponent } from './infotest-categoria/infotest-categoria.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   
     
       { path: 'pagina-principal', component: PaginaPrincipalComponent },
+      { path: 'infotest/:categoryName', component: InfotestCategoriaComponent },
       { 
         path: 'pagina-admin', 
         component: PantallaAdminComponent, 
