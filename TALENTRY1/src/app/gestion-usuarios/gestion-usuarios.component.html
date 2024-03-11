@@ -1,1 +1,26 @@
-<p>gestion-usuarios works!</p>
+<!-- Add user button -->
+<button class="btn btn-success mb-2" (click)="addUser()">Añadir Nuevo Usuario</button>
+
+<!-- Users table -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{ usuario.id }}</td>
+      <td>{{ usuario.nombre }}</td>
+      <td>{{ usuario.email }}</td>
+      <td>
+        <!-- Edit and Delete buttons for each user -->
+        <button class="btn btn-primary btn-sm" (click)="editUser(usuario.id)">Editar</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteUser(usuario.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

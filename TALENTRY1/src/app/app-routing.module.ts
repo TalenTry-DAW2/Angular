@@ -26,8 +26,7 @@ const routes: Routes = [
       { path: 'pagina-principal', component: PaginaPrincipalComponent },
       { path: 'infotest/:categoryName', component: InfotestCategoriaComponent },
       { 
-        path: 'pagina-admin', 
-        component: PantallaAdminComponent, 
+        path: 'pantalla-admin', component: PantallaAdminComponent, 
         children: [
           { path: 'gestion-usuarios', component: GestionUsuariosComponent },
           { path: 'gestion-categorias', component: GestionCategoriasComponent },
