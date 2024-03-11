@@ -17,6 +17,7 @@ import { GestionQaComponent } from './gestion-qa/gestion-qa.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { InfotestCategoriaComponent } from './infotest-categoria/infotest-categoria.component';
 import { TestEntrevistaComponent } from './test-entrevista/test-entrevista.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TestEntrevistaComponent } from './test-entrevista/test-entrevista.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

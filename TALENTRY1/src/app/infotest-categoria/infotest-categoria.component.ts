@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-infotest-categoria',
@@ -8,14 +8,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InfotestCategoriaComponent implements OnInit {
   @Input() categoriaSeleccionada: string = '';
+  longitudEntrevistaSeleccionada: number = 0;
 
-
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.categoriaSeleccionada = params['categoryName'];
     });
+  }
+
+  empezarEntrevista(longitudEntrevista: number): void {
+    if (longitudEntrevista) {
+      this.router.navigate(['/test-entrevista', longitudEntrevista]);
+    } else {
+      alert('Por favor, selecciona la longitud de la entrevista.');
+    }
   }
 
 }
