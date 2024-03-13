@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-entrevista',
@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./test-entrevista.component.css']
 })
 export class TestEntrevistaComponent implements OnInit {
-  preguntas: any[] = [
+  preguntas: any[] =  [
     {
       "pregunta": "¿Cuál es la capital de Francia?",
       "opciones": ["Madrid", "París", "Londres"],
@@ -153,41 +153,52 @@ export class TestEntrevistaComponent implements OnInit {
       "opciones": ["Piel", "Hígado", "Cerebro"],
       "respuestaCorrecta": "Piel"
     }
-  ];  
-
+  ]; 
 
   preguntaActual: any; // Aquí se almacenará la pregunta actual
-  preguntaIndex: number = 0; // El índice de la pregunta actual
+  preguntaIndex: number = 0; // Comenzamos con la primera pregunta
   opcionSeleccionada: string = '';
-  longitudEntrevista: number = 0;
+  longitudEntrevista: number = 0; // Longitud de la entrevista seleccionada por el usuario
+  respuestasUsuario: any[] = []; // Almacena las respuestas del usuario y su puntuación
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.preguntas);
     // Suscribirse al parámetro de longitud de la entrevista
     this.route.params.subscribe(params => {
       this.longitudEntrevista = +params['length']; // Convertir a número
+      this.mostrarSiguientePregunta(); // Mostrar la primera pregunta al iniciar el componente
     });
   }
-
-  responderPregunta(opcionSeleccionada: string): void {
-    // Guardar la respuesta seleccionada si es necesario
-    // Implementar aquí la lógica para manejar la respuesta del usuario
-    // Por ejemplo, puedes guardarla en un arreglo o enviarla al servidor
-    // No necesitas mostrar si la respuesta es correcta o incorrecta al usuario
-
-    // Muestra la siguiente pregunta después de responder
+  
+  responderPregunta(): void {
+    // Implementar el manejo de la respuesta del usuario aquí
+    // Calcular la puntuación de la respuesta del usuario
+    const puntuacion = this.opcionSeleccionada === this.preguntaActual.respuestaCorrecta ? 10 : 0;
+    // Almacenar la pregunta, la respuesta del usuario y su puntuación
+    this.respuestasUsuario.push({
+      pregunta: this.preguntaActual.pregunta,
+      respuestaUsuario: this.opcionSeleccionada,
+      puntuacion: puntuacion
+    });
+    // Reiniciar la opción seleccionada después de responder
+    this.opcionSeleccionada = '';
+    // Mostrar la siguiente pregunta después de responder
     this.mostrarSiguientePregunta();
   }
 
   mostrarSiguientePregunta(): void {
-    if (this.preguntaIndex < this.longitudEntrevista) {
+    if (this.preguntaIndex < this.longitudEntrevista && this.preguntaIndex < this.preguntas.length) {
       this.preguntaActual = this.preguntas[this.preguntaIndex];
       this.preguntaIndex++;
     } else {
       // La entrevista ha finalizado
-      alert('Entrevista finalizada');
+      // Redirigir al componente de resultado y pasar los datos
+      this.router.navigate(['/entrevista-resultado'], { state: { respuestasUsuario: this.respuestasUsuario } });
     }
   }
 }
+
+
 

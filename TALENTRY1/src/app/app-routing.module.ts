@@ -13,6 +13,7 @@ import { GestionQaComponent } from './gestion-qa/gestion-qa.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { InfotestCategoriaComponent } from './infotest-categoria/infotest-categoria.component';
 import { TestEntrevistaComponent } from './test-entrevista/test-entrevista.component';
+import { EntrevistaResultadoComponent } from './entrevista-resultado/entrevista-resultado.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
@@ -40,6 +41,7 @@ const routes: Routes = [
       { path: 'categorias', component: EntrevistaCategoriasComponent, pathMatch: 'full' },
 
       { path: 'test-entrevista/:length', component: TestEntrevistaComponent },
+      { path: 'entrevista-resultado', component: EntrevistaResultadoComponent },
 
       { path: '**', redirectTo: 'error' } // Capture unmatched paths in 'app'
     
