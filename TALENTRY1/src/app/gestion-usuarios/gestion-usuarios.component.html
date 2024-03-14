@@ -1,5 +1,21 @@
+
+
 <!-- Add user button -->
 <button class="btn btn-success mb-2" (click)="addUser()">Añadir Nuevo Usuario</button>
+
+<div *ngIf="userForm">
+  <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input formControlName="nombre" id="nombre" type="text">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input formControlName="email" id="email" type="email">
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
 
 <!-- Users table -->
 <table class="table">

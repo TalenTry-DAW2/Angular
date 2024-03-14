@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module'; 
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
@@ -17,7 +17,7 @@ import { GestionQaComponent } from './gestion-qa/gestion-qa.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { InfotestCategoriaComponent } from './infotest-categoria/infotest-categoria.component';
 import { TestEntrevistaComponent } from './test-entrevista/test-entrevista.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EntrevistaResultadoComponent } from './entrevista-resultado/entrevista-resultado.component';
 
 @NgModule({
@@ -43,7 +43,10 @@ import { EntrevistaResultadoComponent } from './entrevista-resultado/entrevista-
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+
     FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

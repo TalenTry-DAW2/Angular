@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-// Assuming a simple user model for demonstration purposes
 interface User {
   id: number;
   nombre: string;
@@ -14,11 +14,19 @@ interface User {
 })
 export class GestionUsuariosComponent implements OnInit {
   usuarios: User[] = [];
+  userForm: FormGroup;
+  showModal: boolean = false;
+  isEditing: boolean = false;
+  currentUserId: number | null = null;
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {
+    this.userForm = this.fb.group({
+      nombre: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
+    });
+  }
 
   ngOnInit(): void {
-    // Simulated fetch from a backend
     this.usuarios = [
       { id: 1, nombre: 'Usuario 1', email: 'usuario1@example.com' },
       { id: 2, nombre: 'Usuario 2', email: 'usuario2@example.com' },
@@ -26,28 +34,54 @@ export class GestionUsuariosComponent implements OnInit {
     ];
   }
 
+  openModal(): void {
+    this.showModal = true;
+    this.userForm.reset();
+    this.isEditing = false;
+    this.currentUserId = null;
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+  }
+
+
   addUser(): void {
-    // Simulate adding a new user (you would replace this logic with a call to your backend)
-    const newUser: User = {
-      id: this.usuarios.length + 1, // Simple ID generation for demonstration
-      nombre: `Usuario ${this.usuarios.length + 1}`,
-      email: `usuario${this.usuarios.length + 1}@example.com`
-    };
-    this.usuarios.push(newUser);
+    this.isEditing = false;
+    this.currentUserId = null;
+    this.userForm.reset();
+  }
+
+  saveUser(): void {
+    if (this.userForm.valid) {
+      const formValues = this.userForm.value;
+      if (this.isEditing && this.currentUserId !== null) {
+        const index = this.usuarios.findIndex(user => user.id === this.currentUserId);
+        if (index !== -1) {
+          this.usuarios[index] = { ...this.usuarios[index], ...formValues };
+        }
+      } else {
+        const newUser: User = {
+          id: this.usuarios.length + 1,
+          nombre: formValues.nombre,
+          email: formValues.email
+        };
+        this.usuarios.push(newUser);
+      }
+    }
   }
 
   editUser(userId: number): void {
-    // Find the user in the array and modify their details (replace this with a backend call)
-    const index = this.usuarios.findIndex(user => user.id === userId);
-    if (index !== -1) {
-      // For demonstration, simply append " - Editado" to the nombre
-      this.usuarios[index].nombre += ' - Editado';
-      // In a real application, you'd likely show a form to edit the user details
+    const user = this.usuarios.find(u => u.id === userId);
+    if (user) {
+      this.userForm.setValue({ nombre: user.nombre, email: user.email });
+      this.isEditing = true;
+      this.currentUserId = userId;
     }
   }
 
   deleteUser(userId: number): void {
-    // Remove the user from the usuarios array (replace with a backend call)
     this.usuarios = this.usuarios.filter(user => user.id !== userId);
+    // No es necesario llamar a detectChanges de ChangeDetectorRef
   }
 }

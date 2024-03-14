@@ -17,12 +17,14 @@
   </nav>
 
   <div class="empresa-image"></div>
+  
 
   <div class="container-flex">
     <div class="container mt-5 text-center">
       <div class="row justify-content-center">
         <div class="col-6 col-md-3 mb-3">
-          <a [routerLink]="['/pantalla-admin/gestion-usuarios']" class="btn btn-custom btn-fixed-size">GESTIÓN USUARIOS</a>
+          <a routerLink="/pantalla-admin/gestion-usuarios" class="btn btn-custom btn-fixed-size">GESTIÓN USUARIOS</a>
+          
         </div>
         <div class="col-6 col-md-3 mb-3">
           <a routerLink="/pantalla-admin/gestion-categorias" class="btn btn-custom btn-fixed-size">GESTIÓN CATEGORÍAS</a>
@@ -36,6 +38,7 @@
       </div>
     </div>
   </div>
+  <router-outlet></router-outlet>
 
   <!-- Sección de tarjetas actualizada para reflejar el diseño y contenido del código 2 -->
   <div class="container mt-5">
