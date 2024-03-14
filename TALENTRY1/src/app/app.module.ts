@@ -18,7 +18,11 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { InfotestCategoriaComponent } from './infotest-categoria/infotest-categoria.component';
 import { TestEntrevistaComponent } from './test-entrevista/test-entrevista.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EntrevistaResultadoComponent } from './entrevista-resultado/entrevista-resultado.component';
+
+
+
+import { ResultadosEntrevistaComponent } from './resultados-entrevista/resultados-entrevista.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +42,7 @@ import { EntrevistaResultadoComponent } from './entrevista-resultado/entrevista-
     EstadisticasComponent,
     InfotestCategoriaComponent,
     TestEntrevistaComponent,
-    EntrevistaResultadoComponent
+    ResultadosEntrevistaComponent,
   ],
   imports: [
     BrowserModule,
