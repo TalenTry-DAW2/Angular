@@ -1,12 +1,11 @@
 <div class="container mt-4">
-    <h2>Resultado de la entrevista</h2>
-    <p>Puntuación total: {{ puntuacionTotal }}</p>
-    <hr>
+    <h2>Resultados de la entrevista</h2>
     <div *ngFor="let respuesta of respuestasUsuario">
       <p>Pregunta: {{ respuesta.pregunta }}</p>
       <p>Respuesta del usuario: {{ respuesta.respuestaUsuario }}</p>
       <p>Puntuación: {{ respuesta.puntuacion }}</p>
-      <hr>
+
     </div>
   </div>
+  
   

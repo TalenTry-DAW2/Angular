@@ -2,12 +2,14 @@
   <div *ngIf="preguntaActual">
     <h3>{{ preguntaActual.pregunta }}</h3>
     <div class="form-check" *ngFor="let opcion of preguntaActual.opciones">
-      <input class="form-check-input" type="radio" [value]="opcion" [(ngModel)]="opcionSeleccionada">
-      <label class="form-check-label">{{ opcion }}</label>
+      <input class="form-check-input" type="radio" [value]="opcion.texto" [(ngModel)]="opcionSeleccionada">
+      <label class="form-check-label">{{ opcion.texto }}</label>
     </div>
     <button class="btn btn-primary mt-3" [disabled]="!opcionSeleccionada" (click)="responderPregunta()">Responder</button>
   </div>
 </div>
+
+
 
 
   
