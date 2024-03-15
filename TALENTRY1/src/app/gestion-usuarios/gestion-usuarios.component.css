@@ -1,0 +1,46 @@
+/* Centrar la tabla horizontalmente */
+table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Centrar los botones dentro de sus contenedores */
+  button {
+    display: block; /* Hace que el botón sea un bloque para aplicar márgenes auto */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+
+ 
+/*////////////////////////////////// Estilos para el formulario///////////////////////////// */
+.form-personalizado {
+    background-color: #f8f9fa; /* Fondo claro, puedes cambiarlo por el color que prefieras */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave para darle profundidad */
+  }
+  
+  /* Estilo para los campos del formulario */
+  .form-personalizado .form-control {
+    background-color: #ffffff; /* Fondo blanco para los campos de entrada */
+    border: 1px solid #ced4da; /* Borde sutíl, ajusta el color según necesites */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-bottom: 15px; /* Espacio entre campos */
+  }
+  
+  /* Estilo para las etiquetas de los campos */
+  .form-personalizado label {
+    margin-bottom: 5px;
+    font-weight: bold; /* Texto en negrita para las etiquetas */
+  }
+  
+  /* Botón de envío con estilo personalizado */
+  .form-personalizado .btn-primary {
+    background-color: #007bff; /* Color principal, ajusta según tu paleta de colores */
+    border-color: #007bff; /* Borde del botón del mismo color que el fondo */
+    padding: 10px 15px; /* Ajusta el relleno para un tamaño de botón óptimo */
+    font-size: 16px; /* Tamaño de fuente más grande para el texto del botón */
+    border-radius: 4px; /* Bordes redondeados para el botón */
+  }
+  

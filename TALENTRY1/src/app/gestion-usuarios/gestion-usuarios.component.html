@@ -1,42 +1,71 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12"> <!-- Usando todas las 12 columnas disponibles -->
+      <button class="btn btn-success mb-2" (click)="toggleForm()">Añadir Nuevo Usuario</button>
+
+      <!-- Contenedor del formulario, visible basado en el estado de 'showForm' -->
+      <div *ngIf="showForm" class="form-personalizado">
+        <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input formControlName="nombre" id="nombre" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input formControlName="email" id="email" type="email" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="dni">DNI:</label>
+            <input formControlName="dni" id="dni" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input formControlName="password" id="password" type="password" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input formControlName="confirmPassword" id="confirmPassword" type="password" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input formControlName="phone" id="phone" type="text" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary mx-auto d-block">Guardar</button>
+        </form>
+      </div>
 
 
-<!-- Add user button -->
-<button class="btn btn-success mb-2" (click)="addUser()">Añadir Nuevo Usuario</button>
-
-<div *ngIf="userForm">
-  <form [formGroup]="userForm" (ngSubmit)="saveUser()">
-    <div>
-      <label for="nombre">Nombre:</label>
-      <input formControlName="nombre" id="nombre" type="text">
+      <!-- Users table -->
+      <div class="table-responsive mt-3">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>DNI</th>
+              <th>Password</th>
+              <th>Phone</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of usuarios">
+              <td>{{ usuario.id }}</td>
+              <td>{{ usuario.nombre }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>{{ usuario.dni }}</td>
+              <td>{{ '•••••••' }}</td> <!-- Don't display the actual password -->
+              <td>{{ usuario.phone }}</td>
+              <td>
+                <!-- Edit and Delete buttons for each user -->
+                <button class="btn btn-primary btn-sm" (click)="editUser(usuario.id)">Editar</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteUser(usuario.id)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div>
-      <label for="email">Email:</label>
-      <input formControlName="email" id="email" type="email">
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-  </form>
+  </div>
 </div>
-
-<!-- Users table -->
-<table class="table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Email</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let usuario of usuarios">
-      <td>{{ usuario.id }}</td>
-      <td>{{ usuario.nombre }}</td>
-      <td>{{ usuario.email }}</td>
-      <td>
-        <!-- Edit and Delete buttons for each user -->
-        <button class="btn btn-primary btn-sm" (click)="editUser(usuario.id)">Editar</button>
-        <button class="btn btn-danger btn-sm" (click)="deleteUser(usuario.id)">Eliminar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>

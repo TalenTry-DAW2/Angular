@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 interface User {
-  id: number;
-  nombre: string;
-  email: string;
+dni: any;
+phone: any;
+id: number;
+nombre: string;
+email: string;
+password: string;
 }
 
 @Component({
@@ -18,20 +21,55 @@ export class GestionUsuariosComponent implements OnInit {
   showModal: boolean = false;
   isEditing: boolean = false;
   currentUserId: number | null = null;
+  showForm = false;
+  checkPasswords: any;
 
   constructor(private fb: FormBuilder) {
     this.userForm = this.fb.group({
-      nombre: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
-    });
+      nombre: ['', [Validators.required, Validators.maxLength(30)]],
+      email: ['', [Validators.required, Validators.email, Validators.maxLength(50)]],
+      dni: ['', [Validators.required, Validators.pattern(/^\d{8}[a-zA-Z]$/)]],
+      password: ['', [Validators.required, Validators.maxLength(30)]],
+      confirmPassword: [''],
+      phone: ['']
+    }, { validator: this.checkPasswords });
   }
 
   ngOnInit(): void {
     this.usuarios = [
-      { id: 1, nombre: 'Usuario 1', email: 'usuario1@example.com' },
-      { id: 2, nombre: 'Usuario 2', email: 'usuario2@example.com' },
-      { id: 3, nombre: 'Usuario 3', email: 'usuario3@example.com' }
+      {
+        id: 1,
+        nombre: 'Usuario 1',
+        email: 'usuario1@example.com',
+        dni: '12345678A', // Mock DNI value
+        password: 'password123', // Mock password value (in real applications, store a hashed password)
+        phone: '555123456' // Mock phone number
+      },
+      {
+        id: 2,
+        nombre: 'Usuario 2',
+        email: 'usuario2@example.com',
+        dni: '87654321B',
+        password: 'password456',
+        phone: '555654321'
+      },
+      {
+        id: 3,
+        nombre: 'Usuario 3',
+        email: 'usuario3@example.com',
+        dni: '11223344C',
+        password: 'password789',
+        phone: '555789012'
+      }
+      // Add more users as needed
     ];
+    
+  }
+
+
+  
+  toggleForm() {
+    this.showForm = !this.showForm;
   }
 
   openModal(): void {
@@ -64,7 +102,10 @@ export class GestionUsuariosComponent implements OnInit {
         const newUser: User = {
           id: this.usuarios.length + 1,
           nombre: formValues.nombre,
-          email: formValues.email
+          email: formValues.email,
+          dni: undefined,
+          phone: undefined,
+          password: ''
         };
         this.usuarios.push(newUser);
       }
@@ -84,4 +125,8 @@ export class GestionUsuariosComponent implements OnInit {
     this.usuarios = this.usuarios.filter(user => user.id !== userId);
     // No es necesario llamar a detectChanges de ChangeDetectorRef
   }
+
+
+
+  
 }
