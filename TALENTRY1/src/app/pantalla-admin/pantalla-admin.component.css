@@ -12,7 +12,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-right: 20px; /* Aumenta el margen derecho para mayor separación */
-  margin-bottom: 20px; /* Aumenta el margen inferior para mayor separación */
+   /* Aumenta el margen inferior para mayor separación */
 }
 
 .btn-custom:hover {
@@ -31,7 +31,7 @@
 .mt-5 {
   padding-top: 1%;
   padding-bottom: 3%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .empresa-image {
