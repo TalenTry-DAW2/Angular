@@ -291,7 +291,7 @@ export class TestEntrevistaComponent implements OnInit {
   
   responderPregunta(): void {
     // Obtener el puntaje de la opción seleccionada
-    const puntaje = this.preguntaActual.opciones.find((opcion: any) => opcion.valor === this.opcionSeleccionada)?.puntaje || 0;
+    const puntaje = this.preguntaActual.opciones.find((opcion: { texto: string; }) => opcion.texto === this.opcionSeleccionada)?.puntaje || 0;
     
     // Almacenar la pregunta, la respuesta del usuario y su puntuación
     this.respuestasUsuario.push({
@@ -305,7 +305,8 @@ export class TestEntrevistaComponent implements OnInit {
     
     // Mostrar la siguiente pregunta después de responder
     this.mostrarSiguientePregunta();
-}
+  }
+  
 
   mostrarSiguientePregunta(): void {
     if (this.preguntaIndex < this.longitudEntrevista && this.preguntaIndex < this.preguntas.length) {
