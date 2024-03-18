@@ -1,13 +1,16 @@
-<div class="container mt-4">
-  <div *ngIf="preguntaActual">
-    <h3>{{ preguntaActual.pregunta }}</h3>
-    <div class="form-check" *ngFor="let opcion of preguntaActual.opciones">
-      <input class="form-check-input" type="radio" [value]="opcion.texto" [(ngModel)]="opcionSeleccionada">
-      <label class="form-check-label">{{ opcion.texto }}</label>
+<div class="quiz-container mt-4">
+  <div *ngIf="preguntaActual" class="question-container">
+    <h3 class="question">{{ preguntaActual.pregunta }}</h3>
+    <div class="options-container">
+      <div class="form-check option" *ngFor="let opcion of preguntaActual.opciones">
+        <input class="form-check-input" type="radio" [value]="opcion.texto" [(ngModel)]="opcionSeleccionada">
+        <label class="form-check-label option-text">{{ opcion.texto }}</label>
+      </div>
     </div>
-    <button class="btn btn-primary mt-3" [disabled]="!opcionSeleccionada" (click)="responderPregunta()">Responder</button>
+    <button class="btn btn-primary btn-answer mt-3" [disabled]="!opcionSeleccionada" (click)="responderPregunta()">Responder</button>
   </div>
 </div>
+
 
 
 

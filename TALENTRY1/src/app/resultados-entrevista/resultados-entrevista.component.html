@@ -1,12 +1,13 @@
-<div class="container mt-4">
-  <h2>Resultados de la entrevista</h2>
-  <div *ngFor="let respuesta of respuestasUsuario">
-    <p>Pregunta: {{ respuesta.pregunta }}</p>
-    <p>Respuesta del usuario: {{ respuesta.respuestaUsuario }}</p>
-    <p>Puntuación: {{ respuesta.puntuacion }}</p>
+<div class="interview-results-container mt-4">
+  <h2 class="interview-results-heading">Resultados de la entrevista</h2>
+  <div *ngFor="let respuesta of respuestasUsuario" class="interview-question">
+    <p class="question">{{ respuesta.pregunta }}</p>
+    <p class="user-answer">Respuesta del usuario: {{ respuesta.respuestaUsuario }}</p>
+    <p class="score">Puntuación: {{ respuesta.puntuacion }}</p>
   </div>
-  <p>Puntaje total: {{ puntajeTotal }}</p>
+  <p class="total-score">Puntuación total: {{ puntajeTotal }}</p>
 </div>
+
 
   
   
