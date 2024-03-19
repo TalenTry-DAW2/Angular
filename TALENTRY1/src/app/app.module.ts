@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { ResultadosEntrevistaComponent } from './resultados-entrevista/resultados-entrevista.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ResultadosEntrevistaComponent } from './resultados-entrevista/resultado
     InfotestCategoriaComponent,
     TestEntrevistaComponent,
     ResultadosEntrevistaComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,
