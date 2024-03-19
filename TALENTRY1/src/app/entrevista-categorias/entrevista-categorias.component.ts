@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Category } from "../../models/category";
+import { EntrevistaService } from "../servicios/entrevista.service";
 
 
 @Component({
@@ -10,36 +12,30 @@ import { Router } from '@angular/router';
 export class EntrevistaCategoriasComponent implements OnInit {
 
   @Output() categoriaSeleccionada = new EventEmitter<string>();
+
+  currentPage: number = 1;
+  pageSize: number = 48; // Ajusta según la necesidad de mostrar filas de 6
+  usersInPage: Category[] = [];
+  allUsers: Category[] = [];
   
-  categorias: { CategoryID: number, CategoryName: string, Image: String }[] = [
-    {"CategoryID": 1, "CategoryName": "Ingeniería Civil", "Image": "ingenieriacivil.jpg"},
-    {"CategoryID": 2, "CategoryName": "Medicina", "Image": "medicina.avif"},
-    {"CategoryID": 3, "CategoryName": "Educación", "Image": "educacion.avif"},
-    {"CategoryID": 4, "CategoryName": "Diseño Gráfico", "Image": "diseño_grafico.avif"},
-    {"CategoryID": 5, "CategoryName": "Marketing", "Image": "marketing.jpg"},
-    {"CategoryID": 6, "CategoryName": "Tecnología de la Información", "Image": "educacion.avif"},
-    {"CategoryID": 7, "CategoryName": "Finanzas", "Image": "educacion.avif"},
-    {"CategoryID": 8, "CategoryName": "Recursos Humanos", "Image": "educacion.avif"},
-    {"CategoryID": 9, "CategoryName": "Ventas", "Image": "educacion.avif"},
-    {"CategoryID": 10, "CategoryName": "Arquitectura", "Image": "educacion.avif"},
-    {"CategoryID": 11, "CategoryName": "Desarrollo de Software", "Image": "educacion.avif"},
-    {"CategoryID": 12, "CategoryName": "Salud Mental", "Image": "educacion.avif"},
-    {"CategoryID": 13, "CategoryName": "Gastronomía", "Image": "educacion.avif"},
-    {"CategoryID": 14, "CategoryName": "Arte y Entretenimiento", "Image": "educacion.avif"},
-    {"CategoryID": 15, "CategoryName": "Periodismo", "Image": "educacion.avif"},
-    {"CategoryID": 16, "CategoryName": "Transporte", "Image": "educacion.avif"},
-    {"CategoryID": 17, "CategoryName": "Inmobiliaria", "Image": "educacion.avif"},
-    {"CategoryID": 18, "CategoryName": "Derecho", "Image": "educacion.avif"},
-    {"CategoryID": 19, "CategoryName": "Turismo", "Image": "educacion.avif"},
-    {"CategoryID": 20, "CategoryName": "Investigación", "Image": "educacion.avif"},
-    {"CategoryID": 21, "CategoryName": "Enfermería", "Image": "educacion.avif"}
-  ]
   
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private entrevistaService: EntrevistaService) { }
 
-  ngOnInit(): void {
-    console.log(this.categorias);
+  ngOnInit() {
+    this.loadUsers();
+  }
+  
+  loadUsers(): void {
+    this.entrevistaService.loadUsers()
+      .subscribe(data => {
+        this.allUsers = data;
+        this.usersInPage = data;
+        console.log(this.allUsers);
+        // Aquí puedes llamar a cualquier método adicional para procesar los datos, si es necesario
+      }, error => {
+        console.error('Error al cargar los usuarios desde la API:', error);
+      });
   }
 
   seleccionarCategoria(categoria: string) {
