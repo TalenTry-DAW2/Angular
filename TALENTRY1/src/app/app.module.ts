@@ -22,7 +22,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { ResultadosEntrevistaComponent } from './resultados-entrevista/resultados-entrevista.component';
+
 import { PerfilComponent } from './perfil/perfil.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -50,8 +54,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-
-    FormsModule
+    HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],
