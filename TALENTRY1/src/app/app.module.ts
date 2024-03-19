@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { ResultadosEntrevistaComponent } from './resultados-entrevista/resultados-entrevista.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -48,8 +49,8 @@ import { ResultadosEntrevistaComponent } from './resultados-entrevista/resultado
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-
-    FormsModule
+    HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],
