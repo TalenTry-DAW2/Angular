@@ -25,8 +25,8 @@ export class LoginComponent {
     if (this.LoginForm.valid) {
       this.authService.Login(this.LoginForm.value).subscribe(
         (data: any) => {
-          this.tokenService.setToken(data);
           this.router.navigate(['/pagina-principal']);
+          this.tokenService.setToken(data);
           alert('Sesion iniciada correctamente.');
         },
         (error) => {

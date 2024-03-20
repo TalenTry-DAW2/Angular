@@ -15,23 +15,17 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
   logout(){
-    var estado: any = false;
+    var estado: any;
     const confirmacion = window.confirm('¿Seguro que desea cerrar sesión?');
     if (confirmacion) {
       this.authService.Logout().subscribe(
         (data: any) => {
-          console.log(data);
+          estado = data;
+          
         },
         (error) => {
-          throw new Error(error);
+          throw new Error(error.status);
         });
-      // if (estado) {
-      //   this.tokenService.removeToken()
-      //   this.router.navigate(['/login']);
-      // } else {
-      //   //avisa de que algo ah ido mal
-      //   alert('Error al cerrar sesion');
-      // }
     }
   }
 }
