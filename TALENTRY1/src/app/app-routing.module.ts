@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/pagina-principal',
     pathMatch: 'full'
   },
 
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'pagina-principal', component: PaginaPrincipalComponent },
   { path: 'infotest/:categoryName', component: InfotestCategoriaComponent },
   {
-    path: 'pantalla-admin', component: PantallaAdminComponent,
+    path: 'pagina-admin', component: PantallaAdminComponent,
     children: [
       { path: 'gestion-usuarios', component: GestionUsuariosComponent },
       { path: 'gestion-categorias', component: GestionCategoriasComponent },
@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'test-entrevista/:length', component: TestEntrevistaComponent },
   { path: 'resultados-entrevista', component: ResultadosEntrevistaComponent },
 
-  { path: 'error', component: ErrorComponent}, // Global error route
+  { path: 'error', component: ErrorComponent }, // Global error route
   { path: '**', redirectTo: 'error' }, // Capture all unmatched paths globally
 ];
 

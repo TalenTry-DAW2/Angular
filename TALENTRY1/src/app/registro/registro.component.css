@@ -1,7 +1,6 @@
-body, html {
+.cuerpo {
     margin: auto;
-    padding: auto;
-    background-image: url('src/assets/fondo-registro.jpg'); /* Cambiar la ruta de la imagen de fondo */
+    background-image: url('src/assets/fondo-registro.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -31,7 +30,6 @@ body, html {
     justify-content: center;
     align-items: center;
     flex: 1;
-    background-color: #f4f4f4;
 }
 
 .registro-box {
@@ -42,7 +40,7 @@ body, html {
     background-color: #fffdfd;
     border-radius: 10px;
     padding: 20px;
-    width: 280px;
+    width: 40%;
     margin: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

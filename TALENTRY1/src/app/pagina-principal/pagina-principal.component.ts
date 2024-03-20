@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../servicios/auth.service';
+import { TokenService } from '../servicios/token.service';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -12,4 +15,5 @@ export class PaginaPrincipalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }

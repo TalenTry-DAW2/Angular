@@ -25,6 +25,6 @@ export class AuthService {
           Authorization: `Bearer ${authToken}`,
         });
       //peticion con headers de actualizacion
-      return this.http.put("http://127.0.0.1:8000/api/logout", { headers });
+      return this.http.post("http://127.0.0.1:8000/api/logout", { headers });
   }
 }

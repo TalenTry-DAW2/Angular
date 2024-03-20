@@ -22,7 +22,7 @@ export class LoginComponent {
 
   //inicia sesion y establece el token de sesion en local storage
   login() {
-    if (this.LoginForm.valid)
+    if (this.LoginForm.valid) {
       this.authService.Login(this.LoginForm.value).subscribe(
         (data: any) => {
           this.tokenService.setToken(data);
@@ -33,6 +33,7 @@ export class LoginComponent {
           alert('Correo o contraseña incorectos');
           throw new Error(error);
         });
+    }
   }
 
 

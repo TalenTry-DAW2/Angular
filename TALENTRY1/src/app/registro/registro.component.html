@@ -1,8 +1,9 @@
-    <nav class="navbar">
-        <div class="logo">
-            <img src="assets/logo.png" alt="Logo">
-        </div>
-    </nav>
+<nav class="navbar">
+    <div class="logo">
+        <img src="assets/logo.png" alt="Logo">
+    </div>
+</nav>
+<div class="cuerpo">
     <section class="contenido-de-pagina">
         <div class="container">
             <div class="registro-box">
@@ -14,11 +15,10 @@
                 <input type="password" placeholder="Contraseña">
                 <input type="password" placeholder="Repetir Contraseña">
                 <button type="button" class="btn-register" (click)="register()">Registrarse</button>
-
-
                 <div class="login-link">
-                    <p>¿Ya tienes cuenta? <a href="login" class="btn-login">Iniciar sesión</a></p>
+                    <p>¿Ya tienes cuenta? <a routerLink="/login" class="btn-login">Iniciar sesión</a></p>
                 </div>
             </div>
         </div>
     </section>
+</div>
