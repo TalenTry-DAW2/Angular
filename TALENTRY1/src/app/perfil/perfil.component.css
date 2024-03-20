@@ -1,115 +1,115 @@
 /* Estilo base y normalización */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif; /* Ajusta la fuente según la necesidad */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background-color: #f4f4f4;
+}
+
+/* Contenedor principal de perfil */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-left: 50px; /* Agregado para centrar en el espacio disponible */
+}
+
+/* Barra lateral para la imagen y el historial */
+.profile-sidebar {
+  flex: 1;
+  max-width: 200px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.profile-picture img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* Botón para cambiar imagen */
+.profile-sidebar button {
+  display: block;
+  margin: 10px auto;
+  padding: 5px 10px;
+  background-color: #007bff; /* Cambiado para coincidir con el botón "primary" */
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Estilos para el historial */
+.profile-history {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* Sección de detalles de perfil */
+.profile-details {
+  flex: 3;
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+/* Estilos de los campos del formulario y botones editar */
+.profile-card .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espaciado entre campos */
+}
+
+.profile-card .form-group label {
+  width: 20%; /* Ancho fijo para todas las etiquetas */
+  text-align: right;
+  padding-right: 10px; /* Espaciado entre etiqueta y campo de entrada */
+}
+
+.profile-card .form-control, .profile-card .btn-secondary {
+  width: calc(80% - 90px); /* Ajuste para la inclusión del botón editar */
+  margin-left: 10px; /* Espaciado entre etiqueta y campo de entrada o botón */
+}
+
+/* Ajuste para el botón editar */
+.profile-card .btn-secondary {
+  width: 80px; /* Ancho fijo para el botón editar */
+  margin-left: 10px; /* Espaciado entre el campo de entrada y el botón */
+  text-align: center;
+}
+
+/* Estilos para ajustar la distribución en móviles */
+@media (max-width: 768px) {
+  .profile-card .form-group {
+    flex-direction: column;
+    align-items: stretch;
   }
-  
-  body, html {
-    height: 100%;
-    background-color: #f4f4f4; /* Color de fondo similar al de la imagen */
-  }
-  
-  /* Contenedor principal de perfil */
-  .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 50px;
-    padding-right: 50px;
-  }
-  
-  /* Barra lateral para la imagen y el historial */
-  .profile-sidebar {
-    flex: 1;
-    max-width: 200px; /* Ajusta esto según el tamaño deseado */
-    text-align: center;
-    margin-right: 20px;
-  }
-  
-  .profile-picture img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    background-color: #ccc; /* Color de fondo para la imagen de perfil */
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-  
-  /* Botón para cambiar imagen */
-  .profile-sidebar button {
-    display: block;
-    margin: 10px auto;
-    padding: 5px 10px;
-    background-color: #888; /* Color del botón */
-    color: white;
-    border: none;
-    border-radius: 4px;
-  }
-  
-  /* Estilos para el historial */
-  .profile-history {
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  
-  /* Sección de detalles de perfil */
-  .profile-details {
-    flex: 3;
-    background-color: white;
-    padding: 20px;
-    border-radius: 6px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra suave */
-  }
-  
-  .profile-card {
-    margin-bottom: 20px;
-  }
-  
-  /* Estilos de los campos del formulario */
-  .profile-card .form-control {
-    display: block;
+
+  .profile-card .form-group label {
     width: 100%;
-    padding: 8px;
-    margin: 8px 0;
-    border-radius: 4px;
-    border: 1px solid #ffffff; /* Borde sutil */
-    background-color: #eee; /* Fondo de cada campo */
-  }
-  
-  /* Estilos de las etiquetas */
-  .profile-card label {
-    display: block;
     text-align: left;
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #333; /* Color de texto para las etiquetas */
+    padding: 0;
+    margin-bottom: 5px;
   }
-  
-  /* Botón para editar */
-  .profile-card button {
-    display: inline-block;
-    margin-left: 5px;
-    padding: 5px 15px;
-    background-color: #aaa; /* Color del botón */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+
+  .profile-card .form-control, .profile-card .btn-secondary {
+    width: 100%;
   }
-  
-  /* Responsive design para dispositivos más pequeños */
-  @media (max-width: 600px) {
-    .profile-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .profile-sidebar {
-      margin-bottom: 20px;
-    }
+
+  .profile-card .btn-secondary {
+    margin-left: 0;
+    margin-top: 5px;
   }
-  
+}
