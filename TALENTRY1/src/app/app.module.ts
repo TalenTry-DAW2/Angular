@@ -10,18 +10,18 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { NavbarComponent } from './navbar/navbar.component';
 import { PantallaAdminComponent } from './pantalla-admin/pantalla-admin.component';
 import { PantallaEmpresaComponent } from './pantalla-empresa/pantalla-empresa.component';
-import { EntrevistaCategoriasComponent } from './entrevista-categorias/entrevista-categorias.component';
-import { GestionUsuariosComponent } from './gestion-usuarios/gestion-usuarios.component';
-import { GestionCategoriasComponent } from './gestion-categorias/gestion-categorias.component';
-import { GestionQaComponent } from './gestion-qa/gestion-qa.component';
-import { EstadisticasComponent } from './estadisticas/estadisticas.component';
-import { InfotestCategoriaComponent } from './infotest-categoria/infotest-categoria.component';
-import { TestEntrevistaComponent } from './test-entrevista/test-entrevista.component';
+import { EntrevistaCategoriasComponent } from './entrevista/entrevista-categorias/entrevista-categorias.component';
+import { GestionUsuariosComponent } from './pantalla-admin/gestion-usuarios/gestion-usuarios.component';
+import { GestionCategoriasComponent } from './pantalla-admin/gestion-categorias/gestion-categorias.component';
+import { GestionQaComponent } from './pantalla-admin/gestion-qa/gestion-qa.component';
+import { EstadisticasComponent } from './pantalla-empresa/estadisticas/estadisticas.component';
+import { InfotestCategoriaComponent } from './entrevista/infotest-categoria/infotest-categoria.component';
+import { TestEntrevistaComponent } from './entrevista/test-entrevista/test-entrevista.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
-import { ResultadosEntrevistaComponent } from './resultados-entrevista/resultados-entrevista.component';
+import { ResultadosEntrevistaComponent } from './entrevista/resultados-entrevista/resultados-entrevista.component';
 
 import { PerfilComponent } from './perfil/perfil.component';
 

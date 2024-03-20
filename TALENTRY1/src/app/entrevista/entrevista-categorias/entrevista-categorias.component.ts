@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from "../../models/category";
-import { EntrevistaService } from "../servicios/entrevista.service";
+import { Category } from "../../../models/category";
+import { EntrevistaService } from "../../servicios/entrevista.service";
 
 
 @Component({
