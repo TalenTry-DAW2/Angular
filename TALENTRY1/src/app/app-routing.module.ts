@@ -17,8 +17,8 @@ import { ResultadosEntrevistaComponent } from './entrevista/resultados-entrevist
 import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
-  { path: '/login', component: LoginComponent },
-  { path: '/registro', component: RegistroComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
   {
     path: '',
     redirectTo: '/login',
@@ -26,27 +26,27 @@ const routes: Routes = [
   },
 
 
-  { path: '/pagina-principal', component: PaginaPrincipalComponent },
-  { path: '/infotest/:categoryName', component: InfotestCategoriaComponent },
+  { path: 'pagina-principal', component: PaginaPrincipalComponent },
+  { path: 'infotest/:categoryName', component: InfotestCategoriaComponent },
   {
-    path: '/pantalla-admin', component: PantallaAdminComponent,
+    path: 'pantalla-admin', component: PantallaAdminComponent,
     children: [
-      { path: '/gestion-usuarios', component: GestionUsuariosComponent },
-      { path: '/gestion-categorias', component: GestionCategoriasComponent },
-      { path: '/gestion-qa', component: GestionQaComponent },
-      { path: '/estadisticas', component: EstadisticasComponent },
+      { path: 'gestion-usuarios', component: GestionUsuariosComponent },
+      { path: 'gestion-categorias', component: GestionCategoriasComponent },
+      { path: 'gestion-qa', component: GestionQaComponent },
+      { path: 'estadisticas', component: EstadisticasComponent },
       // Añade aquí más rutas hijas según sea necesario
     ]
   },
-  { path: '/perfil', component: PerfilComponent },
+  { path: 'perfil', component: PerfilComponent },
 
-  { path: '/pagina-empresa', component: PantallaEmpresaComponent },
-  { path: '/categorias', component: EntrevistaCategoriasComponent },
+  { path: 'pagina-empresa', component: PantallaEmpresaComponent },
+  { path: 'categorias', component: EntrevistaCategoriasComponent },
 
-  { path: '/test-entrevista/:length', component: TestEntrevistaComponent },
-  { path: '/resultados-entrevista', component: ResultadosEntrevistaComponent },
+  { path: 'test-entrevista/:length', component: TestEntrevistaComponent },
+  { path: 'resultados-entrevista', component: ResultadosEntrevistaComponent },
 
-  { path: '/error', component: ErrorComponent}, // Global error route
+  { path: 'error', component: ErrorComponent}, // Global error route
   { path: '**', redirectTo: 'error' }, // Capture all unmatched paths globally
 ];
 

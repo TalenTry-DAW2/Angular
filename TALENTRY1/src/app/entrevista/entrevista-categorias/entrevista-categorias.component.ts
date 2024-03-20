@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from "../../../models/category";
+import { category } from "../../../models/category";
 import { EntrevistaService } from "../../servicios/entrevista.service";
 
 
@@ -13,28 +13,22 @@ export class EntrevistaCategoriasComponent implements OnInit {
 
   @Output() categoriaSeleccionada = new EventEmitter<string>();
 
-  currentPage: number = 1;
-  pageSize: number = 48; // Ajusta según la necesidad de mostrar filas de 6
-  usersInPage: Category[] = [];
-  allUsers: Category[] = [];
+  categorias: category[] = [];
   
   
 
   constructor(private router: Router, private entrevistaService: EntrevistaService) { }
 
   ngOnInit() {
-    this.loadUsers();
+    this.MostrarCategoria();
   }
   
-  loadUsers(): void {
-    this.entrevistaService.loadUsers()
+  MostrarCategoria(): void {
+    this.entrevistaService.MostrarCategoria()
       .subscribe(data => {
-        this.allUsers = data;
-        this.usersInPage = data;
-        console.log(this.allUsers);
-        // Aquí puedes llamar a cualquier método adicional para procesar los datos, si es necesario
+        this.categorias = data[0];
       }, error => {
-        console.error('Error al cargar los usuarios desde la API:', error);
+        console.error('Error al cargar las categorias desde la API:', error);
       });
   }
 

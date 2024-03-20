@@ -1,18 +1,24 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { map, Observable } from "rxjs";
-import { Category } from "../../models/category";
+import { category } from "../../models/category";
+import { TokenService } from "./token.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntrevistaService {
 
-  allUsers: any[] = [];
+  constructor(private http: HttpClient, public tokenService: TokenService) { }
 
-  constructor(private http: HttpClient) { }
-
-  loadUsers() {
-    return this.http.get<any[]>('http://127.0.0.1:8000/api/category/');
-  }
+  MostrarCategoria(): Observable<any>{
+    // token de sesion
+    const authToken = this.tokenService.getToken();
+    // header con el token
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${authToken}`,
+      });
+    //peticion con headers de actualizacion
+    return this.http.get("http://127.0.0.1:8000/api/category", { headers });
+}
 }

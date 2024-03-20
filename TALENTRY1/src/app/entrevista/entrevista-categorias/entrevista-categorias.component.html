@@ -15,7 +15,17 @@
     </div>
 </nav>
 
-<div *ngFor="let user of usersInPage">
-    <p>{{ user.CategoryName }}</p>
-</div>
-</div>
+<div class="container container-img">
+    <div class="row">
+      <div *ngFor="let categoria of categorias" class="col-lg-4" (click)="irAInfoCategoria(categoria.CategoryName)">
+        <div class="image-container">
+            <img src="/assets/images/diseño_grafico.avif" alt="Imagen de categoría">
+          <h3 class="category-text">{{ categoria.CategoryName }}</h3>
+        </div>
+      </div>
+ 
+
+ 
+  
+
+  
