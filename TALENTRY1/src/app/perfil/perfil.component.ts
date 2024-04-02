@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -7,6 +8,12 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  
+  constructor(private router: Router) { } // Inyecta el Router aquí
+
+  permisosEmpresas: boolean = false; 
+  permisosEmpresasEditable: boolean = false;
+
   perfilForm!: FormGroup;
 
   usuario = {
@@ -23,10 +30,9 @@ export class PerfilComponent implements OnInit {
       dni: new FormControl({value: this.usuario.dni, disabled: true}),
       email: new FormControl({value: this.usuario.email, disabled: true}),
       contrasena: new FormControl({value: this.usuario.contrasena, disabled: true}),
-      telefono: new FormControl({value: this.usuario.telefono, disabled: true})
+      telefono: new FormControl({value: this.usuario.telefono, disabled: true}),
     });
   }
-
   habilitarEdicion(campo: string): void {
     const control = this.perfilForm.get(campo);
     if (control) {
@@ -41,6 +47,15 @@ export class PerfilComponent implements OnInit {
       }
     }
   }
+
+  navegarAlHistorial(): void {
+    this.router.navigate(['/historial']);
+  }
+
+  togglePermisosEmpresasEditable(): void {
+    this.permisosEmpresasEditable = !this.permisosEmpresasEditable;
+  }
+
 
   /*cargarDatosUsuario() {
     // Aquí normalmente se llamaría a un servicio para obtener los datos del usuario

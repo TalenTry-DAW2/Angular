@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<div class="historial-container">
+    <div class="entrevistas-lista">
+      <div *ngFor="let entrevista of entrevistas" 
+           (click)="toggleDetalles(entrevista)"
+           [class.expanded]="entrevista.expanded"
+           class="entrevista-item">
+        <div class="entrevista-detalle">
+          <p>{{ entrevista.titulo }}</p>
+          <p>{{ entrevista.hora }}</p>
+          <button>{{ entrevista.expanded ? 'Ocultar' : 'Mostrar' }} detalles</button>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="entrevistaSeleccionada" class="detalles-container">
+      <div *ngFor="let pregunta of entrevistaSeleccionada.preguntas" class="pregunta-respuesta">
+        <div class="pregunta">
+          <p>{{ pregunta.texto }}</p>
+        </div>
+        <div class="respuesta">
+          <p>{{ pregunta.respuestaCorrecta }} ({{ pregunta.puntos }} puntos)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  

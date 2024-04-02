@@ -15,6 +15,8 @@ import { InfotestCategoriaComponent } from './entrevista/infotest-categoria/info
 import { TestEntrevistaComponent } from './entrevista/test-entrevista/test-entrevista.component';
 import { ResultadosEntrevistaComponent } from './entrevista/resultados-entrevista/resultados-entrevista.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { HistorialComponent } from './historial/historial.component'; 
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -38,6 +40,7 @@ const routes: Routes = [
       // Añade aquí más rutas hijas según sea necesario
     ]
   },
+  { path: 'historial', component: HistorialComponent },
   { path: 'perfil', component: PerfilComponent },
 
   { path: 'pagina-empresa', component: PantallaEmpresaComponent },

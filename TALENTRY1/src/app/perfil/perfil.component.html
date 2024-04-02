@@ -2,12 +2,24 @@
 <div class="profile-container">
   <aside class="profile-sidebar">
     <div class="profile-picture">
-      <img src="path_to_your_default_profile_image" alt="Imagen de perfil" class="img-fluid rounded-circle">
+      <img src="assets//perfil.png" alt="Imagen de perfil" class="img-fluid rounded-circle">
       <button class="btn btn-primary mt-2">Cambiar Imagen</button>
     </div>
     <div class="profile-history">
-      <button class="btn btn-link">Historial</button>
+      <button class="btn btn-link" (click)="navegarAlHistorial()">Historial</button>
     </div>
+
+    <div class="profile-permissions">
+      <h5>Permisos para empresas</h5>
+      <div class="form-group">
+        <input type="checkbox" id="permisosEmpresas" [disabled]="!permisosEmpresasEditable" [(ngModel)]="permisosEmpresas">
+        <label for="permisosEmpresas">{{ permisosEmpresas ? 'Activado' : 'Desactivado' }}</label>
+        <button type="button" class="btn btn-secondary mt-1" (click)="togglePermisosEmpresasEditable()">Editar</button>
+      </div>
+    </div>
+    
+    
+
   </aside>
 
   <section class="profile-details">
@@ -44,7 +56,6 @@
               [disabled]="!perfilForm.get('telefono')?.enabled">
             <button type="button" class="btn btn-secondary mt-1" (click)="habilitarEdicion('telefono')">Editar</button>
           </div>
-          <!-- Añadir botones si es necesario -->
           <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>
       </div>

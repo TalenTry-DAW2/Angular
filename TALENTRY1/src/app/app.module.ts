@@ -26,6 +26,7 @@ import { ResultadosEntrevistaComponent } from './entrevista/resultados-entrevist
 import { PerfilComponent } from './perfil/perfil.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HistorialComponent } from './historial/historial.component';
 
 
 
@@ -49,6 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
     TestEntrevistaComponent,
     ResultadosEntrevistaComponent,
     PerfilComponent,
+    HistorialComponent,
   ],
   imports: [
     BrowserModule,
