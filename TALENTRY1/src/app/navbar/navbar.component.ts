@@ -9,12 +9,14 @@ import { TokenService } from '../servicios/token.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(public authService: AuthService, private router: Router, public tokenService: TokenService) {}
+  sesion: boolean;
+  constructor(public authService: AuthService, private router: Router, public tokenService: TokenService) { 
+    this.sesion = false; 
+  }
 
   ngOnInit(): void {
   }
-  logout(){
+  logout() {
     const confirmacion = window.confirm('¿Seguro que desea cerrar sesión?');
     if (confirmacion) {
       this.authService.Logout().subscribe(

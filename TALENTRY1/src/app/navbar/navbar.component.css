@@ -1,0 +1,5 @@
+.navbar>div{
+    display: felx;
+    flex-direction: row;
+    justify-content: space-between;
+}
