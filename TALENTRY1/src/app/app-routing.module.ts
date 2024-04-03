@@ -15,20 +15,18 @@ import { InfotestCategoriaComponent } from './entrevista/infotest-categoria/info
 import { TestEntrevistaComponent } from './entrevista/test-entrevista/test-entrevista.component';
 import { ResultadosEntrevistaComponent } from './entrevista/resultados-entrevista/resultados-entrevista.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { HistorialComponent } from './historial/historial.component'; 
+import { HistorialComponent } from './historial/historial.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'pagina-principal', component: PaginaPrincipalComponent },
   {
     path: '',
     redirectTo: '/pagina-principal',
     pathMatch: 'full'
   },
-
-
-  { path: 'pagina-principal', component: PaginaPrincipalComponent },
   { path: 'infotest/:categoryName', component: InfotestCategoriaComponent },
   {
     path: 'pagina-admin', component: PantallaAdminComponent,
@@ -42,13 +40,10 @@ const routes: Routes = [
   },
   { path: 'historial', component: HistorialComponent },
   { path: 'perfil', component: PerfilComponent },
-
   { path: 'pagina-empresa', component: PantallaEmpresaComponent },
   { path: 'categorias', component: EntrevistaCategoriasComponent },
-
   { path: 'test-entrevista/:length', component: TestEntrevistaComponent },
   { path: 'resultados-entrevista', component: ResultadosEntrevistaComponent },
-
   { path: 'error', component: ErrorComponent }, // Global error route
   { path: '**', redirectTo: 'error' }, // Capture all unmatched paths globally
 ];

@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sesion = this.authService.IsLogedIn();
   }
   logout() {
     const confirmacion = window.confirm('¿Seguro que desea cerrar sesión?');

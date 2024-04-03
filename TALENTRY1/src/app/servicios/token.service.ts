@@ -11,7 +11,6 @@ export class TokenService {
   private readonly TOKEN_KEY = 'auth_token';
 
   getToken(): string | null {
-    console.log(localStorage.getItem(this.TOKEN_KEY))
     return localStorage.getItem(this.TOKEN_KEY) || null;
   }
   getRole(): any {
@@ -26,8 +25,6 @@ export class TokenService {
 
   setToken(token: any): void {
     localStorage.setItem(this.TOKEN_KEY, token.access_token);
-    /*const tokenString = token.access_token.split('|')[1];
-    localStorage.setItem(this.TOKEN_KEY, tokenString);*/
   }
 
   removeToken(): boolean {
