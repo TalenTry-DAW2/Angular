@@ -9,21 +9,35 @@ import { TokenService } from '../servicios/token.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  sesion: boolean;
-  constructor(public authService: AuthService, private router: Router, public tokenService: TokenService) { 
-    this.sesion = false; 
+  sesion: boolean = false;
+  constructor(public authService: AuthService, private router: Router, public tokenService: TokenService) {
   }
 
   ngOnInit(): void {
-    this.sesion = this.authService.IsLogedIn();
+    this.IsLogedIn();
   }
+
+  IsLogedIn() {
+    this.authService.IsLogedIn().subscribe(
+      (data: any) => {
+        this.sesion = data.success;
+      },
+      (error) => {
+        throw new Error(error.status);
+      });
+  }
+
   logout() {
     const confirmacion = window.confirm('¿Seguro que desea cerrar sesión?');
     if (confirmacion) {
       this.authService.Logout().subscribe(
         (data: any) => {
-          console.log(data);
-          this.router.navigate(['/login']);
+          this.router.navigate(['/']);
+          if (data) {
+            setTimeout(() => {
+              window.location.reload();
+            }, 100);
+          }
         },
         (error) => {
           throw new Error(error.status);

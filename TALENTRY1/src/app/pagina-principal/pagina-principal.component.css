@@ -33,3 +33,44 @@ h2{
 .mt-5 {
     margin-bottom: 10%;
 }
+
+.fondo-iniciar-sesion{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(245, 245, 245, 0.4);
+}
+
+.panel-iniciar-sesion{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    width: 22vw;
+    height: 22vh;
+    background-color: white;
+    text-align: center;
+    border: 2px solid lightgray;
+    border-radius: 1em; 
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cerrar{
+    position: absolute;
+    top: 1em;
+    left:1em;
+    z-index: 500;
+    font-size: 15px;
+    height: 1em;
+    width: 1em;
+    margin-bottom:-1em;
+}
+
+.raton-select{
+    cursor: pointer;
+}

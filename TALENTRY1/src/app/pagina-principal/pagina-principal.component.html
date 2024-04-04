@@ -1,51 +1,63 @@
-
 <app-navbar></app-navbar>
 
 
-    <div class="hero-image"></div>
+<div class="hero-image"></div>
 
 
-        <section class="container container-mt-5">
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Prepárate para el éxito</h2>
+            <p>Domina tus habilidades de entrevista y consigue el trabajo de tus sueños. Con nuestra plataforma de
+                simulación de entrevistas, puedes practicar y mejorar tus respuestas, recibir retroalimentación valiosa
+                y sentirte seguro en cada entrevista.</p>
+            <p>No dejes que los nervios te detengan. Conviértete en el candidato destacado que las empresas buscan.</p>
+            <a class="btn btn-outline-info" routerLink="/categorias" *ngIf="sesion">Comenzar ahora</a>
+            <a class="btn btn-outline-info" *ngIf="!sesion" (click)="ToggleAvisoSesion()">Comenzar ahora</a>
+        </div>
+        <div class="col-md-6">
+            <img src="assets/imagenrandom.jpg" alt="Simulación de Entrevistas" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>¿Quiénes somos?</h2>
             <div class="row">
-                <div class="col-md-6">
-                    <h2>Prepárate para el éxito</h2>
-                    <p>Domina tus habilidades de entrevista y consigue el trabajo de tus sueños. Con nuestra plataforma de simulación de entrevistas, puedes practicar y mejorar tus respuestas, recibir retroalimentación valiosa y sentirte seguro en cada entrevista.</p>
-                    <p>No dejes que los nervios te detengan. Conviértete en el candidato destacado que las empresas buscan.</p>
-                    <a href="/categorias" class="btn btn-outline-info">Comenzar ahora</a>
-                    <a class="btn btn-outline-info">Comenzar ahora</a>
+                <div class="col-md-3">
+                    <img src="assets/albert.jpg" alt="Albert" class="img-fluid rounded-circle mb-3">
+                    <h4>Albert</h4>
+                    <p>Experto en UX/UI, se encarga de diseñar una experiencia de usuario intuitiva y atractiva.</p>
                 </div>
-                <div class="col-md-6">
-                    <img src="assets/imagenrandom.jpg" alt="Simulación de Entrevistas" class="img-fluid">
+                <div class="col-md-3">
+                    <img src="assets/piero.jpg" alt="Piero" class="img-fluid rounded-circle mb-3">
+                    <h4>Piero</h4>
+                    <p>Desarrollador frontend, crea interfaces web eficientes y modernas para nuestra plataforma.</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="assets/alex.jpg" alt="Alex" class="img-fluid rounded-circle mb-3">
+                    <h4>Alex</h4>
+                    <p>Experto en bases de datos, garantiza que nuestra plataforma sea segura y escalable.</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="assets/isaac.jpg" alt="Isaac" class="img-fluid rounded-circle mb-3">
+                    <h4>Isaac</h4>
+                    <p>Líder del equipo, coordina el desarrollo y asegura la calidad del producto final.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section class="container mt-5">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2>¿Quiénes somos?</h2>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="assets/albert.jpg" alt="Albert" class="img-fluid rounded-circle mb-3">
-                            <h4>Albert</h4>
-                            <p>Experto en UX/UI, se encarga de diseñar una experiencia de usuario intuitiva y atractiva.</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="assets/piero.jpg" alt="Piero" class="img-fluid rounded-circle mb-3">
-                            <h4>Piero</h4>
-                            <p>Desarrollador frontend, crea interfaces web eficientes y modernas para nuestra plataforma.</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="assets/alex.jpg" alt="Alex" class="img-fluid rounded-circle mb-3">
-                            <h4>Alex</h4>
-                            <p>Experto en bases de datos, garantiza que nuestra plataforma sea segura y escalable.</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="assets/isaac.jpg" alt="Isaac" class="img-fluid rounded-circle mb-3">
-                            <h4>Isaac</h4>
-                            <p>Líder del equipo, coordina el desarrollo y asegura la calidad del producto final.</p>
-                        </div>
-                    </div>
-                </div>
+<section class="fondo-iniciar-sesion" *ngIf="AvisoSesion">
+        <div class="panel-iniciar-sesion">
+            <p class="cerrar raton-select" (click)="ToggleAvisoSesion()">X</p>
+            <div>
+            <p>Necesitas inicias sesion para hacer eso!</p>
+            <p><a routerLink="/login">Iniciar sesión</a></p>
             </div>
-        </section>
+            <p>No tienes cuenta? <a routerLink="/registro">Crear cuenta gratis</a>.</p>
+        </div>
+</section>
