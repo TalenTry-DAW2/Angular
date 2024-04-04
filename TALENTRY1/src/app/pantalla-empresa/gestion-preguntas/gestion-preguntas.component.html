@@ -1,0 +1,19 @@
+<form [formGroup]="preguntaForm">
+    <div formArrayName="preguntas">
+      <div *ngFor="let pregunta of getPreguntasControls(); let i = index" [formGroupName]="i">
+        <label>
+          Pregunta {{ i + 1 }}:
+          <input formControlName="enunciado" placeholder="Ingrese la pregunta">
+        </label>
+        <button type="button" (click)="agregarRespuesta(preguntaForm)">Agregar Respuesta</button>
+        <div formArrayName="respuestas" *ngIf="pregunta.get('respuestas') instanceof FormArray">
+          <div *ngFor="let respuesta of getPreguntaRespuestasControls(preguntaForm); let j = index">
+            <input [formControlName]="j" placeholder="Respuesta">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <button type="button" (click)="agregarPregunta()">Agregar Pregunta</button>
+  

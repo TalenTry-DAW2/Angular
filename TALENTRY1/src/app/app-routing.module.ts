@@ -16,6 +16,7 @@ import { TestEntrevistaComponent } from './entrevista/test-entrevista/test-entre
 import { ResultadosEntrevistaComponent } from './entrevista/resultados-entrevista/resultados-entrevista.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HistorialComponent } from './historial/historial.component';
+import { GestionPreguntasComponent } from './pantalla-empresa/gestion-preguntas/gestion-preguntas.component';
 
 
 const routes: Routes = [
@@ -40,7 +41,11 @@ const routes: Routes = [
   },
   { path: 'historial', component: HistorialComponent },
   { path: 'perfil', component: PerfilComponent },
-  { path: 'pagina-empresa', component: PantallaEmpresaComponent },
+  { path: 'pagina-empresa', component: PantallaEmpresaComponent, 
+    children: [
+      { path: 'gestion-preguntas', component: GestionPreguntasComponent},
+    ]
+  },
   { path: 'categorias', component: EntrevistaCategoriasComponent },
   { path: 'test-entrevista/:length', component: TestEntrevistaComponent },
   { path: 'resultados-entrevista', component: ResultadosEntrevistaComponent },

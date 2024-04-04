@@ -27,6 +27,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HistorialComponent } from './historial/historial.component';
+import { GestionPreguntasComponent } from './pantalla-empresa/gestion-preguntas/gestion-preguntas.component';
 
 
 
@@ -51,6 +52,7 @@ import { HistorialComponent } from './historial/historial.component';
     ResultadosEntrevistaComponent,
     PerfilComponent,
     HistorialComponent,
+    GestionPreguntasComponent,
   ],
   imports: [
     BrowserModule,
