@@ -1,9 +1,9 @@
 <div class="quiz-container mt-4">
   <div *ngFor="let item of preguntasYRespuestas">
-    <h3>{{ item.pregunta.texto }}</h3>
+    <h3>{{ item.pregunta.question }}</h3>
     <ul>
       <li *ngFor="let respuesta of item.respuestas">
-        {{ respuesta.texto }}
+        {{ respuesta.answer }}
       </li>
     </ul>
   </div>

@@ -23,6 +23,17 @@ export class EntrevistaService {
 }
 
 obtenerPreguntasYRespuestas(categoriaId: number, cantidad: number): Observable<any> {
-  return this.http.get<any>("http://127.0.0.1:8000/api/question/getFromCategory?id=${categoriaId}&cantidad=${cantidad}");
+    // token de sesion
+    const authToken = this.tokenService.getToken();
+    // header con el token
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${authToken}`,
+      });
+
+      let params = new HttpParams()
+      .set('id', categoriaId.toString())
+      .set('cantidad', cantidad.toString());
+
+  return this.http.get<any>("http://127.0.0.1:8000/api/question/getFromCategory", {params: params, headers });
 }
 }
