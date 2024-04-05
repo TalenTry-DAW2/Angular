@@ -21,4 +21,8 @@ export class EntrevistaService {
     //peticion con headers de actualizacion
     return this.http.get("http://127.0.0.1:8000/api/category", { headers });
 }
+
+obtenerPreguntasYRespuestas(categoriaId: number, cantidad: number): Observable<any> {
+  return this.http.get<any>("http://127.0.0.1:8000/api/question/getFromCategory?id=${categoriaId}&cantidad=${cantidad}");
+}
 }
