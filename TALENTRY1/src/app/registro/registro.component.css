@@ -62,7 +62,7 @@
 }
 
 .btn-register {
-    width: 100%;
+    width: 70%;
     padding: 12px;
     border-radius: 5px;
     border: none;
@@ -83,4 +83,8 @@ footer {
     padding: 10px;
     margin-top: auto;
     color: #ffffff;
+}
+
+.login-link {
+    margin-top: 2%;
 }
