@@ -12,7 +12,7 @@ export class TestEntrevistaComponent implements OnInit {
   constructor(private entrevistaService: EntrevistaService) { }
 
   ngOnInit(): void {
-    const categoriaId = 1; 
+    const categoriaId = 10; 
     const cantidadPreguntas = 1; 
 
     this.entrevistaService.obtenerPreguntasYRespuestas(categoriaId, cantidadPreguntas)
