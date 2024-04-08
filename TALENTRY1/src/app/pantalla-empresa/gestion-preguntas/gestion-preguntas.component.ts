@@ -8,37 +8,27 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 })
 export class GestionPreguntasComponent {
 
-  preguntaForm: FormGroup;
+  questionForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.preguntaForm = this.formBuilder.group({
-      preguntas: this.formBuilder.array([])
+    this.questionForm = this.formBuilder.group({
+      question: ['', Validators.required],
+      answers: this.formBuilder.array([])
     });
   }
 
-  get preguntas(): FormArray {
-    return this.preguntaForm.get('preguntas') as FormArray;
+  get answers() {
+    return this.questionForm.get('answers') as FormArray;
   }
 
-  getPreguntasControls() {
-    return this.preguntas instanceof FormArray ? this.preguntas.controls : [];
-  }
-  
-  getPreguntaRespuestasControls(pregunta: FormGroup) {
-    const respuestas = pregunta.get('respuestas');
-    return respuestas instanceof FormArray ? respuestas.controls : [];
+  addAnswer() {
+    this.answers.push(this.formBuilder.control(''));
   }
 
-  agregarPregunta() {
-    const pregunta = this.formBuilder.group({
-      enunciado: ['', Validators.required],
-      respuestas: this.formBuilder.array([])
-    });
-    this.preguntas.push(pregunta);
-  }
-
-  agregarRespuesta(pregunta: FormGroup) {
-    const respuestas = pregunta.get('respuestas') as FormArray;
-    respuestas.push(this.formBuilder.control(''));
+  submitForm() {
+    if (this.questionForm.valid) {
+      console.log(this.questionForm.value);
+      // Aquí puedes enviar los datos del formulario a tu backend o hacer lo que necesites
+    }
   }
 }
