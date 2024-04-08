@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from "../../models/User";
+import { UserService } from '../servicios/user.service';
 
 @Component({
   selector: 'app-perfil',
@@ -8,31 +10,44 @@ import { Router } from '@angular/router';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  
-  constructor(private router: Router) { } // Inyecta el Router aquí
-
-  permisosEmpresas: boolean = false; 
+  permisosEmpresas: boolean = false;
   permisosEmpresasEditable: boolean = false;
+  perfilForm: FormGroup = new FormGroup({
+    nombre: new FormControl('', [Validators.required]),
+    dni: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    telefono: new FormControl('', [Validators.required]),
+  });
+  usuario: User | undefined;
+  constructor(private router: Router, private userService: UserService) {
 
-  perfilForm!: FormGroup;
-
-  usuario = {
-    nombre: 'Juan Pérez',
-    dni: '12345678X',
-    email: 'juan.perez@example.com',
-    contrasena: 'contraseñaSuperSecreta',
-    telefono: '600123456'
-  };
-
+  }
   ngOnInit(): void {
+    this.userService.getUser().subscribe(
+      (data: any) => {
+        this.usuario = {
+          DNI: data[0].DNI,
+          UserID: data[0].UserID,
+          name: data[0].name,
+          email: data[0].email,
+          phone: data[0].phone
+        };
+        this.initializeForm();
+      },
+      (error: string | undefined) => {
+        throw new Error(error);
+      });
+  }
+
+  initializeForm(): void {
     this.perfilForm = new FormGroup({
-      nombre: new FormControl({value: this.usuario.nombre, disabled: true}),
-      dni: new FormControl({value: this.usuario.dni, disabled: true}),
-      email: new FormControl({value: this.usuario.email, disabled: true}),
-      contrasena: new FormControl({value: this.usuario.contrasena, disabled: true}),
-      telefono: new FormControl({value: this.usuario.telefono, disabled: true}),
+      nombre: new FormControl({ value: this.usuario?.name, disabled: true }),
+      dni: new FormControl({ value: this.usuario?.DNI, disabled: true }),
+      email: new FormControl({ value: this.usuario?.email, disabled: true }),
+      telefono: new FormControl({ value: this.usuario?.phone, disabled: true }),
     });
   }
+
   habilitarEdicion(campo: string): void {
     const control = this.perfilForm.get(campo);
     if (control) {
