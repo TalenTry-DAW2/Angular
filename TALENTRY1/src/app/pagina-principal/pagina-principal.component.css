@@ -74,3 +74,13 @@ h2{
 .raton-select{
     cursor: pointer;
 }
+
+.img-fit-cover {
+    width: 100%;  /* Adjust the width as needed */
+    height: 100%; /* Adjust the height as needed */
+    object-fit: cover;
+  }
+
+  .margin-bottom-extra {
+    margin-bottom: 50px; /* Ajusta este valor según la cantidad de espacio que desees agregar */
+  }
