@@ -12,10 +12,10 @@
     <div class="profile-permissions">
       <h5>Permisos para empresas</h5>
       <div class="form-group">
-        <input type="checkbox" id="permisosEmpresas" [disabled]="!permisosEmpresasEditable"
-          [(ngModel)]="permisosEmpresas">
+        <input type="checkbox" id="permisosEmpresas" [(ngModel)]="permisosEmpresas">
         <label for="permisosEmpresas">{{ permisosEmpresas ? 'Activado' : 'Desactivado' }}</label>
-        <button type="button" class="btn btn-secondary mt-1" (click)="togglePermisosEmpresasEditable()">Editar</button>
+        <button type="button" class="btn btn-secondary mt-1" (click)="togglePermisosEmpresasEditable()">Guardar
+          cambios</button>
       </div>
     </div>
   </aside>
@@ -23,7 +23,7 @@
   <section class="profile-details">
     <div class="profile-card card">
       <div class="card-body">
-        <form [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="perfilForm" (ngSubmit)="EditarUsuario()">
           <div class="form-group">
             <label>Nombre</label>
             <input type="text" formControlName="nombre" class="form-control">
@@ -35,12 +35,14 @@
           <div class="form-group">
             <label>Email</label>
             <input type="email" formControlName="email" class="form-control">
-            <button type="button" class="btn btn-secondary mt-1" (click)="habilitarEdicion('email')">Editar</button>
+            <button type="button" class="btn btn-secondary mt-1" (click)="habilitarEdicion('email')">{{
+              perfilForm.get('email')?.enabled ? 'Cancelar' : 'Editar' }}</button>
           </div>
           <div class="form-group">
             <label>Teléfono</label>
             <input type="tel" formControlName="telefono" class="form-control">
-            <button type="button" class="btn btn-secondary mt-1" (click)="habilitarEdicion('telefono')">Editar</button>
+            <button type="button" class="btn btn-secondary mt-1" (click)="habilitarEdicion('telefono')">{{
+              perfilForm.get('telefono')?.enabled ? 'Cancelar' : 'Editar' }}</button>
           </div>
           <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>

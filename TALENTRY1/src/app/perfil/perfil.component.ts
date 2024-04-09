@@ -13,10 +13,10 @@ export class PerfilComponent implements OnInit {
   permisosEmpresas: boolean = false;
   permisosEmpresasEditable: boolean = false;
   perfilForm: FormGroup = new FormGroup({
-    nombre: new FormControl('', [Validators.required]),
-    dni: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required]),
-    telefono: new FormControl('', [Validators.required]),
+    nombre: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    dni: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    email: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    telefono: new FormControl('', [Validators.required, Validators.maxLength(10)]),
   });
   usuario: User | undefined;
   constructor(private router: Router, private userService: UserService) {
@@ -32,6 +32,7 @@ export class PerfilComponent implements OnInit {
           email: data[0].email,
           phone: data[0].phone
         };
+        this.permisosEmpresas= data[0].visibility;
         this.initializeForm();
       },
       (error: string | undefined) => {
@@ -51,14 +52,10 @@ export class PerfilComponent implements OnInit {
   habilitarEdicion(campo: string): void {
     const control = this.perfilForm.get(campo);
     if (control) {
-      control.enable();
-    }
-  }
-
-  deshabilitarCampos(): void {
-    for (const controlName in this.perfilForm.controls) {
-      if (this.perfilForm.controls.hasOwnProperty(controlName)) {
-        this.perfilForm.controls[controlName].disable();
+      if (control.enabled) {
+        control.disable();
+      } else {
+        control.enable();
       }
     }
   }
@@ -68,27 +65,43 @@ export class PerfilComponent implements OnInit {
   }
 
   togglePermisosEmpresasEditable(): void {
-    this.permisosEmpresasEditable = !this.permisosEmpresasEditable;
+    this.userService.EditarPrivacidad().subscribe(
+      (data: any) => {
+        if (data) {
+          setTimeout(() => {
+            window.location.reload();
+          }, 100);
+        }
+      },
+      (error:any ) => {
+        console.error('Error al actualizar el usuario', error);
+      }
+    );
   }
 
-
-  /*cargarDatosUsuario() {
-    // Aquí normalmente se llamaría a un servicio para obtener los datos del usuario
-    this.perfilForm.patchValue({
-      nombre: this.usuario.nombre,
-      dni: this.usuario.dni,
-      email: this.usuario.email,
-      // No se recomienda cargar contraseñas en formularios
-      telefono: this.usuario.telefono
-    });
-  }*/
-
   // Implementa una función para manejar la actualización de los datos
-  onSubmit(): void {
+  EditarUsuario(): void {
     if (this.perfilForm.valid) {
-      console.log('Datos del formulario:', this.perfilForm.value);
-      // Aquí iría la lógica para actualizar los datos del usuario
+      this.userService.EditarUsuario(this.perfilForm.value).subscribe(
+        (data) => {
+          if (data) {
+            setTimeout(() => {
+              window.location.reload();
+            }, 100);
+          }
+        },
+        (error) => {
+          console.error('Error al actualizar el usuario', error);
+        }
+      );
       this.deshabilitarCampos();
+    }
+  }
+  deshabilitarCampos(): void {
+    for (const controlName in this.perfilForm.controls) {
+      if (this.perfilForm.controls.hasOwnProperty(controlName)) {
+        this.perfilForm.controls[controlName].disable();
+      }
     }
   }
 }
