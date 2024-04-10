@@ -28,6 +28,16 @@ const routes: Routes = [
     redirectTo: '/pagina-principal',
     pathMatch: 'full'
   },
+  { path: 'historial', component: HistorialComponent },
+  { path: 'perfil', component: PerfilComponent },
+  { path: 'pagina-empresa', component: PantallaEmpresaComponent, 
+    children: [
+      { path: 'gestion-preguntas', component: GestionPreguntasComponent},
+    ]
+  },
+  { path: 'categorias', component: EntrevistaCategoriasComponent },
+  { path: 'test-entrevista/:length', component: TestEntrevistaComponent },
+  { path: 'resultados-entrevista', component: ResultadosEntrevistaComponent },
   { path: 'infotest/:categoryName', component: InfotestCategoriaComponent },
   {
     path: 'pagina-admin', component: PantallaAdminComponent,
@@ -39,16 +49,6 @@ const routes: Routes = [
       // Añade aquí más rutas hijas según sea necesario
     ]
   },
-  { path: 'historial', component: HistorialComponent },
-  { path: 'perfil', component: PerfilComponent },
-  { path: 'pagina-empresa', component: PantallaEmpresaComponent, 
-    children: [
-      { path: 'gestion-preguntas', component: GestionPreguntasComponent},
-    ]
-  },
-  { path: 'categorias', component: EntrevistaCategoriasComponent },
-  { path: 'test-entrevista/:length', component: TestEntrevistaComponent },
-  { path: 'resultados-entrevista', component: ResultadosEntrevistaComponent },
   { path: 'error', component: ErrorComponent }, // Global error route
   { path: '**', redirectTo: 'error' }, // Capture all unmatched paths globally
 ];

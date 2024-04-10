@@ -1,75 +1,94 @@
 .historial-container {
-    display: flex;
-    border: 1px solid #ccc;
-    margin: 10px;
-    background: #fff;
-  }
-  
-  .entrevistas-lista,
-  .detalles-container {
-    width: 50%;
-    padding: 20px;
-  }
-  
-  .entrevista-item {
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-  }
-  
-  .entrevista-item:last-child {
-    margin-bottom: 0;
-  }
-  
-  .entrevista-detalle p {
-    margin: 0 0 10px 0;
-    padding: 0;
-  }
-  
-  button {
-    background-color: #e0e0e0;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-  button:hover {
-    background-color: #d0d0d0;
-  }
-  
-  .preguntas-respuestas {
-    display: none;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-  
-  .entrevista-item.expanded + .preguntas-respuestas {
-    display: flex;
-  }
-  
-  .pregunta-respuesta {
-    border-bottom: 1px solid #ccc;
-    padding: 10px;
-  }
-  
-  .pregunta-respuesta:last-child {
-    border-bottom: none;
-  }
-  
-  .pregunta {
-    font-weight: bold;
-  }
-  
-  .respuesta {
-    color: #555;
-  }
-  
-  /* Estilos para cuando una entrevista está expandida */
-  .entrevista-info {
-    display: flex;
-    flex-direction: column;
-  }
-  
+  display: flex;
+  border: 1px solid #ccc;
+  margin: 10px;
+  background: #fff;
+  min-height: 50vh;
+}
+
+.entrevistas-lista,
+.detalles-container {
+  width: 50%;
+  padding: 20px;
+}
+
+.entrevista-item {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.entrevista-item:last-child {
+  margin-bottom: 0;
+}
+
+p {
+  margin: 10px;
+}
+
+.entrevista-vacia {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.entrevista-vacia>p {
+  position: relative;
+  left: 50vw;
+  transform: translate(-50%);
+}
+
+button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #d0d0d0;
+}
+
+.preguntas-respuestas {
+  display: none;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.entrevista-item.expanded+.preguntas-respuestas {
+  display: flex;
+}
+
+.pregunta-respuesta {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.pregunta-respuesta:last-child {
+  border-bottom: none;
+}
+
+.pregunta {
+  font-weight: bold;
+}
+
+.respuesta {
+  color: #555;
+}
+
+/* Estilos para cuando una entrevista está expandida */
+.entrevista-info {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.vovler{
+  position: relative;
+  top: 1em;
+  left: 1em;
+  margin-bottom: 2em;
+}

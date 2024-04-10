@@ -1,24 +1,30 @@
 <app-navbar></app-navbar>
-
+<div class="vovler">
+  <a href="/perfil">Volver</a>
+</div>
 <div class="historial-container">
-  <div class="entrevistas-lista">
-    <div class="entrevista-item">
+  <div class="entrevistas-lista" *ngIf="entrevistas.length>1">
+    <div class="entrevista-item" *ngFor="let entrevista of entrevistas">
       <div class="entrevista-detalle">
-        <p>entrevista.titulo</p>
-        <p>entrevista.hora</p>
-        <button>detalles</button>
+        <p>{{ entrevista.CategoryName }}</p>
+        <p>{{ entrevista.FinishDate }}</p>
       </div>
     </div>
   </div>
 
-  <div class="detalles-container">
-    <div  class="pregunta-respuesta">
+  <div class="detalles-container" *ngIf="entrevistas.length>1">
+    <div class="pregunta-respuesta">
       <div class="pregunta">
         <p> pregunta.texto </p>
       </div>
       <div class="respuesta">
         <p></p>
       </div>
+    </div>
+  </div>
+  <div *ngIf="1>entrevistas.length">
+    <div class="entrevista-vacia">
+      <p>Aun no has hecho ninguna entrevita! <a href="/categorias">Empezar ahora</a> </p>
     </div>
   </div>
 </div>

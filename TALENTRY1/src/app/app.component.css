@@ -3,4 +3,11 @@ footer {
     text-align: center;
     padding: 10px 0;
     color: #ffffff;
+    width: 100vw;
+    align-self: flex-end;   
+}
+div{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
