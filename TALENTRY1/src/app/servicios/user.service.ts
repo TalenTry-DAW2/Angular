@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Answer } from 'src/models/Answer';
+import { QA } from 'src/models/QA';
 import { Record } from 'src/models/Record';
 import { TokenService } from './token.service';
 
@@ -23,7 +25,6 @@ export class UserService {
   }
 
   EditarUsuario(formulario: any) {
-    console.log(formulario.email);
     var email = formulario?.email;
     var phone = formulario?.telefono;
     var password = formulario?.password;
@@ -37,7 +38,9 @@ export class UserService {
     }
     if (password !== null && password !== undefined) {
       params = params.set('password', String(password));
+      
     }
+    console.log (params.get(password))
     // token de sesion
     const authToken = this.tokenService.getToken();
     // header con el token
@@ -65,5 +68,15 @@ export class UserService {
       Authorization: `Bearer ${authToken}`,
     });
     return this.http.get<Record[][]>("http://127.0.0.1:8000/api/record", { headers });
+  }
+
+  CargarRespuestas(id:number): Observable<QA[][]> {
+    // token de sesion
+    const authToken = this.tokenService.getToken();
+    // header con el token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
+    return this.http.get<QA[][]>(`http://127.0.0.1:8000/api/QA/${id}`, { headers });
   }
 }

@@ -5,7 +5,7 @@
 <div class="historial-container">
   <div class="entrevistas-lista" *ngIf="entrevistas.length>1">
     <div class="entrevista-item" *ngFor="let entrevista of entrevistas">
-      <div class="entrevista-detalle">
+      <div class="entrevista-detalle" (click)="CargarRespuestas(entrevista.RecordID)">
         <p>{{ entrevista.CategoryName }}</p>
         <p>{{ entrevista.FinishDate }}</p>
       </div>
@@ -13,15 +13,16 @@
   </div>
 
   <div class="detalles-container" *ngIf="entrevistas.length>1">
-    <div class="pregunta-respuesta">
+    <div class="pregunta-respuesta" *ngFor="let respuesta of respuestas">
       <div class="pregunta">
-        <p> pregunta.texto </p>
+        <p> respuesta </p>
       </div>
       <div class="respuesta">
         <p></p>
       </div>
     </div>
   </div>
+
   <div *ngIf="1>entrevistas.length">
     <div class="entrevista-vacia">
       <p>Aun no has hecho ninguna entrevita! <a href="/categorias">Empezar ahora</a> </p>

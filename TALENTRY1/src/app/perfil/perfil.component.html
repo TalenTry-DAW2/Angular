@@ -6,7 +6,7 @@
   <aside class="profile-sidebar">
     <div class="profile-picture">
       <img src="assets//perfil.png" alt="Imagen de perfil" class="img-fluid rounded-circle">
-      <button class="btn btn-primary mt-2">Cambiar Imagen</button>
+      <button class="btn btn-primary mt-2" (click)="toggleImagen()">Cambiar Imagen</button>
     </div>
     <div class="profile-history">
       <button class="btn btn-link" (click)="navegarAlHistorial()">Historial</button>
@@ -15,27 +15,29 @@
     <div class="profile-permissions">
       <h5>Permisos para empresas</h5>
       <div class="form-group">
-        <input type="checkbox" id="permisosEmpresas" [(ngModel)]="permisosEmpresas">
-        <label for="permisosEmpresas">{{ permisosEmpresas ? 'Activado' : 'Desactivado' }}</label>
-        <button type="button" class="btn btn-secondary mt-1" (click)="togglePermisosEmpresasEditable()">Guardar
-          cambios</button>
+        <label>Estadisticas anonimas</label>
+        <div class="toggle" [class.active]="permisosEmpresas" (click)="togglePermisosEmpresasEditable()">
+          <div class="ball"></div>
+        </div>
       </div>
     </div>
-    <button type="button" class="btn btn-secondary mt-1">Cambiar
+    <button type="button" class="btn btn-secondary mt-1"(click)="toggleContrasena()">Cambiar
       contraseña</button>
   </aside>
 
   <section class="profile-details">
     <div class="profile-card card">
       <div class="card-body">
-        <form [formGroup]="perfilForm" (ngSubmit)="EditarUsuario()">
+        <form [formGroup]="perfilForm" (ngSubmit)="EditarUsuario()" class="form-perfil">
           <div class="form-group">
             <label>Nombre</label>
             <input type="text" formControlName="nombre" class="form-control">
           </div>
           <div class="form-group">
             <label>DNI</label>
-            <input type="text" formControlName="dni" class="form-control">
+            <input [type]="inputType" formControlName="dni" class="form-control">
+            <button type="button" class="btn btn-secondary mt-1" (click)="mostrarOculto('dni')">{{
+              inputType=="text" ? 'Ocultar' : 'Mostrar' }}</button>
           </div>
           <div class="form-group">
             <label>Email</label>
@@ -52,6 +54,25 @@
           <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>
       </div>
+    </div>
+  </section>
+  <section class="fondo-cambiar-contrasena" *ngIf="ToggleContrasena">
+    <div class="panel-cambiar-contrasena">
+      <form [formGroup]="passwordForm" class="form-contrasena" (ngSubmit)="cambiarContrasena()">
+        <input type="password" formControlName="password" placeholder="Introduzca la nueva contraseña">
+        <input type="password" formControlName="passwordRepeat" placeholder="Repita la contraseña">
+        <button>Cambiar contraseña</button>
+      </form>
+      <button (click)="toggleContrasena()">Cancelar</button>
+    </div>
+  </section>
+  <section class="fondo-cambiar-contrasena" *ngIf="ToggleURLImagen">
+    <div class="panel-cambiar-contrasena">
+      <form class="form-contrasena" (ngSubmit)="cambiarImagenPerfil()">
+        <input type="url" [(ngModel)]="URLImagen">
+        <button>Cambiar imagen de perfil</button>
+      </form>
+      <button (click)="toggleImagen()">Cancelar</button>
     </div>
   </section>
 </div>

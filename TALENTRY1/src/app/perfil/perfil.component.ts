@@ -18,7 +18,15 @@ export class PerfilComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     telefono: new FormControl('', [Validators.required, Validators.maxLength(10)]),
   });
+  passwordForm: FormGroup = new FormGroup({
+    password: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(4)]),
+    passwordRepeat: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(4)]),
+  });
   usuario: User | undefined;
+  ToggleContrasena: boolean = false;
+  ToggleURLImagen: boolean = false;
+  URLImagen: string = "";
+  inputType: string = "password";
   constructor(private router: Router, private userService: UserService) {
 
   }
@@ -32,7 +40,7 @@ export class PerfilComponent implements OnInit {
           email: data[0].email,
           phone: data[0].phone
         };
-        this.permisosEmpresas= data[0].visibility;
+        this.permisosEmpresas = data[0].visibility;
         this.initializeForm();
       },
       (error: string | undefined) => {
@@ -47,6 +55,10 @@ export class PerfilComponent implements OnInit {
       email: new FormControl({ value: this.usuario?.email, disabled: true }),
       telefono: new FormControl({ value: this.usuario?.phone, disabled: true }),
     });
+  }
+
+  mostrarOculto(dni: string):void{
+    this.inputType = (this.inputType === 'text') ? 'password' : 'text';
   }
 
   habilitarEdicion(campo: string): void {
@@ -77,7 +89,7 @@ export class PerfilComponent implements OnInit {
           }, 100);
         }
       },
-      (error:any ) => {
+      (error: any) => {
         console.error('Error al actualizar el usuario', error);
       }
     );
@@ -101,11 +113,45 @@ export class PerfilComponent implements OnInit {
       this.deshabilitarCampos();
     }
   }
+
   deshabilitarCampos(): void {
     for (const controlName in this.perfilForm.controls) {
       if (this.perfilForm.controls.hasOwnProperty(controlName)) {
         this.perfilForm.controls[controlName].disable();
       }
     }
+  }
+
+  toggleContrasena() {
+    this.ToggleContrasena = !this.ToggleContrasena;
+  }
+
+  toggleImagen() {
+    this.ToggleURLImagen = !this.ToggleURLImagen;
+  }
+
+  cambiarContrasena() {
+    if (this.passwordForm.valid) {
+      if (this.passwordForm.value.password !== this.passwordForm.value.passwordRepeat) {
+        this.passwordForm.get('passwordRepeat')?.setErrors({ passwordMismatch: true });
+        return;
+      }
+
+      this.userService.EditarUsuario(this.passwordForm.value).subscribe(
+        (data) => {
+          if (data) {
+            setTimeout(() => {
+              window.location.reload();
+            }, 100);
+          }
+        },
+        (error) => {
+          console.error('Error al actualizar el usuario', error);
+        }
+      );
+    }
+  }
+
+  cambiarImagenPerfil() {
   }
 }

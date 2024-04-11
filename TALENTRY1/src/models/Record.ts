@@ -1,5 +1,5 @@
 export interface Record {
-    RecordID?: number;
+    RecordID: number;
     CategoryName: string;
     UserID: number;
     score: number;

@@ -24,11 +24,25 @@ export class HistorialComponent implements OnInit {
     this.userService.CargarEntrevistas().subscribe(
       (data: Record[][]) => {
         this.entrevistas = data[0];
-        console.log(this.entrevistas)
       },
       (error) => {
 
       }
     );
   }
+
+
+  CargarRespuestas(id:number) {
+    console.log(id)
+    this.userService.CargarRespuestas(id).subscribe(
+      (data: QA[][]) => {
+        this.respuestas = data[0];
+        console.log(this.respuestas)
+      },
+      (error) => {
+
+      }
+    );
+  }
+  
 }
