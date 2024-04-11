@@ -19,10 +19,23 @@
 
 
 .hero-image {
-    background-image: url('src/assets/portatil.jpg'); 
+    background-image: url('src/assets/portatil.jpg');
+    background-attachment: fixed;
     background-size: cover;
+    min-height: 50vh;
     background-position: center;
-    height: 500px;
+    padding: 50px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+}
+
+.hero-image h1 {
+    color: white; /* Cambia el color del texto si es necesario para mejorar la visibilidad */
+    font-size: 4em; /* Ajusta el tamaño del texto según necesites */
 }
 
 h2{
@@ -84,3 +97,22 @@ h2{
   .margin-bottom-extra {
     margin-bottom: 50px; /* Ajusta este valor según la cantidad de espacio que desees agregar */
   }
+
+
+  .img-fluid {
+    border-radius: 10px; /* Ajusta el radio del borde según tus preferencias */
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.253); /* Ajusta los valores para cambiar el tamaño y la opacidad de la sombra */
+}
+
+
+.custom-center {
+    width: 90%; /* El ancho del contenedor será el 90% de la pantalla */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 0; /* Elimina el padding predeterminado si es necesario */
+}
+
+.img-anuncio {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor de anuncios */
+    height: auto; /* Altura automática para mantener la proporción de la imagen */
+    max-height: 20vh; /* Controla la altura máxima si es necesario */
+}
