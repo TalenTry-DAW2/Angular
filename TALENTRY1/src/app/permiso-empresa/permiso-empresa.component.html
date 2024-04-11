@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="vovler">
+  <a href="/perfil">Volver</a>
+</div>
+<h2>Empresas:</h2>
+<div class="historial-container">
+  <div class="entrevistas-lista" *ngIf="empresas.length>1">
+    <div class="entrevista-item" *ngFor="let empresa of empresas">
+      <div class="entrevista-detalle">
+        <p>{{ empresa.name }}</p>
+        <p>{{ empresa.address }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="detalles-container" *ngIf="empresas.length>1">
+    <div class="pregunta-respuesta">
+      <div class="pregunta">
+        <p> pregunta.texto </p>
+      </div>
+      <div class="respuesta">
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="1>empresas.length">
+    <div class="entrevista-vacia">
+      <p>Aun no has hecho ninguna entrevita! <a href="/categorias">Empezar ahora</a> </p>
+    </div>
+  </div>
+</div>

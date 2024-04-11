@@ -64,6 +64,10 @@ export class PerfilComponent implements OnInit {
     this.router.navigate(['/historial']);
   }
 
+  navegarAPermisoEmpresa(): void {
+    this.router.navigate(['/permiso-empresa']);
+  }
+
   togglePermisosEmpresasEditable(): void {
     this.userService.EditarPrivacidad().subscribe(
       (data: any) => {

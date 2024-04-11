@@ -28,6 +28,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HistorialComponent } from './historial/historial.component';
 import { GestionPreguntasComponent } from './pantalla-empresa/gestion-preguntas/gestion-preguntas.component';
+import { PermisoEmpresaComponent } from './permiso-empresa/permiso-empresa.component';
 
 
 
@@ -53,6 +54,7 @@ import { GestionPreguntasComponent } from './pantalla-empresa/gestion-preguntas/
     PerfilComponent,
     HistorialComponent,
     GestionPreguntasComponent,
+    PermisoEmpresaComponent,
   ],
   imports: [
     BrowserModule,
