@@ -79,4 +79,21 @@ export class UserService {
     });
     return this.http.get<QA[][]>(`http://127.0.0.1:8000/api/QA/${id}`, { headers });
   }
+
+
+  confirmarPermiso(companyID: number, expiredDate: String): Observable<any> {
+    const authToken = this.tokenService.getToken(); 
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`
+    });
+
+    const requestData = {
+      CompanyID: companyID,
+      ExpiredDate: expiredDate
+    };
+
+    return this.http.post<any>('http://127.0.0.1:8000/api/share/store', requestData, { headers });
+  }
 }
+
+

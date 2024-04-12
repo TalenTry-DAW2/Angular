@@ -4,28 +4,24 @@
 </div>
 <h2>Empresas:</h2>
 <div class="historial-container">
-  <div class="entrevistas-lista" *ngIf="empresas.length>1">
-    <div class="entrevista-item" *ngFor="let empresa of empresas">
+  <div class="entrevistas-lista" *ngIf="empresas.length > 0">
+    <div class="entrevista-item" *ngFor="let empresa of empresas" (click)="seleccionarEmpresa(empresa)">
       <div class="entrevista-detalle">
         <p>{{ empresa.name }}</p>
-        <p>{{ empresa.address }}</p>
+        <strong> Ubicación: </strong>{{ empresa.address }}
       </div>
     </div>
   </div>
 
-  <div class="detalles-container" *ngIf="empresas.length>1">
+  <div class="detalles-container" *ngIf="empresaSeleccionada">
     <div class="pregunta-respuesta">
       <div class="pregunta">
-        <p> pregunta.texto </p>
+        <p>¿Deseas que {{ empresaSeleccionada.name }} vea tu historial de entrevistas?</p>
       </div>
       <div class="respuesta">
-        <p></p>
+        <input type="checkbox" id="acepto" [(ngModel)]="aceptoPermiso"> 
+        <label for="acepto">Sí, acepto que esta empresa vea mis entrevistas realizadas</label>
       </div>
     </div>
+    <button (click)="confirmarPermiso()" [disabled]="!aceptoPermiso">Confirmar</button>
   </div>
-  <div *ngIf="1>empresas.length">
-    <div class="entrevista-vacia">
-      <p>Aun no has hecho ninguna entrevita! <a href="/categorias">Empezar ahora</a> </p>
-    </div>
-  </div>
-</div>

@@ -1,5 +1,5 @@
 export interface Company{
-    ComanyID?: number;
+    CompanyID?: number;
     name: string;
     NIF: string;
     address: string;
