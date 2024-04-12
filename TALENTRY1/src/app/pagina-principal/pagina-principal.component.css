@@ -112,7 +112,7 @@ h2{
 }
 
 .img-anuncio {
-    width: 100%; /* La imagen ocupa todo el ancho del contenedor de anuncios */
-    height: auto; /* Altura automática para mantener la proporción de la imagen */
-    max-height: 20vh; /* Controla la altura máxima si es necesario */
+    width: 100%; /* La imagen puede escalar hasta un máximo del 100% del ancho del contenedor */
+    height: 15vh; /* La altura de la imagen es fija en 15vh */
+    object-fit: cover; /* Asegura que todo el contenido de la imagen sea visible y mantenga sus proporciones */
 }
