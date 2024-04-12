@@ -1,3 +1,4 @@
+
 .historial-container {
   display: flex;
   border: 1px solid #ccc;
@@ -8,7 +9,7 @@
 
 .entrevistas-lista,
 .detalles-container {
-  width: 50%;
+  flex: 1; /* Make them grow to fill the available space */
   padding: 20px;
 }
 

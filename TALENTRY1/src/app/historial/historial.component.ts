@@ -37,12 +37,37 @@ export class HistorialComponent implements OnInit {
     this.userService.CargarRespuestas(id).subscribe(
       (data: QA[][]) => {
         this.respuestas = data[0];
-        console.log(this.respuestas)
       },
       (error) => {
 
       }
     );
+  }
+
+  getTimeDifference(startDate: any, endDate: any): string {
+    // Convert startDate and endDate to Date objects
+    const startDateObj = new Date(startDate);
+    const endDateObj = new Date(endDate);
+  
+    // Check if startDateObj or endDateObj is a valid Date object
+    if (isNaN(startDateObj.getTime()) || isNaN(endDateObj.getTime())) {
+      return 'Invalid date';
+    }
+  
+    // Calculate the difference in milliseconds
+    const diffInMilliseconds = Math.abs(endDateObj.getTime() - startDateObj.getTime());
+  
+    // Calculate total seconds
+    const totalSeconds = Math.floor(diffInMilliseconds / 1000);
+  
+    // Calculate total minutes
+    const totalMinutes = Math.floor(totalSeconds / 60);
+  
+    // Calculate remaining seconds
+    const seconds = totalSeconds % 60;
+  
+    // Return the time difference in minutes and seconds
+    return `${totalMinutes} minutes, ${seconds} seconds`;
   }
   
 }

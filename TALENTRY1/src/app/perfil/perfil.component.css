@@ -57,14 +57,6 @@ body, html {
   border-radius: 4px;
 }
 
-/* Estilos para el historial */
-.profile-history {
-  font-weight: bold;
-  text-align: center;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
 /* Sección de detalles de perfil */
 .profile-details {
   flex: 3;
@@ -177,4 +169,36 @@ app-navbar{
 
 .toggle.active{
   background-color: #007bff;
+}
+
+.info-icon {  
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  font-weight: 900;
+  border-radius: 100%;
+  font-size: 8px;
+  padding-right: 4px;
+  padding-left: 4px;
+  cursor: pointer;
+}
+
+.info-icon:hover .info-content {
+  display: block;
+}
+.info-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  width: 20em;
+  font-size: 12px;
+  font-weight: 400;
 }

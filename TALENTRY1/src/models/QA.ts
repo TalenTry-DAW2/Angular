@@ -6,4 +6,5 @@ export interface QA {
     QuestionPoints: number;
     StartDate: Date;
     FinishDate: Date;
+    question:string;
 }

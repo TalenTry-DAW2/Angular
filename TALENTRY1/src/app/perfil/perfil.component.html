@@ -8,20 +8,24 @@
       <img src="assets//perfil.png" alt="Imagen de perfil" class="img-fluid rounded-circle">
       <button class="btn btn-primary mt-2" (click)="toggleImagen()">Cambiar Imagen</button>
     </div>
-    <div class="profile-history">
+    <div class="mt-2">
       <button class="btn btn-link" (click)="navegarAlHistorial()">Historial</button>
     </div>
 
     <div class="profile-permissions">
       <h5>Permisos para empresas</h5>
       <div class="form-group">
-        <label>Estadisticas anonimas</label>
+        <label>Estadisticas anonimas&nbsp;&nbsp;</label><span class="info-icon">?
+          <div class="info-content">
+            <p>Las empresas podran ver tus resultados como parte de las estadisticas de forma anonima, no sabran que has respuesto tu pero si que ha sido la media.</p>
+          </div>
+        </span>
         <div class="toggle" [class.active]="permisosEmpresas" (click)="togglePermisosEmpresasEditable()">
           <div class="ball"></div>
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-secondary mt-1"(click)="toggleContrasena()">Cambiar
+    <button type="button" class="btn btn-secondary mt-1" (click)="toggleContrasena()">Cambiar
       contraseña</button>
   </aside>
 
