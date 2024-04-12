@@ -33,7 +33,6 @@ export class HistorialComponent implements OnInit {
 
 
   CargarRespuestas(id:number) {
-    console.log(id)
     this.userService.CargarRespuestas(id).subscribe(
       (data: QA[][]) => {
         this.respuestas = data[0];

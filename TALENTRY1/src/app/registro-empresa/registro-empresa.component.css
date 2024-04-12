@@ -1,0 +1,90 @@
+.cuerpo {
+    margin: auto;
+    background-image: url('src/assets/fondo-registro.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: #777474;
+    color: #333333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+.contenido-de-pagina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.registro-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fffdfd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 40%;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registro-box h2 {
+    margin: 0 0 20px 0;
+    color: #333333;
+}
+
+.registro-box input[type="text"],
+.registro-box input[type="email"],
+.registro-box input[type="tel"],
+.registro-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+}
+
+.btn-register {
+    width: 70%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-register:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    color: #ffffff;
+}
+
+.login-link {
+    margin-top: 2%;
+}
