@@ -2,6 +2,10 @@
   <h2>Agregar Pregunta</h2>
   <form [formGroup]="questionForm" (ngSubmit)="submitForm()">
     <div class="form-group">
+      <label for="CatID"> ID Categoria: </label> <br>
+      <select formControlName="CategoryID">
+        <option *ngFor="let item of categorias" [value]="item.CategoryID"> {{ item.CategoryName }} </option>
+      </select> <br>
       <label for="question">Pregunta:</label>
       <input type="text" class="form-control" formControlName="question" id="question">
     </div>
@@ -9,7 +13,14 @@
       <label>Respuestas:</label>
       <div formArrayName="answers">
         <div *ngFor="let answer of answers.controls; let i = index">
-          <input type="text" class="form-control" [formControlName]="i">
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" [formControlName]="i" placeholder="Respuesta">
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" [formControlName]="'score' + i" placeholder="Puntuación">
+            </div>
+          </div>
         </div>
       </div>
       <button type="button" class="btn btn-primary mt-2" (click)="addAnswer()">Agregar Respuesta</button>
