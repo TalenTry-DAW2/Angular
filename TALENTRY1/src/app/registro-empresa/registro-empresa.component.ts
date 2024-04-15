@@ -14,21 +14,19 @@ export class RegistroEmpresaComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService) { }
 
-  registrarUsuario(): void {
+  registrarUsuarioEmpresa(): void {
     if (this.usuario.password !== this.repeatedPassword) {
-      console.error('Las contraseñas no coinciden');
       alert('Las contraseñas no coinciden');
       return;
     }
 
-    this.authService.Registrar(this.usuario).subscribe(
+    this.authService.RegistrarEmpresa(this.usuario).subscribe(
       (response) => {
-        console.log('Usuario registrado correctamente', response);
-        alert('Usuario registrado correctamente');
+        alert('Empresa registrada correctamente');
         this.router.navigate(['/login']);
       },
       (error) => {
-        console.error('Error al registrar usuario', error);
+        console.error('Error al registrar la empresa', error);
       }
     );
   }

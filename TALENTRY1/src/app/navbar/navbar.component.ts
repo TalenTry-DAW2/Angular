@@ -10,11 +10,14 @@ import { TokenService } from '../servicios/token.service';
 })
 export class NavbarComponent implements OnInit {
   sesion: boolean = false;
+  Role: string = '';
+  RoleEmpresa: string = '';
   constructor(public authService: AuthService, private router: Router, public tokenService: TokenService) {
   }
 
   ngOnInit(): void {
     this.IsLogedIn();
+    this.GetRole();
   }
 
   IsLogedIn() {
@@ -23,6 +26,16 @@ export class NavbarComponent implements OnInit {
         this.sesion = data.success;
       },
       (error) => {
+        throw new Error(error.status);
+      });
+  }
+
+  GetRole() {
+    this.tokenService.getRole().subscribe(
+      (data: any) => {
+        this.Role = data.type;
+      },
+      (error:any) => {
         throw new Error(error.status);
       });
   }
