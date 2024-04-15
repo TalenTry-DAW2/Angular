@@ -88,3 +88,8 @@ footer {
 .login-link {
     margin-top: 2%;
 }
+
+.separador{
+    border-bottom: 1px solid black;
+    width: 55%;
+}

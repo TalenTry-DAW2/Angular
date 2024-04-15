@@ -14,9 +14,6 @@ export class AuthService {
   Login(user: any): Observable<any> {
     return this.http.post("http://127.0.0.1:8000/api/login", user);
   }
-  Registrar(user: any): Observable<any> {
-    return this.http.post("http://127.0.0.1:8000/api/registro", user);
-  }
 
   IsLogedIn(): Observable<any> {
     // token de sesion
@@ -27,6 +24,16 @@ export class AuthService {
     });
     return this.http.get("http://127.0.0.1:8000/api/isLogedIn", { headers });
   }
+
+  Registrar(user: any): Observable<any> {
+    return this.http.post("http://127.0.0.1:8000/api/registro", user);
+  }
+
+  RegistrarEmpresa(company:any): Observable<any> {
+    return this.http.post("http://127.0.0.1:8000/api/registroEmpresa", company);
+  }
+
+  
 
   Logout(): Observable<any> {
     // token de sesion

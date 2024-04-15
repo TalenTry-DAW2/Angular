@@ -6,8 +6,8 @@
 <div class="cuerpo">
     <section class="contenido-de-pagina">
         <div class="container">
-            <form class="registro-box" (ngSubmit)="registrarUsuario()">
-                <h2>Formulario de registro</h2>
+            <form class="registro-box" (ngSubmit)="registrarUsuarioEmpresa()">
+                <h2>Registro de empresa</h2>
                 <div>
                     <input type="text" id="DNI" name="DNI" [(ngModel)]="usuario.DNI" placeholder="DNI" required>
                 </div>
@@ -26,7 +26,17 @@
                 <div>
                     <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="repeatedPassword" placeholder="Repetir Contraseña" required>
                 </div>
-                <button type="submit" class="btn-register">Registrarse</button>
+                <div class="separador"></div>
+                <div>
+                    <input type="text" id="name2" name="name" [(ngModel)]="usuario.name2" placeholder="Nombre de la empresa" required>
+                </div>
+                <div>
+                    <input type="text" id="NIF" name="NIF" [(ngModel)]="usuario.NIF" placeholder="NIF" required>
+                </div>
+                <div>
+                    <input type="text" id="address" name="address" [(ngModel)]="usuario.address" placeholder="Dirección" required>
+                </div>
+                <button type="submit" class="btn-register">Registrar empresa</button>
                 <div class="login-link">
                     <p>¿Ya tienes cuenta? <a routerLink="/login" class="btn-login">Iniciar sesión</a></p>
                 </div>

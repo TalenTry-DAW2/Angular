@@ -8,21 +8,19 @@ import { AuthService } from '../servicios/auth.service';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  usuario: any = {}; 
+  usuario: any = {};
   repeatedPassword: string = '';
 
   constructor(private router: Router, private authService: AuthService) { }
 
   registrarUsuario(): void {
     if (this.usuario.password !== this.repeatedPassword) {
-      console.error('Las contraseñas no coinciden');
       alert('Las contraseñas no coinciden');
       return;
     }
 
     this.authService.Registrar(this.usuario).subscribe(
       (response) => {
-        console.log('Usuario registrado correctamente', response);
         alert('Usuario registrado correctamente');
         this.router.navigate(['/login']);
       },
