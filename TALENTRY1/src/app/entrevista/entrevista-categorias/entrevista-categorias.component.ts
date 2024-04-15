@@ -32,11 +32,11 @@ export class EntrevistaCategoriasComponent implements OnInit {
       });
   }
 
-  seleccionarCategoria(categoria: string) {
+  seleccionarCategoria(categoria: any) {
     this.categoriaSeleccionada.emit(categoria);
   }
 
-  irAInfoCategoria(categoryName: string) {
+  irAInfoCategoria(categoryName: any) {
     this.router.navigate(['/infotest', categoryName]);
   }
 }
