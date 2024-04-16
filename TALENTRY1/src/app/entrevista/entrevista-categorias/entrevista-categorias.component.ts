@@ -36,8 +36,7 @@ export class EntrevistaCategoriasComponent implements OnInit {
       });
   }
 
-  irAInfoCategoria(categoryName: any) {
-    
-    this.router.navigate(['/infotest', categoryName]);
+  irAInfoCategoria(categoria: category) {
+    this.router.navigate(['/entrevista/info-categoria'], { state: { categoria } });
   }
 }

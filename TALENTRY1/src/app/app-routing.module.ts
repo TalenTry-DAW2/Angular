@@ -39,10 +39,10 @@ const routes: Routes = [
       { path: 'gestion-preguntas', component: GestionPreguntasComponent},
     ]
   },
-  { path: 'categorias', component: EntrevistaCategoriasComponent },
-  { path: 'test-entrevista/:length', component: TestEntrevistaComponent },
+  { path: 'entrevista/categorias', component: EntrevistaCategoriasComponent },
+  { path: 'entrevista/pregunta:length', component: TestEntrevistaComponent },
   { path: 'resultados-entrevista', component: ResultadosEntrevistaComponent },
-  { path: 'infotest/:categoryName', component: InfotestCategoriaComponent },
+  { path: 'entrevista/info-categoria', component: InfotestCategoriaComponent },
   {
     path: 'pagina-admin', component: PantallaAdminComponent,
     children: [

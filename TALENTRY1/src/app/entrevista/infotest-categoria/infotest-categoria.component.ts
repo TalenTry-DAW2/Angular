@@ -7,15 +7,16 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./infotest-categoria.component.css']
 })
 export class InfotestCategoriaComponent implements OnInit {
-  @Input() categoriaSeleccionada: any ;
+  categoriaSeleccionada: any= {};
   longitudEntrevistaSeleccionada: number = 0;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.categoriaSeleccionada = params['categoryName'];
-      console.log(this.categoriaSeleccionada);
+      if (params && params) {
+        this.categoriaSeleccionada = params;
+      }
     });
   }
 
