@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
   GetRole() {
     this.tokenService.getRole().subscribe(
       (data: any) => {
-        this.Role = data.type;
+        this.Role = data;
       },
       (error:any) => {
         throw new Error(error.status);

@@ -35,8 +35,9 @@ export class EntrevistaCategoriasComponent implements OnInit {
         console.error('Error al cargar las categorias desde la API:', error);
       });
   }
-  
+
   irAInfoCategoria(categoryName: any) {
+    
     this.router.navigate(['/infotest', categoryName]);
   }
 }

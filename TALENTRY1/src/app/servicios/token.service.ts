@@ -20,7 +20,7 @@ export class TokenService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get("http://127.0.0.1:8000/api/get-role", { headers });
+    return this.http.get("http://127.0.0.1:8000/api/user/get-role", { headers });
   }
 
   setToken(token: any): void {
