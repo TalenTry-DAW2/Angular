@@ -11,7 +11,11 @@ import { EntrevistaService } from "../../servicios/entrevista.service";
 })
 export class EntrevistaCategoriasComponent implements OnInit {
 
-  @Output() categoriaSeleccionada = new EventEmitter<string>();
+ categoriaSeleccionada:category = {
+  CategoryID: 0,
+  CategoryName: "",
+  description: ""
+};
 
   categorias: category[] = [];
   
@@ -31,11 +35,7 @@ export class EntrevistaCategoriasComponent implements OnInit {
         console.error('Error al cargar las categorias desde la API:', error);
       });
   }
-
-  seleccionarCategoria(categoria: any) {
-    this.categoriaSeleccionada.emit(categoria);
-  }
-
+  
   irAInfoCategoria(categoryName: any) {
     this.router.navigate(['/infotest', categoryName]);
   }
