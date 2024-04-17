@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationExtras,Router } from '@angular/router';
 import { category } from "../../../models/category";
 import { EntrevistaService } from "../../servicios/entrevista.service";
 
@@ -36,7 +36,15 @@ export class EntrevistaCategoriasComponent implements OnInit {
       });
   }
 
-  irAInfoCategoria(categoria: category) {
-    this.router.navigate(['/entrevista/info-categoria'], { state: { categoria } });
+  irAInfoCategoria(category: category) {
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        CategoryID: category.CategoryID,
+        CategoryName: category.CategoryName,
+        description: category.description,
+      }
+    };
+
+    this.router.navigate(['/entrevista/info-categoria'], navigationExtras);
   }
 }
