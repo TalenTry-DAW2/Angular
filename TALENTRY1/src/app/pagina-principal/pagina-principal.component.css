@@ -47,45 +47,93 @@ h2{
     margin-bottom: 10%;
 }
 
-.fondo-iniciar-sesion{
+.login-popup {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(245, 245, 245, 0.4);
-}
-
-.panel-iniciar-sesion{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%,-50%);
-    width: 22vw;
-    height: 22vh;
-    background-color: white;
-    text-align: center;
-    border: 2px solid lightgray;
-    border-radius: 1em; 
-    padding: 3em;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
 }
 
-.cerrar{
+.login-panel {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+    position: relative; /* Agregamos esta línea */
+}
+
+.close {
     position: absolute;
-    top: 1em;
-    left:1em;
-    z-index: 500;
-    font-size: 15px;
-    height: 1em;
-    width: 1em;
-    margin-bottom:-1em;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
-.raton-select{
+.login-panel {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+    position: fixed; /* Cambiamos a "fixed" para que se mantenga en el centro */
+    top: 50%; /* Lo centramos verticalmente */
+    left: 50%; /* Lo centramos horizontalmente */
+    transform: translate(-50%, -50%); /* Ajustamos para centrarlo exactamente */
+    z-index: 1001; /* Aseguramos que esté por encima del fondo */
+}
+
+.login-panel button {
+    background-color: #5c5c5c;
+    color: white;
+    border: none;
+    padding: 2px;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-panel button:hover {
+    background-color: #0e243a;
+}
+
+.login-panel a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-panel a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+    }
+    to {
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
 }
 
 .img-fit-cover {

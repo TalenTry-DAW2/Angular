@@ -163,13 +163,14 @@
 
 
 
-<section class="fondo-iniciar-sesion" *ngIf="AvisoSesion">
-    <div class="panel-iniciar-sesion">
-        <p class="cerrar raton-select" (click)="ToggleAvisoSesion()">X</p>
+<section class="login-popup" *ngIf="AvisoSesion">
+    <div class="login-panel">
+        <button class="close" (click)="ToggleAvisoSesion()">&times;</button>
         <div>
-            <p>Necesitas inicias sesion para hacer eso!</p>
-            <p><a routerLink="/login">Iniciar sesión</a></p>
+            <p>¡Inicia sesión para continuar!</p>
+            <button routerLink="/login">Iniciar sesión</button>
         </div>
-        <p>No tienes cuenta? <a routerLink="/registro">Crear cuenta gratis</a>.</p>
+        <p>¿No tienes una cuenta? <a routerLink="/registro">Regístrate gratis</a>.</p>
     </div>
 </section>
+
