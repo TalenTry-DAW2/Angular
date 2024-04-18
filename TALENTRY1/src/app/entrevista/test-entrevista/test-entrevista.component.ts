@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EntrevistaService } from '../../servicios/entrevista.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-entrevista',
@@ -8,21 +9,18 @@ import { EntrevistaService } from '../../servicios/entrevista.service';
 })
 export class TestEntrevistaComponent implements OnInit {
   preguntasYRespuestas: any[] = [];
-
-  constructor(private entrevistaService: EntrevistaService) { }
+  length? : number;
+  categoryId?: number;
+  constructor(private route: ActivatedRoute, private router: Router, private entrevistaService: EntrevistaService) { }
 
   ngOnInit(): void {
-    const categoriaId = 10; 
-    const cantidadPreguntas = 1; 
+      
 
-    this.entrevistaService.obtenerPreguntasYRespuestas(categoriaId, cantidadPreguntas)
-      .subscribe(respuesta => {
-        console.log(respuesta);
-        this.preguntasYRespuestas = respuesta;
-      },
-      (error) => {
-        throw new Error(error.status);
-      });
+    this.route.queryParams.subscribe(params => {
+      this.length = params['longitud'];
+      this.categoryId = params['categoria'];
+    });
+    //con length y category_id obtiene las preguntas y respuestas para hacer la entrevista
   }
 
 

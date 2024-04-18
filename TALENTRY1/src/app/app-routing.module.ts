@@ -40,7 +40,7 @@ const routes: Routes = [
     ]
   },
   { path: 'entrevista/categorias', component: EntrevistaCategoriasComponent },
-  { path: 'entrevista/pregunta:length', component: TestEntrevistaComponent },
+  { path: 'entrevista/pregunta', component: TestEntrevistaComponent },
   { path: 'resultados-entrevista', component: ResultadosEntrevistaComponent },
   { path: 'entrevista/info-categoria', component: InfotestCategoriaComponent },
   {

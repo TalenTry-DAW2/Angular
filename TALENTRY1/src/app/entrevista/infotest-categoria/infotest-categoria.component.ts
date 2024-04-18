@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { category } from 'src/models/category';
 
 @Component({
@@ -26,7 +26,15 @@ export class InfotestCategoriaComponent implements OnInit {
 
   empezarEntrevista(longitudEntrevista: number): void {
     if (longitudEntrevista) {
-      this.router.navigate(['/test-entrevista', longitudEntrevista]);
+      const navigationExtras: NavigationExtras = {
+        queryParams: {
+          longitud :longitudEntrevista,
+          categoria :this.categoria.CategoryID,
+        }
+      };
+  
+      this.router.navigate(['/entrevista/pregunta'], navigationExtras);
+    
     } else {
       alert('Por favor, selecciona la longitud de la entrevista.');
     }
