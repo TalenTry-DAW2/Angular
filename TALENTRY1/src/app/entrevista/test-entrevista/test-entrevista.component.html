@@ -1,12 +1,9 @@
-<div class="quiz-container mt-4">
-  <div *ngFor="let item of preguntasYRespuestas">
-    <h3>{{ item.pregunta.question }}</h3>
-    <ul>
-      <li *ngFor="let respuesta of item.respuestas">
-        {{ respuesta.answer }}
-      </li>
-    </ul>
+<div class="quiz-container">
+  <div>
+    <h3 class="question">{{ preguntasYRespuestas[posicion].pregunta.question }}</h3>
+    
+    <div *ngFor="let respuesta of preguntasYRespuestas[posicion].respuestas" class="option">
+      {{ respuesta.answer }}
+    </div>
   </div>
-  {{length}}
-  {{categoryId}}
 </div>

@@ -9,8 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TestEntrevistaComponent implements OnInit {
   preguntasYRespuestas: any[] = [];
-  length? : number;
-  categoryId?: number;
+  length : number = 0;
+  categoryId: number = 0;
+  posicion: number = 0;
   constructor(private route: ActivatedRoute, private router: Router, private entrevistaService: EntrevistaService) { }
 
   ngOnInit(): void {
@@ -21,8 +22,17 @@ export class TestEntrevistaComponent implements OnInit {
       this.categoryId = params['categoria'];
     });
     //con length y category_id obtiene las preguntas y respuestas para hacer la entrevista
+    this.cargarQA();
   }
 
-
+  cargarQA(){
+    this.entrevistaService.obtenerPreguntasYRespuestas(this.categoryId,this.length).subscribe(
+      (data: any) => {
+        this.preguntasYRespuestas = data;
+      },
+      (error: string | undefined) => {
+        throw new Error(error);
+      });
+  }
 }
 
