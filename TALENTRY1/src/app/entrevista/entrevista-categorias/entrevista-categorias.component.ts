@@ -15,7 +15,7 @@ export class EntrevistaCategoriasComponent implements OnInit {
   CategoryID: 0,
   CategoryName: "",
   description: "",
-  image: ""
+  image:"",
 };
 
   categorias: category[] = [];
@@ -43,6 +43,7 @@ export class EntrevistaCategoriasComponent implements OnInit {
         CategoryID: category.CategoryID,
         CategoryName: category.CategoryName,
         description: category.description,
+        image: category.image,
       }
     };
 

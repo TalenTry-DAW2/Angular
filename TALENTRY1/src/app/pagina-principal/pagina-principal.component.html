@@ -165,7 +165,10 @@
 
 <section class="login-popup" *ngIf="AvisoSesion">
     <div class="login-panel">
-        <button class="close" (click)="ToggleAvisoSesion()">&times;</button>
+        <div class="div-close">
+           <button class="close" (click)="ToggleAvisoSesion()">&times;</button> 
+        </div>
+        
         <div>
             <p>¡Inicia sesión para continuar!</p>
             <button routerLink="/login">Iniciar sesión</button>
