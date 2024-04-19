@@ -18,14 +18,13 @@ export class GestionPreguntasComponent implements OnInit {
       CategoryID: ['', Validators.required],
       question: ['', Validators.required],
       answers: this.formBuilder.array([]),
-      puntos: this.formBuilder.array([])
+      QuestionPoints: this.formBuilder.array([])
     });
   }
 
   ngOnInit(): void {
     this.empService.getCategory().subscribe(data => {
       this.categorias = data[0];
-      console.log(this.categorias);
     });
   }
 
@@ -33,19 +32,34 @@ export class GestionPreguntasComponent implements OnInit {
     return this.questionForm.get('answers') as FormArray;
   }
 
-  get puntos() {
-    return this.questionForm.get('puntos') as FormArray;
+  get QuestionPoints() {
+    return this.questionForm.get('QuestionPoints') as FormArray;
   }
 
   addAnswer() {
     this.answers.push(this.formBuilder.control(''));
-    this.puntos.push(this.formBuilder.control(''));
+    this.QuestionPoints.push(this.formBuilder.control(''));
   }
 
   submitForm() {
     if (this.questionForm.valid) {
-      console.log(this.questionForm.value);
-      // Aquí puedes enviar los datos del formulario a tu backend o hacer lo que necesites
+      // Extracting question data
+      const questionData = {
+        CategoryID: this.questionForm.get('CategoryID')?.value,
+        question: this.questionForm.get('question')?.value,
+        answers: this.questionForm.get('answers')?.value,
+        QuestionPoints: this.questionForm.get('QuestionPoints')?.value
+      };
+      // Logging each answer with its corresponding points
+      questionData.answers.forEach((answer: string, index: number) => {
+        console.log(`Answer ${index + 1}: ${answer}`);
+      });
+      questionData.QuestionPoints.forEach((points: number, index: number) => {
+        console.log(`Points for Answer ${index + 1}: ${points}`);
+      });
+    } else {
+      // Handle form validation errors here
+      console.error('Form is invalid. Please check all fields.');
     }
   }
 }

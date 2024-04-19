@@ -17,8 +17,14 @@
             <div class="col">
               <input type="text" class="form-control" [formControlName]="i" placeholder="Respuesta">
             </div>
+          </div>
+        </div>
+      </div>
+      <div formArrayName="QuestionPoints">
+        <div *ngFor="let QuestionPoint of QuestionPoints.controls; let i = index">
+          <div class="row">
             <div class="col">
-              <input type="number" class="form-control" [formControlName]="'score' + i" placeholder="Puntuación">
+              <input type="number" class="form-control" [formControlName]="i" placeholder="Puntuación">
             </div>
           </div>
         </div>
