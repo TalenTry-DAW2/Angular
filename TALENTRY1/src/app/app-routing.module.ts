@@ -19,7 +19,7 @@ import { HistorialComponent } from './historial/historial.component';
 import { GestionPreguntasComponent } from './pantalla-empresa/gestion-preguntas/gestion-preguntas.component';
 import { PermisoEmpresaComponent } from './permiso-empresa/permiso-empresa.component';
 import { RegistroEmpresaComponent } from './registro-empresa/registro-empresa.component';
-
+import { ContactoComponent } from './contacto/contacto.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,6 +31,7 @@ const routes: Routes = [
     redirectTo: '/pagina-principal',
     pathMatch: 'full'
   },
+  { path: 'contacto', component: ContactoComponent},
   { path: 'historial', component: HistorialComponent },
   { path: 'permiso-empresa', component: PermisoEmpresaComponent },
   { path: 'perfil', component: PerfilComponent },
