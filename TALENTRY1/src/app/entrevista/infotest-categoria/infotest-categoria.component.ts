@@ -17,6 +17,7 @@ export class InfotestCategoriaComponent implements OnInit {
         CategoryID: params['CategoryID'],
         CategoryName: params['CategoryName'],
         description: params['description'],
+        image: params['image'],
       };
     });
    }

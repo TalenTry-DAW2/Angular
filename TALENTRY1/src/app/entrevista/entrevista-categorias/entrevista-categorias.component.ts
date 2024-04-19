@@ -14,7 +14,8 @@ export class EntrevistaCategoriasComponent implements OnInit {
  categoriaSeleccionada:category = {
   CategoryID: 0,
   CategoryName: "",
-  description: ""
+  description: "",
+  image: ""
 };
 
   categorias: category[] = [];
