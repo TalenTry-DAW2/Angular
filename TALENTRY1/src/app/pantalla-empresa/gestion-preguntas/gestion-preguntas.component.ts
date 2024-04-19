@@ -43,23 +43,19 @@ export class GestionPreguntasComponent implements OnInit {
 
   submitForm() {
     if (this.questionForm.valid) {
-      // Extracting question data
-      const questionData = {
-        CategoryID: this.questionForm.get('CategoryID')?.value,
-        question: this.questionForm.get('question')?.value,
-        answers: this.questionForm.get('answers')?.value,
-        QuestionPoints: this.questionForm.get('QuestionPoints')?.value
-      };
-      // Logging each answer with its corresponding points
-      questionData.answers.forEach((answer: string, index: number) => {
-        console.log(`Answer ${index + 1}: ${answer}`);
-      });
-      questionData.QuestionPoints.forEach((points: number, index: number) => {
-        console.log(`Points for Answer ${index + 1}: ${points}`);
-      });
+      this.empService.addQuestion(this.questionForm.value).subscribe(
+        (data: any) => {
+          alert('Sesion iniciada correctamente.');
+        },
+        (error) => {
+          alert('Correo o contraseña incorectos');
+          console.log(error)
+          throw new Error(error);
+        });
     } else {
       // Handle form validation errors here
       console.error('Form is invalid. Please check all fields.');
     }
+    
   }
 }
