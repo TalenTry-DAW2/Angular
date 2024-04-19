@@ -1,13 +1,21 @@
 footer {
-    background-color: #333333;
-    text-align: center;
-    padding: 10px 0;
-    color: #ffffff;
-    width: 100vw;
-    align-self: flex-end;   
+    background-color: #333333; /* Color de fondo */
+    color: #ffffff;            /* Color del texto */
+    text-align: center;        /* Alineación del texto */
+    padding: 10px 0;           /* Padding para dar espacio arriba y abajo */
+    width: 100%;               /* El footer ocupa el ancho completo */
+    
 }
-div{
+
+div {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Altura mínima de 100% del viewport */
+}
+
+body {
+    margin: 0; /* Elimina el margen predeterminado */
+    height: 100%; /* Asegura que el cuerpo de la página tenga una altura del 100% del viewport */
+    display: flex;
+    flex-direction: column;
 }
