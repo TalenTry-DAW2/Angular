@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'historial', component: HistorialComponent },
   { path: 'permiso-empresa', component: PermisoEmpresaComponent },
   { path: 'perfil', component: PerfilComponent },
-  { path: 'pagina-empresa', component: PantallaEmpresaComponent, 
+  { path: 'zona-empresa', component: PantallaEmpresaComponent, 
     children: [
       { path: 'gestion-preguntas', component: GestionPreguntasComponent},
     ]

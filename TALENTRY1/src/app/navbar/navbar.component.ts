@@ -11,7 +11,7 @@ import { TokenService } from '../servicios/token.service';
 export class NavbarComponent implements OnInit {
   sesion: boolean = false;
   Role: string = '';
-  RoleEmpresa: string = '';
+  RoleEmpresa: string = 'Empresa';
   constructor(public authService: AuthService, private router: Router, public tokenService: TokenService) {
   }
 
