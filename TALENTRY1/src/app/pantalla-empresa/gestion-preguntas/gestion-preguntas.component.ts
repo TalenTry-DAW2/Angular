@@ -45,11 +45,10 @@ export class GestionPreguntasComponent implements OnInit {
     if (this.questionForm.valid) {
       this.empService.addQuestion(this.questionForm.value).subscribe(
         (data: any) => {
-          alert('Sesion iniciada correctamente.');
+          alert('Pregunta añadida correctamente.');
         },
         (error) => {
-          alert('Correo o contraseña incorectos');
-          console.log(error)
+          alert('Hubo un error al añadir la pregunta, intentelo mas tarde.');
           throw new Error(error);
         });
     } else {

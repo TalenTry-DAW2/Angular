@@ -11,41 +11,56 @@ export class EmpresaService {
 
   constructor(private http: HttpClient, public tokenService: TokenService) { }
 
-  MostrarEmpresas(): Observable<any>{
+  MostrarEmpresas(): Observable<any> {
     // token de sesion
     const authToken = this.tokenService.getToken();
     // header con el token
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${authToken}`,
-      });
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
     //peticion con headers de actualizacion
     return this.http.get("http://127.0.0.1:8000/api/company", { headers });
-}
-  getCategory(): Observable<any>{
+  }
+  getCategory(): Observable<any> {
     // token de sesion
     const authToken = this.tokenService.getToken();
     // header con el token
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${authToken}`,
-      });
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
     //peticion con headers de actualizacion
     return this.http.get("http://127.0.0.1:8000/api/category/", { headers });
   }
 
-  addQuestion(preguntas:any): Observable<any>{
+  addQuestion(preguntas: any): Observable<any> {
     // token de sesion
     const authToken = this.tokenService.getToken();
     // header con el token
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${authToken}`,
-      });
-      console.log(preguntas.answers)
-      let params = new HttpParams() 
-      .set('CategoryID', preguntas.CategoryID)
-      .set('question', preguntas.question)
-      .set('answers', preguntas.answers)
-      .set('QuestionPoints', preguntas.QuestionPoints);
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
     //peticion con headers de actualizacion
-    return this.http.post("http://127.0.0.1:8000/api/answer/agregarPR", { params: params,headers });
+    return this.http.post("http://127.0.0.1:8000/api/answer/agregarPR", preguntas, { headers });
+  }
+
+  getUsuariosRegistrados(): Observable<any> {
+    // token de sesion
+    const authToken = this.tokenService.getToken();
+    // header con el token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
+    //peticion con headers de actualizacion
+    return this.http.get("http://127.0.0.1:8000/api/user/total", { headers });
+  }
+  getPorcentajeUsuariosEntrevista(): Observable<any> {
+    // token de sesion
+    const authToken = this.tokenService.getToken();
+    // header con el token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
+    //peticion con headers de actualizacion
+    return this.http.get("http://127.0.0.1:8000/api/user/totalPorcentajeEntrevista", { headers });
   }
 }
