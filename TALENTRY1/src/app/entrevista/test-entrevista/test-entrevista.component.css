@@ -3,6 +3,8 @@
   padding-top: 20vh;
   padding-left: 20vw;
   padding-right: 10vw;
+  min-height: 90vh;
+  position: relative;
 }
 
 .question {
@@ -11,8 +13,29 @@
   margin-bottom: 15px;
 }
 
-
-.option {
-  margin-bottom: 1em;
+.opciones{
+  max-height: 45vh;
+  overflow-y: auto;
+  overflow-x: hidden; 
 }
 
+.option {
+  cursor: pointer;
+  margin-bottom: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid rgb(97, 97, 97);
+  padding: 1em;
+  text-align: justify;
+  width: 60vw;
+  border-radius: 1em;
+}
+
+.option.selected {
+  box-shadow: 1px 1px 3px gray;
+  background-color: rgb(226, 235, 227);
+}
+
+.next{
+  position: absolute;
+  bottom: 10em;
+}

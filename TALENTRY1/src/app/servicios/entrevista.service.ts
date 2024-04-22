@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { map, Observable } from "rxjs";
+import { PreguntasRespuestas } from "src/models/PreguntasRespuestas";
+import { QA } from "src/models/QA";
 import { category } from "../../models/category";
 import { TokenService } from "./token.service";
 
@@ -11,29 +13,69 @@ export class EntrevistaService {
 
   constructor(private http: HttpClient, public tokenService: TokenService) { }
 
-  MostrarCategoria(): Observable<any>{
+  MostrarCategoria(): Observable<any> {
     // token de sesion
     const authToken = this.tokenService.getToken();
     // header con el token
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${authToken}`,
-      });
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
     //peticion con headers de actualizacion
     return this.http.get("http://127.0.0.1:8000/api/category", { headers });
-}
+  }
 
-obtenerPreguntasYRespuestas(categoriaId: number, cantidad: number): Observable<any> {
+  obtenerPreguntasYRespuestas(categoriaId: number, cantidad: number): Observable<any> {
     // token de sesion
     const authToken = this.tokenService.getToken();
     // header con el token
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${authToken}`,
-      });
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
 
-      let params = new HttpParams()
+    let params = new HttpParams()
       .set('id', categoriaId.toString())
       .set('cantidad', cantidad.toString());
+    this.setPosicion(0);
+    return this.http.get<any>("http://127.0.0.1:8000/api/question/getFromCategory", { params: params, headers });
+  }
 
-  return this.http.get<any>("http://127.0.0.1:8000/api/question/getFromCategory", {params: params, headers });
-}
+  //guarda las preguntas y respuestas de esta entrevista
+  setQA(qaPairs: PreguntasRespuestas[]): void {
+    // Convert the array to a JSON string
+    const qaPairsJSON = JSON.stringify(qaPairs);
+
+    // Save the JSON string in local storage
+    localStorage.setItem('qaPairs', qaPairsJSON);
+  }
+
+  getQA(): PreguntasRespuestas[] {
+    const qaPairsJSON = localStorage.getItem('qaPairs');
+
+    if (qaPairsJSON) {
+      // Parse the JSON string into an array of QA objects
+      const qaPairs: PreguntasRespuestas[] = JSON.parse(qaPairsJSON);
+      return qaPairs;
+    } else {
+      return []; // Return an empty array if no QA pairs are found in local storage
+    }
+  }
+
+  setPosicion(posicion: number): void {
+    // Convert the array to a JSON string
+    const posicionString = JSON.stringify(posicion);
+
+    // Save the JSON string in local storage
+    localStorage.setItem('posicion', posicionString);
+  }
+
+  getPosicion(): number {
+    const posicionStr = localStorage.getItem('posicion');
+    if (posicionStr) {
+      const posicion = parseInt(posicionStr, 10);
+      return isNaN(posicion) ? 0 : posicion; // Ensure it's a valid number, return 0 if not
+    } else {
+      return 0; // Return 0 if no position is found in local storage
+    }
+  }
+
 }

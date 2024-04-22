@@ -1,9 +1,19 @@
+<app-navbar></app-navbar>
+
 <div class="quiz-container">
   <div>
     <h3 class="question">{{ preguntasYRespuestas[posicion].pregunta.question }}</h3>
-    
-    <div *ngFor="let respuesta of preguntasYRespuestas[posicion].respuestas" class="option">
-      {{ respuesta.answer }}
+    <div class="opciones">
+      <div *ngFor="let respuesta of preguntasYRespuestas[posicion].respuestas">
+        <div class="option" [class.selected]="respuesta.answer === seleccionada"
+          (click)="selectAnswer(respuesta.answer)">
+          {{ respuesta.answer }}
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button (click)="siguientePregunta()" class="next" [disabled]="seleccionada === ''">Siguiente</button>
     </div>
   </div>
 </div>

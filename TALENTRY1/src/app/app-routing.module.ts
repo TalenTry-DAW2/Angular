@@ -42,7 +42,7 @@ const routes: Routes = [
   },
   { path: 'entrevista/categorias', component: EntrevistaCategoriasComponent },
   { path: 'entrevista/pregunta', component: TestEntrevistaComponent },
-  { path: 'resultados-entrevista', component: ResultadosEntrevistaComponent },
+  { path: 'entrevista/resultados', component: ResultadosEntrevistaComponent },
   { path: 'entrevista/info-categoria', component: InfotestCategoriaComponent },
   {
     path: 'pagina-admin', component: PantallaAdminComponent,

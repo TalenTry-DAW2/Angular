@@ -202,3 +202,8 @@ app-navbar{
   font-size: 12px;
   font-weight: 400;
 }
+
+.marignGeneral{
+  padding-top: 5em;
+  margin-bottom: 10em;
+}

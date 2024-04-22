@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { EntrevistaService } from 'src/app/servicios/entrevista.service';
 import { category } from 'src/models/category';
 
 @Component({
@@ -11,7 +12,7 @@ export class InfotestCategoriaComponent implements OnInit {
   categoria!: category;
   longitudEntrevistaSeleccionada: number = 0;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private entrevistaService: EntrevistaService) {
     this.route.queryParams.subscribe(params => {
       this.categoria = {
         CategoryID: params['CategoryID'],
@@ -20,25 +21,28 @@ export class InfotestCategoriaComponent implements OnInit {
         image: params['image'],
       };
     });
-   }
+  }
 
   ngOnInit(): void {
   }
 
   empezarEntrevista(longitudEntrevista: number): void {
     if (longitudEntrevista) {
-      const navigationExtras: NavigationExtras = {
-        queryParams: {
-          longitud :longitudEntrevista,
-          categoria :this.categoria.CategoryID,
-        }
-      };
-  
-      this.router.navigate(['/entrevista/pregunta'], navigationExtras);
-    
-    } else {
+      this.cargarQA();
+      this.router.navigate(['/entrevista/pregunta']);
+    }else {
       alert('Por favor, selecciona la longitud de la entrevista.');
     }
+  }
+
+  cargarQA() {
+    this.entrevistaService.obtenerPreguntasYRespuestas(this.categoria.CategoryID, this.longitudEntrevistaSeleccionada).subscribe(
+      (data: any) => {
+        this.entrevistaService.setQA(data)
+      },
+      (error: string | undefined) => {
+        throw new Error(error);
+      });
   }
 
 }

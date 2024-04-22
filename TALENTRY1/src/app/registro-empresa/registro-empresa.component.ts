@@ -21,11 +21,11 @@ export class RegistroEmpresaComponent implements OnInit {
     }
 
     this.authService.RegistrarEmpresa(this.usuario).subscribe(
-      (response) => {
+      (response:any) => {
         alert('Empresa registrada correctamente');
         this.router.navigate(['/login']);
       },
-      (error) => {
+      (error:any) => {
         console.error('Error al registrar la empresa', error);
       }
     );
