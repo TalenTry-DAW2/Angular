@@ -4,12 +4,12 @@ footer {
     text-align: center;        /* Alineación del texto */
     padding: 10px 0;           /* Padding para dar espacio arriba y abajo */
     width: 100%;               /* El footer ocupa el ancho completo */
-    
 }
 
 div {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     min-height: 100vh; /* Altura mínima de 100% del viewport */
 }
 

@@ -181,7 +181,6 @@ app-navbar{
   font-size: 8px;
   padding-right: 4px;
   padding-left: 4px;
-  cursor: pointer;
 }
 
 .info-icon:hover .info-content {
