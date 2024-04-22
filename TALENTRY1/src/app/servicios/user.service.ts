@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Answer } from 'src/models/Answer';
 import { QA } from 'src/models/QA';
 import { Record } from 'src/models/Record';
 import { TokenService } from './token.service';
@@ -28,6 +27,7 @@ export class UserService {
     var email = formulario?.email;
     var phone = formulario?.telefono;
     var password = formulario?.password;
+    var photo = formulario?.photo;
     var params = new HttpParams();
     // Add parameters if they are not null or undefined
     if (email !== null && email !== undefined) {
@@ -37,17 +37,19 @@ export class UserService {
       params = params.set('phone', String(phone));
     }
     if (password !== null && password !== undefined) {
-      params = params.set('password', String(password));
-      
+      params = params.set('password', String(password)); 
     }
-    console.log (params.get(password))
+    if (photo !== null && photo !== undefined) {
+      params = params.set('photo', String(photo)); 
+    }
     // token de sesion
     const authToken = this.tokenService.getToken();
     // header con el token
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get("http://127.0.0.1:8000/api/user/update", { params, headers });
+    
+    return this.http.post("http://127.0.0.1:8000/api/user/update",params, { headers });
   }
 
   EditarPrivacidad() {

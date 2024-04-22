@@ -203,6 +203,10 @@ app-navbar{
 }
 
 .marignGeneral{
-  padding-top: 5em;
+  padding-top: 10em;
   margin-bottom: 10em;
+}
+
+.input-group-append .btn{
+  z-index: 0;
 }

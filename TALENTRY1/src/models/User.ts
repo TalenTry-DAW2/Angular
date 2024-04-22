@@ -4,4 +4,5 @@ export interface User {
     name:String;
     email:String;
     phone:String;
+    photo: String;
 }

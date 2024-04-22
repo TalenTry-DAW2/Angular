@@ -38,7 +38,8 @@ export class PerfilComponent implements OnInit {
           UserID: data[0].UserID,
           name: data[0].name,
           email: data[0].email,
-          phone: data[0].phone
+          phone: data[0].phone,
+          photo: data[0].photo
         };
         this.permisosEmpresas = data[0].visibility;
         this.initializeForm();
@@ -57,7 +58,7 @@ export class PerfilComponent implements OnInit {
     });
   }
 
-  mostrarOculto(dni: string):void{
+  mostrarOculto(dni: string): void {
     this.inputType = (this.inputType === 'text') ? 'password' : 'text';
   }
 
@@ -153,5 +154,20 @@ export class PerfilComponent implements OnInit {
   }
 
   cambiarImagenPerfil() {
+    const formulario = {
+      photo: `${this.URLImagen}`
+    };
+    this.userService.EditarUsuario(formulario).subscribe(
+      (data) => {
+        if (data) {
+          setTimeout(() => {
+            window.location.reload();
+          }, 100);
+        }
+      },
+      (error) => {
+        console.error('Error al actualizar el usuario', error);
+      }
+    );
   }
 }
