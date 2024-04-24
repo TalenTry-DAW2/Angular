@@ -2,8 +2,9 @@ footer {
     background-color: #333333; /* Color de fondo */
     color: #ffffff;            /* Color del texto */
     text-align: center;        /* Alineación del texto */
-    padding: 10px 0;           /* Padding para dar espacio arriba y abajo */
+    padding: 10px 0;            /* Padding para dar espacio arriba y abajo */
     width: 100%;               /* El footer ocupa el ancho completo */
+    height: 50px;
 }
 
 div {
@@ -15,7 +16,7 @@ div {
 
 body {
     margin: 0; /* Elimina el margen predeterminado */
-    height: 100%; /* Asegura que el cuerpo de la página tenga una altura del 100% del viewport */
+    min-height: calc(100vh - 50px); /* Asegura que el cuerpo de la página tenga una altura del 100% del viewport */
     display: flex;
     flex-direction: column;
 }

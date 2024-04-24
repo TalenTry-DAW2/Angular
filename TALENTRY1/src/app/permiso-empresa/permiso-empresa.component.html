@@ -1,27 +1,30 @@
-<app-navbar></app-navbar>
-<div class="vovler">
-  <a href="/perfil">Volver</a>
-</div>
-<h2>Empresas:</h2>
-<div class="historial-container">
-  <div class="entrevistas-lista" *ngIf="empresas.length > 0">
-    <div class="entrevista-item" *ngFor="let empresa of empresas" (click)="seleccionarEmpresa(empresa)">
-      <div class="entrevista-detalle">
-        <p>{{ empresa.name }}</p>
-        <strong> Ubicación: </strong>{{ empresa.address }}
+<div class="body">
+  <app-navbar></app-navbar>
+  <div class="vovler">
+    <a href="/perfil">Volver</a>
+  </div>
+  <h2>Empresas:</h2>
+  <div class="historial-container">
+    <div class="entrevistas-lista" *ngIf="empresas.length > 0">
+      <div class="entrevista-item" *ngFor="let empresa of empresas" (click)="seleccionarEmpresa(empresa)">
+        <div class="entrevista-detalle">
+          <p>{{ empresa.name }}</p>
+          <strong> Ubicación: </strong>{{ empresa.address }}
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="detalles-container" *ngIf="empresaSeleccionada">
-    <div class="pregunta-respuesta">
-      <div class="pregunta">
-        <p>¿Deseas que {{ empresaSeleccionada.name }} vea tu historial de entrevistas?</p>
+    <div class="detalles-container" *ngIf="empresaSeleccionada">
+      <div class="pregunta-respuesta">
+        <div class="pregunta">
+          <p>¿Deseas que {{ empresaSeleccionada.name }} vea tu historial de entrevistas?</p>
+        </div>
+        <div class="respuesta">
+          <input type="checkbox" id="acepto" [(ngModel)]="aceptoPermiso">
+          <label for="acepto">Sí, acepto que esta empresa vea mis entrevistas realizadas</label>
+        </div>
       </div>
-      <div class="respuesta">
-        <input type="checkbox" id="acepto" [(ngModel)]="aceptoPermiso"> 
-        <label for="acepto">Sí, acepto que esta empresa vea mis entrevistas realizadas</label>
-      </div>
+      <button (click)="confirmarPermiso()" [disabled]="!aceptoPermiso">Confirmar</button>
     </div>
-    <button (click)="confirmarPermiso()" [disabled]="!aceptoPermiso">Confirmar</button>
   </div>
+</div>

@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit {
   usuario: User | undefined;
   ToggleContrasena: boolean = false;
   ToggleURLImagen: boolean = false;
-  URLImagen: string = "";
+  URLImagen: string = "assets/perfil.png";
   inputType: string = "password";
   constructor(private router: Router, private userService: UserService) {
 

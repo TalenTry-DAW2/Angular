@@ -11,7 +11,7 @@
         <div class="col-md-4 mt-5">
           <div class="profile-sidebar">
             <div class="profile-picture text-center">
-              <img [src]="usuario?.photo ? usuario?.photo : 'assets/perfil.png'" alt="Imagen de perfil"
+              <img [src]="usuario?.photo || 'assets/perfil.png'"
                 class="img-fluid rounded-circle">
               <button class="btn btn-dark mt-3" (click)="toggleImagen()">Cambiar Imagen</button>
             </div>
@@ -103,7 +103,7 @@
 
 <section class="fondo-cambiar-contrasena" *ngIf="ToggleURLImagen">
   <div class="panel-cambiar-contrasena">
-    
+
     <form class="form-contrasena" (ngSubmit)="cambiarImagenPerfil()">
       <input type="url" [(ngModel)]="URLImagen" class="form-control" [ngModelOptions]="{standalone: true}">
       <button type="submit" class="btn btn-primary">Cambiar imagen de perfil</button>

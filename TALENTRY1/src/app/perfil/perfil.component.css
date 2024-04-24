@@ -1,12 +1,11 @@
-/* Estilo base y normalización */
-body, html {
-  height: 100%;
-  background-color: #f4f4f4;
+.body {
+  margin: 0; /* Elimina el margen predeterminado */
+  min-height: calc(100vh - 50px); /* Asegura que el cuerpo de la página tenga una altura del 100% del viewport */
+  display: flex;
+  flex-direction: column;
 }
-
 /* Contenedor principal de perfil */
 .profile-container {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -22,14 +21,16 @@ body, html {
   text-align: center;
   margin-right: 20px;
 }
-
 .profile-picture img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 10em;
+  height: 10em;
+  overflow: hidden;
   background-color: #ccc;
   display: inline-block;
+  
   margin-bottom: 10px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 5px gray;
 }
 
 .profile-permissions {
@@ -69,9 +70,7 @@ body, html {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
 }
-.form-control{
-  width: 90%;
-}
+
 
 .form-perfil{
  display: flex;

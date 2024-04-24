@@ -93,3 +93,10 @@ button:hover {
   left: 1em;
   margin-bottom: 2em;
 }
+
+.body {
+  margin: 0; /* Elimina el margen predeterminado */
+  min-height: calc(100vh - 50px); /* Asegura que el cuerpo de la página tenga una altura del 100% del viewport */
+  display: flex;
+  flex-direction: column;
+}
