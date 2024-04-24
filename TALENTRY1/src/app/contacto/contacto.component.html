@@ -20,8 +20,9 @@
           <textarea formControlName="mensaje" class="form-control"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
+        <p *ngIf="mensaje" class="text-success">{{ mensaje }}</p>
+        <p *ngIf="error" class="text-danger">{{ error }}</p>
       </form>
     </div>
   </div>
 </div>
-
