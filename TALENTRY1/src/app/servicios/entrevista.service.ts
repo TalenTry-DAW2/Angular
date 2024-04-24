@@ -58,6 +58,17 @@ export class EntrevistaService {
       return of([]); // Return an empty array wrapped in an observable if no QA pairs are found in local storage
     }
   }
+  getQALength(): number {
+    const qaPairsJSON = localStorage.getItem('qaPairs');
+
+    if (qaPairsJSON) {
+      // Parse the JSON string into an array of QA objects
+      const qaPairs: PreguntasRespuestas[] = JSON.parse(qaPairsJSON);
+      return qaPairs.length; // Wrap the array in an observable and return
+    } else {
+      return 0; // Return an empty array wrapped in an observable if no QA pairs are found in local storage
+    }
+  }
 
   setPosicion(posicion: number): void {
     // Convert the array to a JSON string

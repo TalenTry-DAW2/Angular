@@ -11,11 +11,11 @@ import { Respuestas, RespuestasClass } from 'src/models/Respuestas';
 })
 export class TestEntrevistaComponent implements OnInit {
   preguntasYRespuestas: PreguntasRespuestas[] = [];
-  respuestasUsuario: RespuestasClass[] = Array.from({ length: 35 }, () => new RespuestasClass());
-  length: number = 0;
+  length: number = this.entrevistaService.getQALength();
   posicion: number = 0;
   seleccionada: string = "";
   puntosSeleccionada: number = -1;
+  respuestasUsuario: RespuestasClass[] = Array.from({ length: this.length }, () => new RespuestasClass());
   constructor(private route: ActivatedRoute, private router: Router, private entrevistaService: EntrevistaService) {
   }
 
