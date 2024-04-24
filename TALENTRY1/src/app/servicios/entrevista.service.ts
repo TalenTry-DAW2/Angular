@@ -1,9 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import { map, Observable } from "rxjs";
+import {  Observable, of } from "rxjs";
 import { PreguntasRespuestas } from "src/models/PreguntasRespuestas";
-import { QA } from "src/models/QA";
-import { category } from "../../models/category";
 import { TokenService } from "./token.service";
 
 @Injectable({
@@ -48,15 +46,15 @@ export class EntrevistaService {
     localStorage.setItem('qaPairs', qaPairsJSON);
   }
 
-  getQA(): PreguntasRespuestas[] {
+  getQA(): Observable<PreguntasRespuestas[]> {
     const qaPairsJSON = localStorage.getItem('qaPairs');
 
     if (qaPairsJSON) {
       // Parse the JSON string into an array of QA objects
       const qaPairs: PreguntasRespuestas[] = JSON.parse(qaPairsJSON);
-      return qaPairs;
+      return of(qaPairs); // Wrap the array in an observable and return
     } else {
-      return []; // Return an empty array if no QA pairs are found in local storage
+      return of([]); // Return an empty array wrapped in an observable if no QA pairs are found in local storage
     }
   }
 
