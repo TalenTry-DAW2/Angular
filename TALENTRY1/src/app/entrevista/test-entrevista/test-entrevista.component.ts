@@ -43,7 +43,7 @@ export class TestEntrevistaComponent implements OnInit {
 
   siguientePregunta() {
     if (this.posicion < this.preguntasYRespuestas.length) {
-      this.preguntasYRespuestas[this.posicion].seleccionada= this.seleccionada;
+      this.preguntasYRespuestas[this.posicion].seleccionada.respuesta = "Test";
       this.posicion++;
       this.setPosicion();
       this.seleccionada = "";
