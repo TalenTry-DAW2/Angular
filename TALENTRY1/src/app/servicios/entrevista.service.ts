@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {  Observable, of } from "rxjs";
 import { PreguntasRespuestas } from "src/models/PreguntasRespuestas";
 import { TokenService } from "./token.service";
+import { Respuestas } from "src/models/Respuestas";
 
 @Injectable({
   providedIn: 'root'
@@ -73,6 +74,27 @@ export class EntrevistaService {
       return isNaN(posicion) ? 0 : posicion; // Ensure it's a valid number, return 0 if not
     } else {
       return 0; // Return 0 if no position is found in local storage
+    }
+  }
+
+  //pregunta seleccionada y tal
+  setSeleccionadas(RespuestasPairs: Respuestas[]): void {
+    // Convert the array to a JSON string
+    const RespuestasPairsJSON = JSON.stringify(RespuestasPairs);
+
+    // Save the JSON string in local storage
+    localStorage.setItem('RespuestasPairs', RespuestasPairsJSON);
+  }
+
+  getSeleccionadas(): Observable<Respuestas[]> {
+    const RespuestasPairsJSON = localStorage.getItem('RespuestasPairs');
+
+    if (RespuestasPairsJSON) {
+      // Parse the JSON string into an array of QA objects
+      const RespuestasPairs: Respuestas[] = JSON.parse(RespuestasPairsJSON);
+      return of(RespuestasPairs); // Wrap the array in an observable and return
+    } else {
+      return of([]); // Return an empty array wrapped in an observable if no QA pairs are found in local storage
     }
   }
 

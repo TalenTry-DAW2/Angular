@@ -6,7 +6,7 @@
     <div class="opciones">
       <div *ngFor="let respuesta of preguntasYRespuestas[posicion].respuestas">
         <div class="option" [class.selected]="respuesta.answer === seleccionada"
-          (click)="selectAnswer(respuesta.answer)">
+          (click)="selectAnswer(respuesta.answer, respuesta.QuestionPoints)">
           {{ respuesta.answer }}
         </div>
       </div>
