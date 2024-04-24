@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactoService } from '../servicios/contacto/contacto.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TokenService } from '../servicios/token.service';
 
 @Component({
   selector: 'app-contacto',
@@ -8,8 +11,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactoComponent implements OnInit {
   contactForm!: FormGroup; 
+  mensaje: string = ''; 
+  error: string = '';
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private http: HttpClient,
+    private tokenService: TokenService
+  ) { }
 
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
@@ -20,14 +29,35 @@ export class ContactoComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.contactForm.valid) {
-      // Aquí puedes enviar el formulario a tu servicio de backend o realizar otras acciones
-      console.log(this.contactForm.value);
-      // Limpia el formulario después de enviarlo
-      this.contactForm.reset();
-    } else {
-      // Si el formulario no es válido, muestra un mensaje de error o realiza otras acciones
-      console.log('El formulario no es válido');
+    if (this.contactForm.invalid) {
+      return;
     }
+
+    const formData = this.contactForm.value;
+
+    // Ajusta la URL a la dirección correcta de tu API
+    const apiUrl = 'http://localhost:8000/api/contactos';
+
+    // Obtén el token de autenticación del servicio TokenService
+    const authToken = this.tokenService.getToken();
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    });
+
+    this.http.post<any>(apiUrl, formData, { headers: headers })
+      .subscribe(
+        response => {
+          this.mensaje = 'Mensaje enviado con éxito';
+        },
+        error => {
+          if (error.status === 401) {
+            this.error = 'Error de autenticación: No autorizado';
+          } else {
+            this.error = 'Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.';
+          }
+        }
+      );
   }
 }
