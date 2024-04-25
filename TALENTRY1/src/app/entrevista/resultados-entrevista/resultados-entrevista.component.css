@@ -1,42 +1,61 @@
 .interview-results-container {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .interview-results-heading {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .interview-question {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-  }
-  
-  .question {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .user-answer {
-    color: #666;
-    margin-bottom: 5px;
-  }
-  
-  .score {
-    font-style: italic;
-    color: #888;
-  }
-  
-  .total-score {
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 15px;
-  }
-  
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.interview-results-heading {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.interview-question {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.user-answer {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.score {
+  font-style: italic;
+  color: #888;
+}
+
+.total-score {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.guardar {
+  margin-left: 50%;
+  transform: translate(-50%);
+  font-size: 18px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 1em;
+  padding: 1em;
+  color: white;
+  background-color: #17a2b8;
+  border: 2px solid #17a2b8;
+  transition: 0.3s;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+.guardar:hover {
+  color: #17a2b8;
+  background-color: white;
+}

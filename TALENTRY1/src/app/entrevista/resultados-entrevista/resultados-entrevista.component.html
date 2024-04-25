@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="interview-results-container mt-4">
   <h2 class="interview-results-heading">Resultados de la entrevista</h2>
   <div *ngFor="let respuesta of respuestasUsuario" class="interview-question">
@@ -6,4 +7,5 @@
     <p class="score">Puntuación: {{ respuesta.puntuacion}}</p>
   </div>
   <p class="total-score">Puntuación total: {{ puntajeTotal }}</p>
+  <button class="guardar">Guardar resultados</button>
 </div>

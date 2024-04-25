@@ -14,9 +14,9 @@ export class TestEntrevistaComponent implements OnInit {
   length: number = this.entrevistaService.getQALength();
   posicion: number = 0;
   seleccionada: string = "";
-  puntosSeleccionada: number = -1;
+  puntosSeleccionada: number = 0;
   respuestaUsuario: Respuestas;
-  constructor(private route: ActivatedRoute, private router: Router, private entrevistaService: EntrevistaService) {
+  constructor(private router: Router, private entrevistaService: EntrevistaService) {
     this.respuestaUsuario = { 'pregunta': '', 'respuesta': '', 'puntuacion': 0, 'FInicio': new Date(), 'FFinal': new Date() };
   }
 
@@ -45,9 +45,9 @@ export class TestEntrevistaComponent implements OnInit {
   }
 
   selectAnswer(answer: string, points: number) {
-    if (this.seleccionada == answer) {
-      this.seleccionada = "";
-      this.puntosSeleccionada = -1;
+    if (this.respuestaUsuario.respuesta == answer) {
+      this.respuestaUsuario.respuesta = "";
+      this.puntosSeleccionada = 0;
     } else {
       this.seleccionada = answer;
       this.puntosSeleccionada = points;
@@ -56,7 +56,7 @@ export class TestEntrevistaComponent implements OnInit {
   }
 
   siguientePregunta() {
-    if (this.posicion < this.preguntasYRespuestas.length) {
+    if (this.posicion+1 < this.preguntasYRespuestas.length) {
       this.respuestaUsuario.pregunta = this.preguntasYRespuestas[this.posicion].pregunta.question;
       this.respuestaUsuario.respuesta = this.seleccionada;
       this.respuestaUsuario.FFinal = new Date;
@@ -67,7 +67,6 @@ export class TestEntrevistaComponent implements OnInit {
       this.entrevistaService.setQA(this.preguntasYRespuestas)
       this.router.navigate(['/entrevista/pregunta']);
     } else {
-
       this.router.navigate(['/entrevista/resultados']);
     }
 
