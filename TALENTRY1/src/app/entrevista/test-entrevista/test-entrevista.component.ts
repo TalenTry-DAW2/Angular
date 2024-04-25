@@ -21,14 +21,24 @@ export class TestEntrevistaComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarEntrevista()
+    this.getRespuesta()
+
   }
 
   cargarEntrevista() {
+    this.getPosicion();
     this.entrevistaService.getQA().subscribe(data => {
       this.preguntasYRespuestas = data;
     });
-    this.getPosicion();
     this.respuestasUsuario[this.posicion].FInicio = new Date;
+    /*setTimeout(() => {
+      if (localStorage.getItem('loadedOnce') === 'true') {
+
+      } else {
+        localStorage.setItem('loadedOnce', 'true');
+        window.location.reload();
+      }
+    }, 1000);*/
   }
 
   getPosicion() {
@@ -37,6 +47,16 @@ export class TestEntrevistaComponent implements OnInit {
 
   setPosicion() {
     this.entrevistaService.setPosicion(this.posicion);
+  }
+
+  getRespuesta() {
+    this.entrevistaService.getSeleccionadas().subscribe(
+      (data: Respuestas[]) => {
+        this.respuestasUsuario = data;
+      },
+      (error) => {
+      }
+    );
   }
 
   setRespuesta() {
@@ -65,14 +85,17 @@ export class TestEntrevistaComponent implements OnInit {
       this.setPosicion();
       this.entrevistaService.setQA(this.preguntasYRespuestas)
       this.router.navigate(['/entrevista/pregunta']);
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
     } else {
 
       this.router.navigate(['/entrevista/resultados']);
     }
 
+  }
+
+  recargar(){
+    setTimeout(() => {
+        window.location.reload();
+    }, 100);
   }
 }
 

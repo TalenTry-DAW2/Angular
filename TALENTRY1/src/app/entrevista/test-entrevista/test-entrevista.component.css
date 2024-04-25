@@ -39,3 +39,7 @@
   position: absolute;
   bottom: 10em;
 }
+
+.loading{
+  text-align: center;
+}

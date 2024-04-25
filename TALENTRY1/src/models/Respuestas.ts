@@ -8,8 +8,8 @@ export interface Respuestas {
 
 // Create a class that implements the Respuestas interface
 export class RespuestasClass implements Respuestas {
-    pregunta: string = '';
-    respuesta: string = '';
+    pregunta: string = ' ';
+    respuesta: string = ' ';
     puntuacion: number = 0;
     FInicio: Date | null = null;
     FFinal: Date | null = null;

@@ -17,6 +17,6 @@
     </div>
   </div>
   <div class="loading" *ngIf="preguntasYRespuestas.length === 0">
-    Cargando... 
+    <button (click)="recargar()">Empezar</button>
   </div>
 </div>
