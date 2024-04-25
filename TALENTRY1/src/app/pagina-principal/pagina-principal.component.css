@@ -160,3 +160,17 @@ h2{
     color: black!important;
     margin-top: -3%;
 }
+
+.imagenPersona{
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.09);
+}

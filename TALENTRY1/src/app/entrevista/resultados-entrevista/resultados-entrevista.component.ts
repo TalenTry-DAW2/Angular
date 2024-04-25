@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EntrevistaService } from 'src/app/servicios/entrevista.service';
-import { Respuestas, RespuestasClass } from 'src/models/Respuestas';
+import { Respuestas } from 'src/models/Respuestas';
 
 @Component({
   selector: 'app-resultados-entrevista',
@@ -10,7 +10,7 @@ import { Respuestas, RespuestasClass } from 'src/models/Respuestas';
 })
 export class ResultadosEntrevistaComponent implements OnInit {
   length: number = this.entrevistaService.getQALength();
-  respuestasUsuario: RespuestasClass[] = [];
+  respuestasUsuario: Respuestas[] = [];
   puntajeTotal: number = 0;
 
   constructor(private router: Router, private entrevistaService: EntrevistaService) { }

@@ -88,14 +88,26 @@ export class EntrevistaService {
     }
   }
 
-  //pregunta seleccionada y tal
-  setSeleccionadas(RespuestasPairs: Respuestas[]): void {
-    // Convert the array to a JSON string
-    const RespuestasPairsJSON = JSON.stringify(RespuestasPairs);
 
-    // Save the JSON string in local storage
-    localStorage.setItem('RespuestasPairs', RespuestasPairsJSON);
-  }
+  setSeleccionada(RespuestaPair: Respuestas, index: number): void {
+    // Retrieve the current array from local storage
+    const RespuestasPairsJSON = localStorage.getItem('RespuestasPairs');
+    let RespuestasPairs: Respuestas[] = [];
+
+    if (RespuestasPairsJSON) {
+        // Parse the JSON string back to an array
+        RespuestasPairs = JSON.parse(RespuestasPairsJSON);
+    }
+
+    // Update or set the specific element at the desired index
+    RespuestasPairs[index] = RespuestaPair;
+
+    // Convert the updated array to a JSON string
+    const updatedRespuestasPairsJSON = JSON.stringify(RespuestasPairs);
+
+    // Save the updated JSON string back to local storage
+    localStorage.setItem('RespuestasPairs', updatedRespuestasPairsJSON);
+}
 
   getSeleccionadas(): Observable<Respuestas[]> {
     const RespuestasPairsJSON = localStorage.getItem('RespuestasPairs');
