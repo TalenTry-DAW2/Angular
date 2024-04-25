@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EntrevistaService } from 'src/app/servicios/entrevista.service';
+import { Respuestas, RespuestasClass } from 'src/models/Respuestas';
 
 @Component({
   selector: 'app-resultados-entrevista',
@@ -7,23 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./resultados-entrevista.component.css']
 })
 export class ResultadosEntrevistaComponent implements OnInit {
-  respuestasUsuario: any[] = [];
+  length: number = this.entrevistaService.getQALength();
+  respuestasUsuario: RespuestasClass[] = [];
   puntajeTotal: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private entrevistaService: EntrevistaService) { }
 
   ngOnInit(): void {
-    // Obtener los datos de las respuestas del usuario desde el estado de la ruta
-    const navigation = window.history.state;
-    if (navigation && navigation.respuestasUsuario) {
-      this.respuestasUsuario = navigation.respuestasUsuario;
+    this.getRespuesta()
+    if (this.respuestasUsuario.length > 0) {
       this.calcularPuntajeTotal();
     } else {
       // Si no hay datos de respuestas, redirigir a la página de inicio
       this.router.navigate(['/']);
     }
   }
-
+  getRespuesta() {
+    this.entrevistaService.getSeleccionadas().subscribe(data => {
+      this.respuestasUsuario = data;
+    });
+  }
   calcularPuntajeTotal(): void {
     // Sumar los puntajes de todas las respuestas
     this.puntajeTotal = this.respuestasUsuario.reduce((total, respuesta) => total + respuesta.puntuacion, 0);

@@ -36,17 +36,16 @@ export class ContactoComponent implements OnInit {
     const formData = this.contactForm.value;
 
     // Ajusta la URL a la dirección correcta de tu API
-    const apiUrl = 'http://localhost:8000/api/contactos';
+    const apiUrl = 'http://127.0.0.1:8000/api/contactos';
 
     // Obtén el token de autenticación del servicio TokenService
     const authToken = this.tokenService.getToken();
 
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${authToken}`,
-      'Content-Type': 'application/json'
+      'Authorization': `Bearer ${authToken}`
     });
-
-    this.http.post<any>(apiUrl, formData, { headers: headers })
+    console.log(formData)
+    this.http.post(apiUrl, formData, { headers })
       .subscribe(
         response => {
           this.mensaje = 'Mensaje enviado con éxito';

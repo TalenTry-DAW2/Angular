@@ -56,6 +56,7 @@ export class TestEntrevistaComponent implements OnInit {
 
   siguientePregunta() {
     if (this.posicion < this.preguntasYRespuestas.length) {
+      this.respuestasUsuario[this.posicion].pregunta = this.preguntasYRespuestas[this.posicion].pregunta.question;
       this.respuestasUsuario[this.posicion].respuesta = this.seleccionada;
       this.respuestasUsuario[this.posicion].FFinal = new Date;
       this.respuestasUsuario[this.posicion].puntuacion = this.puntosSeleccionada;
@@ -68,6 +69,7 @@ export class TestEntrevistaComponent implements OnInit {
         window.location.reload();
       }, 100);
     } else {
+
       this.router.navigate(['/entrevista/resultados']);
     }
 
