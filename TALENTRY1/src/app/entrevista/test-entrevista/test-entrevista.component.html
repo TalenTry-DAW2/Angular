@@ -2,7 +2,7 @@
 
 <div class="quiz-container">
   <div *ngIf="preguntasYRespuestas.length > 0">
-    <h3 class="question">{{ preguntasYRespuestas[posicion].pregunta?.question }}</h3>
+    <h3 class="question">{{ preguntasYRespuestas[posicion].pregunta.question }}</h3>
     <div class="opciones">
       <div *ngFor="let respuesta of preguntasYRespuestas[posicion].respuestas">
         <div class="option" [class.selected]="respuesta?.answer === seleccionada"
