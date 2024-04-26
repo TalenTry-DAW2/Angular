@@ -64,7 +64,8 @@ export class ResultadosEntrevistaComponent implements OnInit {
     var parametros = [1, this.puntajeTotal, this.respuestasUsuario[0].FInicio, this.respuestasUsuario[this.respuestasUsuario.length - 1].FFinal];
     this.entrevistaService.GuardarEntrevistaRecord(parametros).subscribe(
       (data) => {
-        console.log(data)
+        this.entrevistaService.EliminarEntrevista();
+        this.router.navigate(['/']);
       },
       (error) => {
         console.log(error)

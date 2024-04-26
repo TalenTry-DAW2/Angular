@@ -149,7 +149,7 @@ export class EntrevistaService {
   }
 
   EliminarEntrevista() {
-    localStorage.removeItem('RespuestarPairs');
+    localStorage.removeItem('RespuestasPairs');
     localStorage.removeItem('qaPairs');
     localStorage.removeItem('posicion');
   }

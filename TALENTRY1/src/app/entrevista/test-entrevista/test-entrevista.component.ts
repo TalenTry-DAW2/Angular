@@ -45,8 +45,8 @@ export class TestEntrevistaComponent implements OnInit {
   }
 
   selectAnswer(answer: string, points: number) {
-    if (this.respuestaUsuario.respuesta == answer) {
-      this.respuestaUsuario.respuesta = "";
+    if (this.seleccionada == answer) {
+      this.seleccionada = "";
       this.puntosSeleccionada = 0;
     } else {
       this.seleccionada = answer;
