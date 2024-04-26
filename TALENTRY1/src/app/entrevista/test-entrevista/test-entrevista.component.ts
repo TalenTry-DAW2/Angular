@@ -56,7 +56,9 @@ export class TestEntrevistaComponent implements OnInit {
   }
 
   siguientePregunta() {
-    if (this.posicion < this.preguntasYRespuestas.length) {
+    if (this.posicion == this.preguntasYRespuestas.length) {
+      this.router.navigate(['/entrevista/resultados']);
+    } else {
       this.respuestaUsuario.pregunta = this.preguntasYRespuestas[this.posicion].pregunta.question;
       this.respuestaUsuario.respuesta = this.seleccionada;
       this.respuestaUsuario.FFinal = new Date;
@@ -67,8 +69,6 @@ export class TestEntrevistaComponent implements OnInit {
       this.entrevistaService.setQA(this.preguntasYRespuestas)
       this.router.navigate(['/entrevista/pregunta']);
       this.respuestaUsuario.FInicio = new Date;
-    } else {
-      this.router.navigate(['/entrevista/resultados']);
     }
 
   }
