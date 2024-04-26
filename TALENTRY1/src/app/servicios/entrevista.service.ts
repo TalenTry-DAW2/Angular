@@ -138,6 +138,23 @@ export class EntrevistaService {
     return this.http.post("http://127.0.0.1:8000/api/record/store", params, { headers });
   }
 
+  GuardarEntrevistaQA(parametros: any[]) {
+    // token de sesion
+    const authToken = this.tokenService.getToken();
+    // header con el token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
+    let startDate: Date = new Date(parametros[2]);
+    let endDate: Date = new Date(parametros[3]);
+    let params = new HttpParams()
+      .set('CategoryID', parametros[0].as)
+      .set('score', parametros[1])
+      .set('StartDate', this.formatDateToBackend(startDate))
+      .set('FinishDate', this.formatDateToBackend(endDate));
+    return this.http.post("http://127.0.0.1:8000/api/record/store", params, { headers });
+  }
+
   formatDateToBackend(date: Date): string {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based

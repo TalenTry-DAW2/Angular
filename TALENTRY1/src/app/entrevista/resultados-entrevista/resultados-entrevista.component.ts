@@ -61,9 +61,18 @@ export class ResultadosEntrevistaComponent implements OnInit {
   }
 
   guardar() {
+    
     var parametros = [1, this.puntajeTotal, this.respuestasUsuario[0].FInicio, this.respuestasUsuario[this.respuestasUsuario.length - 1].FFinal];
     this.entrevistaService.GuardarEntrevistaRecord(parametros).subscribe(
       (data) => {
+        this.entrevistaService.GuardarEntrevistaQA(this.respuestasUsuario).subscribe(
+          (data) => {
+            console.log("uwu")
+          },
+          (error) => {
+            console.log(error)
+          }
+        );
         this.entrevistaService.EliminarEntrevista();
         this.router.navigate(['/']);
       },

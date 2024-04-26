@@ -65,6 +65,7 @@ export class TestEntrevistaComponent implements OnInit {
       this.respuestaUsuario.puntuacion = this.puntosSeleccionada;
       this.setRespuesta();
       this.posicion++;
+      this.seleccionada = "";
       this.setPosicion();
       this.entrevistaService.setQA(this.preguntasYRespuestas)
       this.router.navigate(['/entrevista/pregunta']);
