@@ -5,7 +5,7 @@
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    background-image: url('src/assets/fondo.jpg'); /* Cambiar 'assets/background.jpg' con la ruta de tu imagen de fondo */
+    background-image: url('src/assets/oficina.png'); /* Cambiar 'assets/background.jpg' con la ruta de tu imagen de fondo */
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
