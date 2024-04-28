@@ -4,4 +4,5 @@ export interface Respuestas {
     puntuacion: number;
     FInicio: Date | null;
     FFinal: Date | null;
+    QuestionID?: number;
 }

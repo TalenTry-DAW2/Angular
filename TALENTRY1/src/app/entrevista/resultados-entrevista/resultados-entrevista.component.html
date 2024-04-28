@@ -7,7 +7,7 @@
     <p class="score">Puntuación: {{ respuesta.puntuacion}}</p>
   <p>Tiempo de respuesta: {{getTimeDifference(respuesta.FInicio, respuesta.FFinal)}}</p>
   </div>
-  <p class="total-score">Puntuación total: {{ puntajeTotal }}</p>
+  <p class="total-score">Puntuación total: {{ TotalScore }}</p>
   <p class="total-score">Tiempo total: {{ getTimeDifference(respuestasUsuario[0].FInicio, respuestasUsuario[respuestasUsuario.length-1].FFinal) }}</p>
   <button class="guardar" (click)="guardar()">Guardar resultados</button>
 </div>

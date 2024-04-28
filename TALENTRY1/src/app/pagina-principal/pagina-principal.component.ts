@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../servicios/auth.service';
 import { TokenService } from '../servicios/token.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -15,6 +16,7 @@ export class PaginaPrincipalComponent implements OnInit {
 
   ngOnInit(): void {
     this.IsLogedIn();
+
   }
 
   IsLogedIn() {

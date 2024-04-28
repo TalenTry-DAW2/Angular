@@ -29,7 +29,7 @@ export class TestEntrevistaComponent implements OnInit {
     this.entrevistaService.getQA().subscribe(data => {
       this.preguntasYRespuestas = data;
     });
-    
+
   }
 
   getPosicion() {
@@ -41,7 +41,7 @@ export class TestEntrevistaComponent implements OnInit {
   }
 
   setRespuesta() {
-    this.entrevistaService.setSeleccionada(this.respuestaUsuario, this.posicion);
+    this.entrevistaService.setSeleccionada(this.respuestaUsuario, this.posicion, this.preguntasYRespuestas[this.posicion].pregunta.QuestionID);
   }
 
   selectAnswer(answer: string, points: number) {
@@ -64,12 +64,15 @@ export class TestEntrevistaComponent implements OnInit {
       this.respuestaUsuario.FFinal = new Date;
       this.respuestaUsuario.puntuacion = this.puntosSeleccionada;
       this.setRespuesta();
-      this.posicion++;
-      this.seleccionada = "";
-      this.setPosicion();
       this.entrevistaService.setQA(this.preguntasYRespuestas)
       this.router.navigate(['/entrevista/pregunta']);
       this.respuestaUsuario.FInicio = new Date;
+      this.posicion++;
+      this.seleccionada = "";
+      this.setPosicion();
+      if (this.posicion == this.preguntasYRespuestas.length) {
+        this.router.navigate(['/entrevista/resultados']);
+      }
     }
 
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EntrevistaService } from 'src/app/servicios/entrevista.service';
+import { PreguntasRespuestas } from 'src/models/PreguntasRespuestas';
 import { Respuestas } from 'src/models/Respuestas';
 
 @Component({
@@ -10,8 +11,9 @@ import { Respuestas } from 'src/models/Respuestas';
 })
 export class ResultadosEntrevistaComponent implements OnInit {
   length: number = this.entrevistaService.getQALength();
+  preguntasYRespuestas: PreguntasRespuestas[] = [];
   respuestasUsuario: Respuestas[] = [];
-  puntajeTotal: number = 0;
+  TotalScore: number = 0;
 
   constructor(private router: Router, private entrevistaService: EntrevistaService) { }
 
@@ -27,11 +29,13 @@ export class ResultadosEntrevistaComponent implements OnInit {
   getRespuesta() {
     this.entrevistaService.getSeleccionadas().subscribe(data => {
       this.respuestasUsuario = data;
+      this.entrevistaService.getQA().subscribe(data => {
+        this.preguntasYRespuestas = data;
+      });
     });
   }
   calcularPuntajeTotal(): void {
-    // Sumar los puntajes de todas las respuestas
-    this.puntajeTotal = this.respuestasUsuario.reduce((total, respuesta) => total + respuesta.puntuacion, 0);
+    this.TotalScore = this.respuestasUsuario.reduce((total, respuesta) => total + respuesta.puntuacion, 0);
   }
 
   getTimeDifference(startDate: any, endDate: any): string {
@@ -61,20 +65,26 @@ export class ResultadosEntrevistaComponent implements OnInit {
   }
 
   guardar() {
-    
-    var parametros = [1, this.puntajeTotal, this.respuestasUsuario[0].FInicio, this.respuestasUsuario[this.respuestasUsuario.length - 1].FFinal];
+    var parametros = [this.preguntasYRespuestas[0].pregunta.CategoryID, this.TotalScore, this.respuestasUsuario[0].FInicio, this.respuestasUsuario[this.respuestasUsuario.length - 1].FFinal];
     this.entrevistaService.GuardarEntrevistaRecord(parametros).subscribe(
-      (data) => {
-        this.entrevistaService.GuardarEntrevistaQA(this.respuestasUsuario).subscribe(
-          (data) => {
-            console.log("uwu")
-          },
-          (error) => {
-            console.log(error)
-          }
-        );
-        this.entrevistaService.EliminarEntrevista();
-        this.router.navigate(['/']);
+      (data: any) => {
+        if (data && data['RecordID']) {
+          var RecordID = data['RecordID'];
+          this.entrevistaService.GuardarEntrevistaQA(this.respuestasUsuario, RecordID).subscribe(
+            (data) => {
+              alert("Entrevista guardada correctamente, ve a Perfil->Historial para volver a ver los resultados.")
+              this.entrevistaService.EliminarEntrevista();
+              this.router.navigate(['/']);
+            },
+            (error) => {
+              console.log(error)
+            }
+          );
+          this.entrevistaService.EliminarEntrevista();
+          this.router.navigate(['/']);
+        } else {
+          console.error('RecordID not found in the response');
+        }
       },
       (error) => {
         console.log(error)

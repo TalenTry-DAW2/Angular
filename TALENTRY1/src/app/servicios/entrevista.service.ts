@@ -89,7 +89,7 @@ export class EntrevistaService {
   }
 
 
-  setSeleccionada(RespuestaPair: Respuestas, index: number): void {
+  setSeleccionada(RespuestaPair: Respuestas, index: number, QuestionID: any): void {
     // Retrieve the current array from local storage
     const RespuestasPairsJSON = localStorage.getItem('RespuestasPairs');
     let RespuestasPairs: Respuestas[] = [];
@@ -100,6 +100,7 @@ export class EntrevistaService {
     }
 
     // Update or set the specific element at the desired index
+    RespuestaPair.QuestionID = QuestionID;
     RespuestasPairs[index] = RespuestaPair;
 
     // Convert the updated array to a JSON string
@@ -138,7 +139,7 @@ export class EntrevistaService {
     return this.http.post("http://127.0.0.1:8000/api/record/store", params, { headers });
   }
 
-  GuardarEntrevistaQA(parametros: any[]) {
+  GuardarEntrevistaQA(parametros: any[], RecordID: number): Observable<any> {
     // token de sesion
     const authToken = this.tokenService.getToken();
     // header con el token
@@ -147,12 +148,25 @@ export class EntrevistaService {
     });
     let startDate: Date = new Date(parametros[2]);
     let endDate: Date = new Date(parametros[3]);
-    let params = new HttpParams()
-      .set('CategoryID', parametros[0].as)
-      .set('score', parametros[1])
-      .set('StartDate', this.formatDateToBackend(startDate))
-      .set('FinishDate', this.formatDateToBackend(endDate));
-    return this.http.post("http://127.0.0.1:8000/api/record/store", params, { headers });
+
+    const params: any[] = [];
+
+    // Iterate over each item in parametros array
+    parametros.forEach((item) => {
+
+      // Create an object to represent a single record (question and answer)
+      const recordData = {
+        RecordID: RecordID,
+        QuestionID: item.QuestionID, // Assuming QuestionID is the correct property name
+        score: item.puntuacion,
+        answer: item.respuesta,
+        StartDate: this.formatDateToBackend(new Date(item.FInicio)), // Assuming FInicio is the correct property name
+        FinishDate: this.formatDateToBackend(new Date(item.FFinal)) // Assuming FFinal is the correct property name
+      };
+      // Add the recordData object to the requestBody array
+      params.push(recordData);
+    });
+    return this.http.post("http://127.0.0.1:8000/api/QA/store", params, { headers });
   }
 
   formatDateToBackend(date: Date): string {
