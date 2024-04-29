@@ -1,1 +1,39 @@
-<p>gestion-qa works!</p>
+<div class="container">
+    <h2>Agregar Pregunta</h2>
+    <form [formGroup]="questionForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="CatID"> ID Categoria: </label> <br>
+        <select formControlName="CategoryID">
+          <option *ngFor="let item of categorias" [value]="item.CategoryID"> {{ item.CategoryName }} </option>
+        </select> <br>
+        <label for="question">Pregunta:</label>
+        <input type="text" class="form-control" formControlName="question" id="question">
+      </div>
+      <div class="form-group">
+        <label>Respuestas:</label>
+        <div class="respuestas-puntos">
+          <div formArrayName="answers">
+            <div *ngFor="let answer of answers.controls; let i = index">
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" [formControlName]="i" placeholder="Respuesta">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div formArrayName="QuestionPoints">
+            <div *ngFor="let QuestionPoint of QuestionPoints.controls; let i = index">
+              <div class="row">
+                <div class="col">
+                  <input type="number" class="form-control" [formControlName]="i" placeholder="Puntuación">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button type="button" class="btn btn-primary mt-2" (click)="addAnswer()">Agregar Respuesta</button>
+      </div>
+      <button type="submit" class="btn btn-success">Guardar Pregunta</button>
+    </form>
+  </div>
