@@ -45,7 +45,7 @@ const routes: Routes = [
   { path: 'entrevista/resultados', component: ResultadosEntrevistaComponent },
   { path: 'entrevista/info-categoria', component: InfotestCategoriaComponent },
   {
-    path: 'pagina-admin', component: PantallaAdminComponent,
+    path: 'zona-admin', component: PantallaAdminComponent,
     children: [
       { path: 'gestion-usuarios', component: GestionUsuariosComponent },
       { path: 'gestion-categorias', component: GestionCategoriasComponent },

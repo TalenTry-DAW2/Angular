@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   sesion: boolean = false;
   Role: string = '';
   RoleEmpresa: string = 'Empresa';
+  RoleAdmin: string = 'Administrador';
   constructor(public authService: AuthService, private router: Router, public tokenService: TokenService) {
   }
 
