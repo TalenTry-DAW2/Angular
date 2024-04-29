@@ -66,7 +66,7 @@ export class HistorialComponent implements OnInit {
     const seconds = totalSeconds % 60;
   
     // Return the time difference in minutes and seconds
-    return `${totalMinutes} minutes, ${seconds} seconds`;
+    return `${totalMinutes} minutos, ${seconds} segundos`;
   }
   
 }
