@@ -1,22 +1,26 @@
-<app-navbar></app-navbar>
+<div class="body">
 
-<div class="quiz-container">
-  <div *ngIf="preguntasYRespuestas.length > 0">
-    <h3 class="question">{{ preguntasYRespuestas[posicion].pregunta?.question }}</h3>
-    <div class="opciones">
-      <div *ngFor="let respuesta of preguntasYRespuestas[posicion].respuestas">
-        <div class="option" [class.selected]="respuesta?.answer === seleccionada"
-          (click)="selectAnswer(respuesta.answer, respuesta.QuestionPoints)">
-          {{ respuesta.answer }}
+  <app-navbar></app-navbar>
+
+  <div class="quiz-container">
+    <div id="longitud"></div>
+    <div *ngIf="preguntasYRespuestas.length > 0">
+      <h3 class="question">{{ preguntasYRespuestas[posicion].pregunta?.question }}</h3>
+      <div class="opciones">
+        <div *ngFor="let respuesta of preguntasYRespuestas[posicion].respuestas">
+          <div class="option" [class.selected]="respuesta?.answer === seleccionada"
+            (click)="selectAnswer(respuesta.answer, respuesta.QuestionPoints)">
+            {{ respuesta.answer }}
+          </div>
         </div>
       </div>
-    </div>
 
-    <div>
-      <button (click)="siguientePregunta()" class="next" [disabled]="seleccionada === ''">Siguiente</button>
+      <div>
+        <button (click)="siguientePregunta()" class="next" [disabled]="seleccionada === ''">Siguiente</button>
+      </div>
     </div>
-  </div>
-  <div class="loading" *ngIf="preguntasYRespuestas.length === 0">
-    <button (click)="recargar()">Empezar</button>
+    <div class="loading" *ngIf="preguntasYRespuestas.length === 0">
+      <button (click)="recargar()">Empezar</button>
+    </div>
   </div>
 </div>

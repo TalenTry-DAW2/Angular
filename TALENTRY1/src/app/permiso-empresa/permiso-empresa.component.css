@@ -97,6 +97,7 @@
     top: 1em;
     left: 1em;
     margin-bottom: 2em;
+    width: fit-content;
   }
 
   .respuesta acepto{

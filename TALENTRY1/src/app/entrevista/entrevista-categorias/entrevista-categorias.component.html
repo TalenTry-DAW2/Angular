@@ -1,10 +1,14 @@
-<app-navbar></app-navbar>
+<div class="body">
+    <app-navbar></app-navbar>
 
-<div class="container container-img">
-    <div class="row">
-        <div *ngFor="let categoria of categorias" class="col-lg-4" (click)="irAInfoCategoria(categoria)">
-            <div class="image-container">
-                <img src="{{ categoria.image }}" alt="Imagen de categoría">
-                <h3 class="category-text">{{ categoria.CategoryName }}</h3>
+    <div class="container container-img">
+        <div class="row">
+            <div *ngFor="let categoria of categorias" class="col-lg-4" (click)="irAInfoCategoria(categoria)">
+                <div class="image-container">
+                    <img src="{{ categoria.image }}" alt="Imagen de categoría">
+                    <h3 class="category-text">{{ categoria.CategoryName }}</h3>
+                </div>
             </div>
         </div>
+    </div>
+</div>

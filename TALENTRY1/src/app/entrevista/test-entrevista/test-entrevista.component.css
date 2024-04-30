@@ -1,3 +1,9 @@
+.body {
+  margin: 0; /* Elimina el margen predeterminado */
+  min-height: calc(100vh - 50px); /* Asegura que el cuerpo de la página tenga una altura del 100% del viewport */
+  display: flex;
+  flex-direction: column;
+}
 .quiz-container {
   background-color: #f9f9f9;
   padding-top: 20vh;
@@ -37,7 +43,7 @@
 
 .next{
   position: absolute;
-  bottom: 10em;
+  bottom: 10%;
 }
 
 .loading{
@@ -46,4 +52,11 @@
   left: 50%;
   top:50%;
   transform: translate(-50%,-50%);
+}
+
+#longitud {
+  display: flex;
+  justify-content: space-between;
+  max-width: 85%;
+  margin-bottom: 1em;
 }

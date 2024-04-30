@@ -1,27 +1,29 @@
-<app-navbar></app-navbar>
+<div class="body">
+  <app-navbar></app-navbar>
 
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Longitud de la entrevista</h5>
-          <div class="form-check" *ngFor="let length of [5, 10, 15, 20, 25, 30, 35]">
-            <input class="form-check-input" type="radio" name="longitudEntrevista" [id]="length" [value]="length"
-              [(ngModel)]="longitudEntrevistaSeleccionada">
-            <label class="form-check-label" [for]="length">{{ length }} preguntas</label>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Longitud de la entrevista</h5>
+            <div class="form-check" *ngFor="let length of [5, 10, 15, 20, 25, 30, 35]">
+              <input class="form-check-input" type="radio" name="longitudEntrevista" [id]="length" [value]="length"
+                [(ngModel)]="longitudEntrevistaSeleccionada">
+              <label class="form-check-label" [for]="length">{{ length }} preguntas</label>
+            </div>
           </div>
+          <button class="btn btn-primary btn-start"
+            (click)="empezarEntrevista(longitudEntrevistaSeleccionada)">Empezar</button>
         </div>
-        <button class="btn btn-primary btn-start"
-          (click)="empezarEntrevista(longitudEntrevistaSeleccionada)">Empezar</button>
       </div>
-    </div>
 
-    <div class="col-md-6">
-      <div class="category-panel">
-        <h5>Categoría Seleccionada</h5>
-        <p><strong>Nombre de la Categoría:</strong> {{categoria.CategoryName}}</p>
-        <p><strong>Descripción:</strong>{{categoria.description}} </p>
+      <div class="col-md-6">
+        <div class="category-panel">
+          <h5>Categoría Seleccionada</h5>
+          <p><strong>Nombre de la Categoría:</strong> {{categoria.CategoryName}}</p>
+          <p><strong>Descripción:</strong>{{categoria.description}} </p>
+        </div>
       </div>
     </div>
   </div>
