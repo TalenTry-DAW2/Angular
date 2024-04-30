@@ -1,12 +1,9 @@
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+.body {
+    margin: 0; /* Elimina el margen predeterminado */
+    min-height: calc(100vh - 50px); /* Asegura que el cuerpo de la página tenga una altura del 100% del viewport */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
-}
+    flex-direction: column;
+  }
 
 .error-container {
     text-align: center;

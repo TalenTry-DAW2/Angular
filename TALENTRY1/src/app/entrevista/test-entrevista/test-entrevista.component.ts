@@ -66,12 +66,11 @@ export class TestEntrevistaComponent implements OnInit {
       this.respuestaUsuario.puntuacion = this.puntosSeleccionada;
       this.setRespuesta();
       this.entrevistaService.setQA(this.preguntasYRespuestas)
-      this.router.navigate(['/entrevista/pregunta']);
       this.respuestaUsuario.FInicio = new Date;
       this.posicion++;
       this.seleccionada = "";
       this.setPosicion();
-      this.renderDivs();
+      this.updateDivs();
       if (this.posicion == this.preguntasYRespuestas.length) {
         this.router.navigate(['/entrevista/resultados']);
       }
@@ -87,9 +86,9 @@ export class TestEntrevistaComponent implements OnInit {
     this.respuestaUsuario.FInicio = new Date;
   }
 
+  
   renderDivs(): void {
     const container = document.getElementById("longitud");
-    console.log(container)
     if (!container) return;
 
     const length = this.preguntasYRespuestas.length;
@@ -97,16 +96,30 @@ export class TestEntrevistaComponent implements OnInit {
     for (let i = 0; i < length; i++) {
       const div = document.createElement("div");
       div.textContent = ``;
-
-      // Apply different classes based on position
       if (i < position) {
-        div.setAttribute("style", "width: 15px; height: 15px; background-color: rgb(56, 166, 166); border: 1px solid black; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);");
+        div.setAttribute("style", "width: 15px; height: 15px; background-color: #17a2b8; border: 1px solid black; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);");
       } else {
-        div.setAttribute("style", "width: 15px; height: 15px; background-color: white; border: 1px solid black; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);");
+        div.setAttribute("style", "width: 15px; height: 15px; background-color: white; border: 1px solid black; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);");
       }
 
       container.appendChild(div);
     }
+  }
+  updateDivs(): void {
+    const container = document.getElementById("longitud");
+    if (!container) return;
+  
+    const length = this.preguntasYRespuestas.length;
+    const position = this.posicion;
+    const divs = container.querySelectorAll("div");
+
+    divs.forEach((div, i) => {
+      if (i < position) {
+        div.setAttribute("style", "width: 15px; height: 15px; background-color: #17a2b8; border: 1px solid black; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);");
+      } else {
+        div.setAttribute("style", "width: 15px; height: 15px; background-color: white; border: 1px solid black; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);");
+      }
+    });
   }
 }
 

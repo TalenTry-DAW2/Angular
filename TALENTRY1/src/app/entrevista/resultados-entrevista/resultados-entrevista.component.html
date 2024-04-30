@@ -1,13 +1,22 @@
-<app-navbar></app-navbar>
-<div class="interview-results-container mt-4">
+<div class="body">
+  <app-navbar></app-navbar>
   <h2 class="interview-results-heading">Resultados de la entrevista</h2>
-  <div *ngFor="let respuesta of respuestasUsuario" class="interview-question">
-    <p class="question">{{ respuesta.pregunta }}</p>
-    <p class="user-answer">Respuesta del usuario: {{ respuesta.respuesta }}</p>
-    <p class="score">Puntuación: {{ respuesta.puntuacion}}</p>
-  <p>Tiempo de respuesta: {{getTimeDifference(respuesta.FInicio, respuesta.FFinal)}}</p>
+  <div class="interview-results-container mt-4">
+    <div class="columna1">
+      <p class="total-score">Puntuación total: {{ TotalScore }}</p>
+      <p class="total-score">Tiempo total: {{ getTimeDifference(respuestasUsuario[0].FInicio,
+        respuestasUsuario[respuestasUsuario.length-1].FFinal) }}</p>
+      <button class="guardar" (click)="guardar()">Guardar resultados</button>
+    </div>
+    <div class="columna2">
+      <h2 class="interview-results-heading">Resultados por pregunta</h2>
+      <div *ngFor="let respuesta of respuestasUsuario" class="interview-question">
+        <p class="question">{{ respuesta.pregunta }}</p>
+        <p class="user-answer">Respuesta del usuario: {{ respuesta.respuesta }}</p>
+        <p class="score">Puntuación: {{ respuesta.puntuacion}}</p>
+        <p>Tiempo de respuesta: {{getTimeDifference(respuesta.FInicio, respuesta.FFinal)}}</p>
+      </div>
+    </div>
+
   </div>
-  <p class="total-score">Puntuación total: {{ TotalScore }}</p>
-  <p class="total-score">Tiempo total: {{ getTimeDifference(respuestasUsuario[0].FInicio, respuestasUsuario[respuestasUsuario.length-1].FFinal) }}</p>
-  <button class="guardar" (click)="guardar()">Guardar resultados</button>
 </div>

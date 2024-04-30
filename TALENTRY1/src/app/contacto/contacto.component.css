@@ -14,6 +14,7 @@
     animation: slideIn 0.5s ease;
     margin-top: 30px; /* Margen superior */
     margin-bottom: 30px; /* Margen inferior */
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.153);
 }
   
   @keyframes slideIn {
@@ -27,28 +28,12 @@
     }
   }
 
-
-  footer {
-    background-color: #333333; /* Color de fondo */
-    color: #ffffff;            /* Color del texto */
-    text-align: center;        /* Alineación del texto */
-    padding: 10px 0;           /* Padding para dar espacio arriba y abajo */
-    width: 100%;               /* El footer ocupa el ancho completo */
-}
-
 .container {
-    min-height: calc(94.15vh - 60px); /* Altura mínima ajustada para compensar la altura del navbar y footer */
+    min-height: calc(80vh - 50px); /* Altura mínima ajustada para compensar la altura del navbar y footer */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centra el contenido verticalmente */
     align-items: center; /* Centra el contenido horizontalmente */
-}
-
-body, html {
-    height: 100%; /* Asegura que el body y html ocupen el alto total de la ventana */
-    margin: 0; /* Elimina el margen predeterminado */
-    display: flex;
-    flex-direction: column;
 }
 
 .app-navbar, .footer {
