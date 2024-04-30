@@ -31,6 +31,7 @@ import { GestionPreguntasComponent } from './pantalla-empresa/gestion-preguntas/
 import { PermisoEmpresaComponent } from './permiso-empresa/permiso-empresa.component';
 import { RegistroEmpresaComponent } from './registro-empresa/registro-empresa.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { ErrorAccesoComponent } from './error-acceso/error-acceso.component';
 
 
 
@@ -59,6 +60,7 @@ import { ContactoComponent } from './contacto/contacto.component';
     PermisoEmpresaComponent,
     RegistroEmpresaComponent,
     ContactoComponent,
+    ErrorAccesoComponent,
   ],
   imports: [
     BrowserModule,

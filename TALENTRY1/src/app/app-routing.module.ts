@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
+import { ErrorAccesoComponent } from './error-acceso/error-acceso.component'; // Importa el componente ErrorAccesoComponent
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
@@ -54,6 +55,8 @@ const routes: Routes = [
       // Añade aquí más rutas hijas según sea necesario
     ]
   },
+  { path: 'error-acceso', component: ErrorAccesoComponent }, // Ruta para el componente ErrorAccesoComponent
+
   { path: 'error', component: ErrorComponent }, // Global error route
   { path: '**', redirectTo: 'error' }, // Capture all unmatched paths globally
 ];
