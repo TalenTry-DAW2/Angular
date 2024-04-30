@@ -46,7 +46,7 @@ export class EntrevistaCategoriasComponent implements OnInit {
         image: category.image,
       }
     };
-
+    this.entrevistaService.EliminarEntrevista();
     this.router.navigate(['/entrevista/info-categoria'], navigationExtras);
   }
 }

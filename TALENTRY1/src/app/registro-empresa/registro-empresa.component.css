@@ -11,7 +11,7 @@
 }
 
 .navbar {
-    background-color: #777474;
+    background-color: #a8a6a6;
     color: #333333;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 7px;
@@ -21,7 +21,7 @@
 }
 
 .logo img {
-    width: 120px;
+    width: 100px;
     height: auto;
 }
 
