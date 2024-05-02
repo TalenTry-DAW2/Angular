@@ -15,7 +15,8 @@
 
 /* Barra de Navegación */
 .navbar {
-    background-color: #a8a6a6;
+    background-color: #f7f7f7;
+    padding: 7px;
     color: #333333;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
 }
