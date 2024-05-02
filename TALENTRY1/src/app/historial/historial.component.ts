@@ -12,6 +12,7 @@ import { UserService } from '../servicios/user.service';
 export class HistorialComponent implements OnInit {
   entrevistas: Record[] = [];
   respuestas: QA[] = [];
+  PuntosTotales: number = 0;
   constructor(private router: Router, private userService: UserService) {
 
   }
@@ -30,12 +31,17 @@ export class HistorialComponent implements OnInit {
       }
     );
   }
+  CargarPuntos() {
+    this.PuntosTotales = this.respuestas.reduce((total, respuesta) => total + respuesta.QuestionPoints, 0);
+  }
+
 
 
   CargarRespuestas(id:number) {
     this.userService.CargarRespuestas(id).subscribe(
       (data: QA[][]) => {
         this.respuestas = data[0];
+        this.CargarPuntos();
       },
       (error) => {
 
