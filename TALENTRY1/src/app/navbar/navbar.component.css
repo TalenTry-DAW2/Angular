@@ -9,6 +9,9 @@
 }
 
 .barra-navegacion{
-    background-color: #a8a6a6;
+    background-color: #f7f7f7;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.153);
+}
+a{
+    color: black!important;
 }
