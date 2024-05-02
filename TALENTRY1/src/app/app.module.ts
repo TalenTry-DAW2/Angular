@@ -32,6 +32,8 @@ import { PermisoEmpresaComponent } from './permiso-empresa/permiso-empresa.compo
 import { RegistroEmpresaComponent } from './registro-empresa/registro-empresa.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ErrorAccesoComponent } from './error-acceso/error-acceso.component';
+import { PoliPrivComponent } from './poli-priv/poli-priv.component';
+import { CondicionesComponent } from './condiciones/condiciones.component';
 
 
 
@@ -61,6 +63,8 @@ import { ErrorAccesoComponent } from './error-acceso/error-acceso.component';
     RegistroEmpresaComponent,
     ContactoComponent,
     ErrorAccesoComponent,
+    PoliPrivComponent,
+    CondicionesComponent,
   ],
   imports: [
     BrowserModule,

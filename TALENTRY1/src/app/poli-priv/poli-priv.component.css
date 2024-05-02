@@ -1,0 +1,42 @@
+.navbar {
+    margin-bottom: 20px; /* Separación entre el navbar y el container */
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto; /* Separación por encima y por debajo del container */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333333;
+     /* Cambio de la fuente del título */
+}
+
+.content {
+    margin-bottom: 20px;
+}
+
+.content p {
+    margin-bottom: 15px; /* Aumento del espaciado entre párrafos */
+    line-height: 1.6;
+    font-size: 16px; /* Ajuste del tamaño del texto */
+    color: #555555; /* Cambio del color del texto */
+}
+
+.content a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.content a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}

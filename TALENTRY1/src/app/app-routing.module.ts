@@ -21,6 +21,9 @@ import { GestionPreguntasComponent } from './pantalla-empresa/gestion-preguntas/
 import { PermisoEmpresaComponent } from './permiso-empresa/permiso-empresa.component';
 import { RegistroEmpresaComponent } from './registro-empresa/registro-empresa.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { PoliPrivComponent } from './poli-priv/poli-priv.component'; // Asegúrate de importar el componente
+import { CondicionesComponent } from './condiciones/condiciones.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -55,6 +58,10 @@ const routes: Routes = [
       // Añade aquí más rutas hijas según sea necesario
     ]
   },
+  { path: 'condiciones', component: CondicionesComponent }, // Definición de la ruta para CondicionesComponent
+
+  { path: 'poli-priv', component: PoliPrivComponent }, // Definición de la ruta para PoliPrivComponent
+
   { path: 'error-acceso', component: ErrorAccesoComponent }, // Ruta para el componente ErrorAccesoComponent
 
   { path: 'error', component: ErrorComponent }, // Global error route
