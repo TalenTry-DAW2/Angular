@@ -1,7 +1,14 @@
+h1 {
+  text-align: center;
+}
+
 .historial-container {
   display: flex;
   border: 1px solid #ccc;
-  margin: 10px;
+  border-radius: 0.5%;
+  margin-bottom: 40px;
+  margin-left: 5%;
+  margin-right: 5%;
   background: #fff;
   min-height: 50vh;
 }
@@ -16,6 +23,7 @@
 
 .entrevista-item {
   border: 1px solid #ccc;
+  border-radius: 10px; /* Agregar bordes redondeados */
   margin-bottom: 10px;
   padding: 10px;
   background-color: #f9f9f9;
@@ -88,13 +96,28 @@ button:hover {
 
 
 
-.vovler{
+.vovler {
   position: relative;
-  top: 1em;
-  left: 1em;
+  top: 2em; /* Mover hacia abajo */
+  left: 2em; /* Mover hacia la derecha */
   margin-bottom: 2em;
-  width: fit-content;
 }
+
+/* Estilos del botón */
+.vovler a {
+  display: inline-block;
+  padding: 10px 20px; /* Ajusta el padding según sea necesario */
+  background-color: #007bff; /* Cambia el color de fondo según tus preferencias */
+  color: #fff; /* Cambia el color del texto según sea necesario */
+  text-decoration: none;
+  border-radius: 5px; /* Agrega bordes redondeados */
+  transition: background-color 0.3s ease; /* Agrega transición al cambiar el color de fondo */
+}
+
+.vovler a:hover {
+  background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+}
+
 
 .body {
   margin: 0; /* Elimina el margen predeterminado */
