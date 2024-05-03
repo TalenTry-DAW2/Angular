@@ -3,5 +3,5 @@ export interface Company{
     name: string;
     NIF: string;
     address: string;
-    password?: string;
+    activa?: boolean;
 }
