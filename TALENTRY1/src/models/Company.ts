@@ -4,4 +4,5 @@ export interface Company{
     NIF: string;
     address: string;
     activa?: boolean;
+    share?: boolean;
 }

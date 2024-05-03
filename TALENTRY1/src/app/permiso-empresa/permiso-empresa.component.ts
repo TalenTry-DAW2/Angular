@@ -30,12 +30,15 @@ export class PermisoEmpresaComponent implements OnInit {
         this.empresaService.getShare().subscribe(
           (data: Share[][]) => {
             this.shares = data[0];
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); // Set hours to beginning of the day
 
             this.empresas.forEach(company => {
               // Check if the company ID exists in any of the shares
               const foundShare = this.shares.find(share => share.CompanyID === company.CompanyID);
               // Set activa based on the existence of shares
-              company.activa = foundShare ? true : false;
+              company.share = foundShare ? true : false;
+              company.activa = foundShare && new Date(foundShare.ExpiredDate) >= today;
             });
           },
           (error) => {
@@ -75,14 +78,34 @@ export class PermisoEmpresaComponent implements OnInit {
       );
     }
   }
+  actualizarPermiso() {
+    if (this.aceptoPermiso && this.empresaSeleccionada && this.empresaSeleccionada.CompanyID !== undefined) {
+      const today = new Date();
+      const expDate = new Date(today.setMonth(today.getMonth() + 6));
+      const formattedExpDate = expDate.toISOString().split('T')[0]; // Formatear la fecha como 'YYYY-MM-DD'
+
+      this.usersService.updatePermiso(this.empresaSeleccionada.CompanyID, formattedExpDate).subscribe(
+        response => {
+          alert('Permiso confirmado correctamente');
+          setTimeout(() => {
+            window.location.reload();
+          }, 100);
+        },
+        error => {
+          console.error('Error al confirmar el permiso:', error);
+          alert('Error al confirmar el permiso');
+        }
+      );
+    }
+  }
   cancelarPermiso() {
     if (this.aceptoPermiso && this.empresaSeleccionada && this.empresaSeleccionada.CompanyID !== undefined) {
       const today = new Date();
       const expDate = new Date(today);
       expDate.setDate(today.getDate() - 1); // Subtract one day
-    const formattedExpDate = expDate.toISOString().split('T')[0]; // Formatear la fecha como 'YYYY-MM-DD'
+      const formattedExpDate = expDate.toISOString().split('T')[0]; // Formatear la fecha como 'YYYY-MM-DD'
 
-      this.usersService.cancelarPermiso(this.empresaSeleccionada.CompanyID, formattedExpDate).subscribe(
+      this.usersService.updatePermiso(this.empresaSeleccionada.CompanyID, formattedExpDate).subscribe(
         response => {
           alert('Permiso cancelado correctamente');
           setTimeout(() => {
