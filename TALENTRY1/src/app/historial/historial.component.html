@@ -5,7 +5,7 @@
   <a href="/perfil">Volver</a>
 </div>
 <div class="historial-container">
-  <div class="entrevistas-lista" *ngIf="entrevistas.length>1">
+  <div class="entrevistas-lista" *ngIf="entrevistas.length>0">
     <div class="entrevista-item" *ngFor="let entrevista of entrevistas">
       <div class="entrevista-detalle" (click)="CargarRespuestas(entrevista.RecordID)">
         <p>{{ entrevista.CategoryName }}</p>
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="detalles-container" *ngIf="entrevistas.length>1">
+  <div class="detalles-container" *ngIf="entrevistas.length>0">
     <div class="pregunta-respuesta" *ngFor="let respuesta of respuestas">
       <div class="pregunta">
         <p> {{respuesta.question}} </p>
@@ -26,7 +26,7 @@
         <p> Tiempo: {{getTimeDifference(respuesta.StartDate, respuesta.FinishDate)}} </p>
       </div>
     </div>
-    <div class="pregunta-respuesta" *ngIf="respuestas[0].QuestionPoints"> 
+    <div class="pregunta-respuesta" *ngIf="respuestas[0]?.QuestionPoints"> 
       <div class="pregunta">
         Total
       </div>

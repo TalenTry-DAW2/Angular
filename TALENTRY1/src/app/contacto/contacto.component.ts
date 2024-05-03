@@ -44,7 +44,6 @@ export class ContactoComponent implements OnInit {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${authToken}`
     });
-    console.log(formData)
     this.http.post(apiUrl, formData, { headers })
       .subscribe(
         response => {

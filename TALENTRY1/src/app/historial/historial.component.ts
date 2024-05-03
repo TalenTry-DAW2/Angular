@@ -27,7 +27,6 @@ export class HistorialComponent implements OnInit {
         this.entrevistas = data[0];
       },
       (error) => {
-
       }
     );
   }
@@ -44,7 +43,6 @@ export class HistorialComponent implements OnInit {
         this.CargarPuntos();
       },
       (error) => {
-
       }
     );
   }
