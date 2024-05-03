@@ -16,6 +16,15 @@
   </div>
 
   <div class="detalles-container" *ngIf="entrevistas.length>0">
+    <div class="pregunta-respuesta" *ngIf="respuestas[0]?.QuestionPoints"> 
+      <div class="pregunta">
+        Total
+      </div>
+      <div class="respuesta">
+        <p>Tiempo: {{getTimeDifference(respuestas[0].StartDate, respuestas[respuestas.length-1].FinishDate)}}</p>
+        <p>Puntuacíon: {{PuntosTotales}}</p>
+      </div>
+    </div>
     <div class="pregunta-respuesta" *ngFor="let respuesta of respuestas">
       <div class="pregunta">
         <p> {{respuesta.question}} </p>
@@ -24,15 +33,6 @@
         <p> {{respuesta.answer}} </p>
         <p> Puntos: {{respuesta.QuestionPoints}} </p>
         <p> Tiempo: {{getTimeDifference(respuesta.StartDate, respuesta.FinishDate)}} </p>
-      </div>
-    </div>
-    <div class="pregunta-respuesta" *ngIf="respuestas[0]?.QuestionPoints"> 
-      <div class="pregunta">
-        Total
-      </div>
-      <div class="respuesta">
-        <p>Tiempo: {{getTimeDifference(respuestas[0].StartDate, respuestas[respuestas.length-1].FinishDate)}}</p>
-        <p>Puntuacíon: {{PuntosTotales}}</p>
       </div>
     </div>
   </div>
