@@ -42,6 +42,7 @@ const routes: Routes = [
   { path: 'zona-empresa', component: PantallaEmpresaComponent, 
     children: [
       { path: 'gestion-preguntas', component: GestionPreguntasComponent},
+      { path: 'estadisticas', component: EstadisticasComponent },
     ]
   },
   { path: 'entrevista/categorias', component: EntrevistaCategoriasComponent },
