@@ -9,7 +9,7 @@ import { AuthService } from '../servicios/auth.service';
 })
 export class RegistroEmpresaComponent implements OnInit {
 
-  usuario: any = {}; 
+  usuario: any = {};
   repeatedPassword: string = '';
 
   constructor(private router: Router, private authService: AuthService) { }
@@ -19,16 +19,16 @@ export class RegistroEmpresaComponent implements OnInit {
       alert('Las contraseñas no coinciden');
       return;
     }
-
     this.authService.RegistrarEmpresa(this.usuario).subscribe(
-      (response:any) => {
+      (response: any) => {
         alert('Empresa registrada correctamente');
         this.router.navigate(['/login']);
       },
-      (error:any) => {
+      (error: any) => {
         console.error('Error al registrar la empresa', error);
       }
     );
+
   }
 
   ngOnInit(): void {
