@@ -4,12 +4,13 @@ import { Observable, of } from "rxjs";
 import { PreguntasRespuestas } from "src/models/PreguntasRespuestas";
 import { TokenService } from "./token.service";
 import { Respuestas } from "src/models/Respuestas";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntrevistaService {
-
+  private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient, public tokenService: TokenService) { }
 
   MostrarCategoria(): Observable<any> {
@@ -20,7 +21,7 @@ export class EntrevistaService {
       Authorization: `Bearer ${authToken}`,
     });
     //peticion con headers de actualizacion
-    return this.http.get("http://127.0.0.1:8000/api/category", { headers });
+    return this.http.get(`${this.apiUrl}category`, { headers });
   }
 
   obtenerPreguntasYRespuestas(categoriaId: number, cantidad: number): Observable<any> {
@@ -35,7 +36,7 @@ export class EntrevistaService {
       .set('id', categoriaId.toString())
       .set('cantidad', cantidad.toString());
     this.setPosicion(0);
-    return this.http.get<any>("http://127.0.0.1:8000/api/question/getFromCategory", { params: params, headers });
+    return this.http.get<any>(`${this.apiUrl}question/getFromCategory`, { params: params, headers });
   }
 
   obtenerPreguntasCategoria(categoriaId: number): Observable<any> {
@@ -49,7 +50,7 @@ export class EntrevistaService {
     let params = new HttpParams()
       .set('id', categoriaId.toString());
     this.setPosicion(0);
-    return this.http.get<any>("http://127.0.0.1:8000/api/question/getFromCategoryAll", { params: params, headers });
+    return this.http.get<any>(`${this.apiUrl}question/getFromCategoryAll`, { params: params, headers });
   }
 
   //guarda las preguntas y respuestas de esta entrevista
@@ -150,7 +151,7 @@ export class EntrevistaService {
       .set('score', parametros[1])
       .set('StartDate', this.formatDateToBackend(startDate))
       .set('FinishDate', this.formatDateToBackend(endDate));
-    return this.http.post("http://127.0.0.1:8000/api/record/store", params, { headers });
+    return this.http.post(`${this.apiUrl}record/store`, params, { headers });
   }
 
   GuardarEntrevistaQA(parametros: any[], RecordID: number): Observable<any> {
@@ -180,7 +181,7 @@ export class EntrevistaService {
       // Add the recordData object to the requestBody array
       params.push(recordData);
     });
-    return this.http.post("http://127.0.0.1:8000/api/QA/store", params, { headers });
+    return this.http.post(`${this.apiUrl}QA/store`, params, { headers });
   }
 
   formatDateToBackend(date: Date): string {

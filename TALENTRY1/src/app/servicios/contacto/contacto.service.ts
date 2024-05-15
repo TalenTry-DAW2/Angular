@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { TokenService } from '../token.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactoService {
-
+  private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient, public tokenService: TokenService) { }
 
   getContactos(): any {
@@ -17,7 +18,7 @@ export class ContactoService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get("http://127.0.0.1:8000/api/contactos", { headers });
+    return this.http.get(`${this.apiUrl}contactos`, { headers });
   }
   enviarContactos(data:any): any {
     // token de sesion
@@ -27,6 +28,6 @@ export class ContactoService {
       Authorization: `Bearer ${authToken}`,
     });
 
-    return this.http.post("http://127.0.0.1:8000/api/contactos",data, { headers });
+    return this.http.post(`${this.apiUrl}contactos`,data, { headers });
   }
 }

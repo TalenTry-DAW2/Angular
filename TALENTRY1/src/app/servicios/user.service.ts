@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { QA } from 'src/models/QA';
 import { Record } from 'src/models/Record';
 import { TokenService } from './token.service';
@@ -10,7 +11,7 @@ import { TokenService } from './token.service';
 })
 export class UserService {
 
-
+  private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient, public tokenService: TokenService) { }
 
   getUser(): any {
@@ -20,7 +21,7 @@ export class UserService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get("http://127.0.0.1:8000/api/user/self", { headers });
+    return this.http.get(`${this.apiUrl}user/self`, { headers });
   }
 
   EditarUsuario(formulario: any) {
@@ -49,7 +50,7 @@ export class UserService {
       Authorization: `Bearer ${authToken}`,
     });
     
-    return this.http.post("http://127.0.0.1:8000/api/user/update",params, { headers });
+    return this.http.post(`${this.apiUrl}user/update`,params, { headers });
   }
 
   EditarPrivacidad() {
@@ -59,7 +60,7 @@ export class UserService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get("http://127.0.0.1:8000/api/user/private", { headers });
+    return this.http.get(`${this.apiUrl}user/private`, { headers });
   }
 
   CargarEntrevistas(): Observable<Record[][]> {
@@ -69,7 +70,7 @@ export class UserService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get<Record[][]>("http://127.0.0.1:8000/api/record", { headers });
+    return this.http.get<Record[][]>(`${this.apiUrl}record`, { headers });
   }
 
   CargarRespuestas(id:number): Observable<QA[][]> {
@@ -79,7 +80,7 @@ export class UserService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get<QA[][]>(`http://127.0.0.1:8000/api/QA/${id}`, { headers });
+    return this.http.get<QA[][]>(`${this.apiUrl}QA/${id}`, { headers });
   }
 
 
@@ -94,7 +95,7 @@ export class UserService {
       ExpiredDate: expiredDate
     };
 
-    return this.http.post<any>('http://127.0.0.1:8000/api/share/store', requestData, { headers });
+    return this.http.post<any>(`${this.apiUrl}share/store`, requestData, { headers });
   }
   updatePermiso(companyID: number, expiredDate: String): Observable<any> {
     const authToken = this.tokenService.getToken(); 
@@ -106,7 +107,7 @@ export class UserService {
       CompanyID: companyID,
       ExpiredDate: expiredDate
     };
-    return this.http.put<any>('http://127.0.0.1:8000/api/share/update', requestData, { headers });
+    return this.http.put<any>(`${this.apiUrl}share/update`, requestData, { headers });
   }
 }
 

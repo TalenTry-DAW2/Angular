@@ -1,11 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
-
+  private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   private readonly TOKEN_KEY = 'auth_token';
@@ -20,7 +21,7 @@ export class TokenService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get("http://127.0.0.1:8000/api/user/get-role", { headers });
+    return this.http.get(`${this.apiUrl}user/get-role`, { headers });
   }
 
   setToken(token: any): void {
