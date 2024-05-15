@@ -41,23 +41,23 @@ const routes: Routes = [
   { path: 'historial', component: HistorialComponent, canActivate: [AuthGuard] },
   { path: 'permiso-empresa', component: PermisoEmpresaComponent, canActivate: [AuthGuard] },
   { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
-  { path: 'zona-empresa', component: PantallaEmpresaComponent, canActivate: [AuthGuard] , data: { expectedRole: 'Empresa' }, 
+  { path: 'zona-empresa', component: PantallaEmpresaComponent, canActivate: [AuthGuard], 
     children: [
-      { path: 'gestion-preguntas', component: GestionPreguntasComponent, canActivate: [AuthGuard] , data: { expectedRole: 'Empresa' }},
-      { path: 'estadisticas', component: EstadisticasComponent, canActivate: [AuthGuard], data: { expectedRole: 'Empresa' } },
+      { path: 'gestion-preguntas', component: GestionPreguntasComponent, canActivate: [AuthGuard]},
+      { path: 'estadisticas', component: EstadisticasComponent, canActivate: [AuthGuard]},
     ]
   },
-  { path: 'entrevista/categorias', component: EntrevistaCategoriasComponent, canActivate: [AuthGuard], data: { expectedRole: 'Usuario' } },
-  { path: 'entrevista/pregunta', component: TestEntrevistaComponent, canActivate: [AuthGuard], data: { expectedRole: 'Usuario' } },
-  { path: 'entrevista/resultados', component: ResultadosEntrevistaComponent, canActivate: [AuthGuard], data: { expectedRole: 'Usuario' } },
-  { path: 'entrevista/info-categoria', component: InfotestCategoriaComponent, canActivate: [AuthGuard], data: { expectedRole: 'Usuario' } },
+  { path: 'entrevista/categorias', component: EntrevistaCategoriasComponent, canActivate: [AuthGuard]},
+  { path: 'entrevista/pregunta', component: TestEntrevistaComponent, canActivate: [AuthGuard]},
+  { path: 'entrevista/resultados', component: ResultadosEntrevistaComponent, canActivate: [AuthGuard]},
+  { path: 'entrevista/info-categoria', component: InfotestCategoriaComponent, canActivate: [AuthGuard]},
   {
-    path: 'zona-admin', component: PantallaAdminComponent, canActivate: [AuthGuard] , data: { expectedRole: 'Administrador' },
+    path: 'zona-admin', component: PantallaAdminComponent, canActivate: [AuthGuard] ,
     children: [
-      { path: 'gestion-usuarios', component: GestionUsuariosComponent, canActivate: [AuthGuard], data: { expectedRole: 'Administrador' } },
-      { path: 'gestion-categorias', component: GestionCategoriasComponent, canActivate: [AuthGuard], data: { expectedRole: 'Administrador' } },
-      { path: 'gestion-qa', component: GestionQaComponent, canActivate: [AuthGuard], data: { expectedRole: 'Administrador' } },
-      { path: 'estadisticas', component: EstadisticasAdminComponent, canActivate: [AuthGuard], data: { expectedRole: 'Administrador' } },
+      { path: 'gestion-usuarios', component: GestionUsuariosComponent, canActivate: [AuthGuard]},
+      { path: 'gestion-categorias', component: GestionCategoriasComponent, canActivate: [AuthGuard]},
+      { path: 'gestion-qa', component: GestionQaComponent, canActivate: [AuthGuard] },
+      { path: 'estadisticas', component: EstadisticasAdminComponent, canActivate: [AuthGuard] },
     ]
   },
   { path: 'condiciones', component: CondicionesComponent }, // Definición de la ruta para CondicionesComponent
