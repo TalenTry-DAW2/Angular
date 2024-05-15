@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
     return this.tokenService.getRole().pipe(
       map((userRole: string | null): boolean | UrlTree => {
         if (route.data && route.data['expectedRole'] && userRole !== route.data['expectedRole']) {
-          return this.router.createUrlTree(['/denied']);
+          return this.router.createUrlTree(['/error-acceso']);
         }
         return true;
       }),
