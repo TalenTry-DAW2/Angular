@@ -12,6 +12,7 @@ import { GestionCategoriasComponent } from './pantalla-admin/gestion-categorias/
 import { GestionUsuariosComponent } from './pantalla-admin/gestion-usuarios/gestion-usuarios.component';
 import { GestionQaComponent } from './pantalla-admin/gestion-qa/gestion-qa.component';
 import { EstadisticasComponent } from './pantalla-empresa/estadisticas/estadisticas.component';
+import { EstadisticasAdminComponent } from './pantalla-admin/estadisticas/estadisticas.component';
 import { InfotestCategoriaComponent } from './entrevista/infotest-categoria/infotest-categoria.component';
 import { TestEntrevistaComponent } from './entrevista/test-entrevista/test-entrevista.component';
 import { ResultadosEntrevistaComponent } from './entrevista/resultados-entrevista/resultados-entrevista.component';
@@ -55,7 +56,7 @@ const routes: Routes = [
       { path: 'gestion-usuarios', component: GestionUsuariosComponent },
       { path: 'gestion-categorias', component: GestionCategoriasComponent },
       { path: 'gestion-qa', component: GestionQaComponent },
-      { path: 'estadisticas', component: EstadisticasComponent },
+      { path: 'estadisticas', component: EstadisticasAdminComponent },
     ]
   },
   { path: 'condiciones', component: CondicionesComponent }, // Definición de la ruta para CondicionesComponent

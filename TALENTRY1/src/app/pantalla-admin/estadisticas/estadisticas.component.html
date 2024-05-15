@@ -1,0 +1,19 @@
+<div class="historial-container container">
+    <form [formGroup]="questionForm" (ngSubmit)="CargarPreguntas()">
+        <div class="form-group">
+            <label for="CatID"> ID Categoria: </label> <br>
+            <select formControlName="CategoryID">
+                <option *ngFor="let item of categorias" [value]="item.CategoryID"> {{ item.CategoryName }} </option>
+            </select>
+            <button type="submit">Cargar</button>
+        </div>
+    </form>
+
+    <div class="detalles-container" *ngIf="preguntas.length>0">
+        <div class="pregunta-respuesta" *ngFor="let pregunta of preguntas">
+            <div class="pregunta">
+                <p> {{pregunta.question}} </p>
+            </div>
+        </div>
+    </div>
+</div>
