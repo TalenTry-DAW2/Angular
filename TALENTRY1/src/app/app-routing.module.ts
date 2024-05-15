@@ -25,6 +25,7 @@ import { RegistroEmpresaComponent } from './registro-empresa/registro-empresa.co
 import { ContactoComponent } from './contacto/contacto.component';
 import { PoliPrivComponent } from './poli-priv/poli-priv.component'; // Asegúrate de importar el componente
 import { CondicionesComponent } from './condiciones/condiciones.component';
+import { FormulariosContactoComponent } from './pantalla-admin/formularios-contacto/formularios-contacto.component';
 
 
 const routes: Routes = [
@@ -58,8 +59,10 @@ const routes: Routes = [
       { path: 'gestion-categorias', component: GestionCategoriasComponent, canActivate: [AuthGuard]},
       { path: 'gestion-qa', component: GestionQaComponent, canActivate: [AuthGuard] },
       { path: 'estadisticas', component: EstadisticasAdminComponent, canActivate: [AuthGuard] },
+      { path: 'formularios-contacto', component: FormulariosContactoComponent, canActivate: [AuthGuard]  },
     ]
   },
+  
   { path: 'condiciones', component: CondicionesComponent }, // Definición de la ruta para CondicionesComponent
 
   { path: 'poli-priv', component: PoliPrivComponent }, // Definición de la ruta para PoliPrivComponent
