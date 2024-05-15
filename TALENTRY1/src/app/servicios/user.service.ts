@@ -11,7 +11,7 @@ import { TokenService } from './token.service';
 export class UserService {
 
 
-  constructor(private http: HttpClient, public tokenService: TokenService,) { }
+  constructor(private http: HttpClient, public tokenService: TokenService) { }
 
   getUser(): any {
     // token de sesion
