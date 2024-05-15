@@ -34,6 +34,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ErrorAccesoComponent } from './error-acceso/error-acceso.component';
 import { PoliPrivComponent } from './poli-priv/poli-priv.component';
 import { CondicionesComponent } from './condiciones/condiciones.component';
+import { EstadisticasAdminComponent } from './pantalla-admin/estadisticas/estadisticas.component';
 
 
 
@@ -53,6 +54,7 @@ import { CondicionesComponent } from './condiciones/condiciones.component';
     GestionCategoriasComponent,
     GestionQaComponent,
     EstadisticasComponent,
+    EstadisticasAdminComponent,
     InfotestCategoriaComponent,
     TestEntrevistaComponent,
     ResultadosEntrevistaComponent,

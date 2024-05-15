@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { AuthGuard } from './guard.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
 import { ErrorAccesoComponent } from './error-acceso/error-acceso.component'; // Importa el componente ErrorAccesoComponent
@@ -37,7 +38,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'contacto', component: ContactoComponent},
-  { path: 'historial', component: HistorialComponent },
+  { path: 'historial', component: HistorialComponent, canActivate: [AuthGuard] },
   { path: 'permiso-empresa', component: PermisoEmpresaComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'zona-empresa', component: PantallaEmpresaComponent, 
