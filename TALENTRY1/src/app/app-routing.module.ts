@@ -56,7 +56,6 @@ const routes: Routes = [
       { path: 'gestion-categorias', component: GestionCategoriasComponent },
       { path: 'gestion-qa', component: GestionQaComponent },
       { path: 'estadisticas', component: EstadisticasComponent },
-      // Añade aquí más rutas hijas según sea necesario
     ]
   },
   { path: 'condiciones', component: CondicionesComponent }, // Definición de la ruta para CondicionesComponent
