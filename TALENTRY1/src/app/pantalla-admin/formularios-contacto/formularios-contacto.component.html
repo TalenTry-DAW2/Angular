@@ -1,7 +1,10 @@
-<div *ngFor="let contacto of contactos">
-    <p>Nombre: {{ contacto.nombre }}</p>
+<div class="container" style="margin:auto">
+  <div *ngFor="let contacto of contactos" class="contact-item">
+    <div class="contact-name">
+      <p>Nombre: {{ contacto.nombre }}</p>
+    </div>
     <p>Email: {{ contacto.email }}</p>
     <p>Mensaje: {{ contacto.mensaje }}</p>
     <!-- Agrega aquí otros campos que desees mostrar -->
   </div>
-  
+</div>

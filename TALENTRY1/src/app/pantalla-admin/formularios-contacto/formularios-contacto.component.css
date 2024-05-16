@@ -1,0 +1,16 @@
+.contact-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .contact-item p {
+    margin: 5px 0;
+  }
+  
+  .contact-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
