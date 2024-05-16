@@ -14,6 +14,7 @@ export class UserService {
   private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient, public tokenService: TokenService) { }
 
+  //obtiene el usuario actual
   getUser(): any {
     // token de sesion
     const authToken = this.tokenService.getToken();
@@ -21,7 +22,18 @@ export class UserService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get(`${this.apiUrl}user/self`, { headers });
+    return this.http.get<any>(`${this.apiUrl}user/self`, { headers });
+  }
+
+  //obtiene todo los usuarios
+  getUsers(): any {
+    // token de sesion
+    const authToken = this.tokenService.getToken();
+    // header con el token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+    });
+    return this.http.get(`${this.apiUrl}user`, { headers });
   }
 
   EditarUsuario(formulario: any) {

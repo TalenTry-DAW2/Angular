@@ -5,4 +5,5 @@ export interface User {
     email:String;
     phone:String;
     photo: String;
+    password?: string; 
 }

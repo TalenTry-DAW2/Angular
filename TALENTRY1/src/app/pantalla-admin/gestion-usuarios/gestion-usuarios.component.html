@@ -8,7 +8,7 @@
         <form [formGroup]="userForm" (ngSubmit)="saveUser()">
           <div class="form-group">
             <label for="nombre">Nombre:</label>
-            <input formControlName="nombre" id="nombre" type="text" class="form-control">
+            <input formControlName="name" id="nombre" type="text" class="form-control">
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
@@ -46,21 +46,17 @@
               <th>DNI</th>
               <th>Password</th>
               <th>Phone</th>
-              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let usuario of usuarios">
-              <td>{{ usuario.id }}</td>
-              <td>{{ usuario.nombre }}</td>
+              <td>{{ usuario.UserID }}</td>
+              <td>{{ usuario.name }}</td>
               <td>{{ usuario.email }}</td>
-              <td>{{ usuario.dni }}</td>
+              <td>{{ usuario.DNI }}</td>
               <td>{{ '•••••••' }}</td> <!-- Don't display the actual password -->
               <td>{{ usuario.phone }}</td>
               <td>
-                <!-- Edit and Delete buttons for each user -->
-                <button class="btn btn-primary btn-sm" (click)="editUser(usuario.id)">Editar</button>
-                <button class="btn btn-danger btn-sm" (click)="deleteUser(usuario.id)">Eliminar</button>
               </td>
             </tr>
           </tbody>
