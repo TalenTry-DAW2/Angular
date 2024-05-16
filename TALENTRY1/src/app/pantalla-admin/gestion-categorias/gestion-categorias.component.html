@@ -1,1 +1,20 @@
-<p>gestion-categorias works!</p>
+<div class="table-responsive mt-3 container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Imagen portada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categorias">
+          <td>{{categoria.CategoryID}}</td>
+          <td>{{categoria.CategoryName}}</td>
+          <td>{{categoria.description}}</td>
+          <td><img src={{categoria.image}} alt="" class="thumbnail"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
