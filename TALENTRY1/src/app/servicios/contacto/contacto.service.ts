@@ -11,14 +11,14 @@ export class ContactoService {
   private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient, public tokenService: TokenService) { }
 
-  getContactos(): any {
+  getContactos():  Observable<any[]> {
     // token de sesion
     const authToken = this.tokenService.getToken();
     // header con el token
     const headers = new HttpHeaders({
       Authorization: `Bearer ${authToken}`,
     });
-    return this.http.get(`${this.apiUrl}contactos`, { headers });
+    return this.http.get<any[]>(`${this.apiUrl}contactos`, { headers });
   }
   enviarContactos(data:any): any {
     // token de sesion

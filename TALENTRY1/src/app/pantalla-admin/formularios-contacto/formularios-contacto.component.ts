@@ -12,8 +12,11 @@ export class FormulariosContactoComponent implements OnInit {
   constructor(private contactoService: ContactoService) { }
 
   ngOnInit(): void {
-    this.contactoService.getContactos().subscribe((data: any) => {
-      this.contactos = data; // Guarda los datos obtenidos en la variable contactos
+    this.contactoService.getContactos().subscribe((data: any[]) => {
+     
+      if (data != null){
+        this.contactos = data[0]; // Guarda los datos obtenidos en la variable contactos
+      }
     });
   }
 }
