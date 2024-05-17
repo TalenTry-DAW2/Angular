@@ -36,6 +36,7 @@ import { PoliPrivComponent } from './poli-priv/poli-priv.component';
 import { CondicionesComponent } from './condiciones/condiciones.component';
 import { EstadisticasAdminComponent } from './pantalla-admin/estadisticas/estadisticas.component';
 import { FormulariosContactoComponent } from './pantalla-admin/formularios-contacto/formularios-contacto.component';
+import { HomeEnComponent } from './home-en/home-en.component';
 
 
 
@@ -69,6 +70,7 @@ import { FormulariosContactoComponent } from './pantalla-admin/formularios-conta
     PoliPrivComponent,
     CondicionesComponent,
     FormulariosContactoComponent,
+    HomeEnComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { PoliPrivComponent } from './poli-priv/poli-priv.component'; // Asegúrate de importar el componente
 import { CondicionesComponent } from './condiciones/condiciones.component';
 import { FormulariosContactoComponent } from './pantalla-admin/formularios-contacto/formularios-contacto.component';
+import { HomeEnComponent } from './home-en/home-en.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
     redirectTo: '/pagina-principal',
     pathMatch: 'full'
   },
+  { path: 'home/en', component: HomeEnComponent },
   { path: 'contacto', component: ContactoComponent},
   { path: 'historial', component: HistorialComponent, canActivate: [AuthGuard] },
   { path: 'permiso-empresa', component: PermisoEmpresaComponent, canActivate: [AuthGuard] },

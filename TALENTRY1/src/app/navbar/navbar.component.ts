@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../servicios/auth.service';
 import { TokenService } from '../servicios/token.service';
 
@@ -13,10 +13,16 @@ export class NavbarComponent implements OnInit {
   Role: string = '';
   RoleEmpresa: string = 'Empresa';
   RoleAdmin: string = 'Administrador';
+  isHomeEnRoute: boolean = false;
   constructor(public authService: AuthService, private router: Router, public tokenService: TokenService) {
   }
 
   ngOnInit(): void {
+    this.checkCurrentRoute();
+
+    this.router.events.subscribe(() => {
+      this.checkCurrentRoute();
+    });
     this.IsLogedIn();
     this.GetRole();
   }
@@ -31,6 +37,11 @@ export class NavbarComponent implements OnInit {
       });
   }
 
+  checkCurrentRoute(): void {
+    const url = this.router.url;
+    this.isHomeEnRoute = url.endsWith('/home/en');
+  }
+  
   GetRole() {
     this.tokenService.getRole().subscribe(
       (data: any) => {
