@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   RoleEmpresa: string = 'Empresa';
   RoleAdmin: string = 'Administrador';
   isHomeEnRoute: boolean = false;
+  isHome: boolean = false;
   constructor(public authService: AuthService, private router: Router, public tokenService: TokenService) {
   }
 
@@ -40,6 +41,7 @@ export class NavbarComponent implements OnInit {
   checkCurrentRoute(): void {
     const url = this.router.url;
     this.isHomeEnRoute = url.endsWith('/home/en');
+    this.isHome = url.endsWith('/pagina-principal') || url.endsWith('/home/en');
   }
   
   GetRole() {
